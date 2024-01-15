@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 import org.apache.commons.lang3.tuple.Pair;
+import tfar.warsmith.data.Datagen;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +29,7 @@ public class WarSmithForge {
 
         IEventBus bus  = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::register);
+        bus.addListener(Datagen::gather);
         WarSmith.init();
         WarSmith.earlySetup();
     }

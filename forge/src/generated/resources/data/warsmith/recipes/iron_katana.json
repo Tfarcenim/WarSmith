@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "minecraft:bamboo"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "  i",
+    " i ",
+    "b  "
+  ],
+  "result": {
+    "item": "warsmith:iron_katana"
+  },
+  "show_notification": true
+}

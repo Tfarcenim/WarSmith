@@ -1,21 +1,13 @@
 package tfar.warsmith;
 
-import net.minecraft.core.particles.ParticleType;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.inventory.MenuType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tfar.warsmith.init.ModCreativeTabs;
 import tfar.warsmith.init.ModItems;
 import tfar.warsmith.platform.Services;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.Items;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
 // import and access the vanilla codebase, libraries used by vanilla, and optionally third party libraries that provide
@@ -23,8 +15,8 @@ import org.slf4j.LoggerFactory;
 // however it will be compatible with all supported mod loaders.
 public class WarSmith {
 
-    public static final String MOD_ID = "examplemod";
-    public static final String MOD_NAME = "ExampleMod";
+    public static final String MOD_ID = "warsmith";
+    public static final String MOD_NAME = "WarSmith";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
     // The loader specific projects are able to import and use any code from the common project. This allows you to
