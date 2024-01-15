@@ -18,7 +18,8 @@ public class ModItemModelProvider extends ItemModelGenerators {
 
     @Override
     public void run() {
-        this.generateFlatItems(ModItems.IRON_KATANA);
+        this.generateFlatItems(ModItems.IRON_KATANA,ModItems.DIAMOND_KATANA,ModItems.NETHERITE_KATANA
+        );
     }
 
     public void generateFlatItems(Item... items) {

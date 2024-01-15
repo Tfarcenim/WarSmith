@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "minecraft:bamboo"
+    },
+    "i": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "  i",
+    " i ",
+    "b  "
+  ],
+  "result": {
+    "item": "warsmith:diamond_katana"
+  },
+  "show_notification": true
+}

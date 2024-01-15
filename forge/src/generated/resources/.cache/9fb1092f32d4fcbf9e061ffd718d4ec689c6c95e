@@ -1,3 +1,7 @@
-// 1.20.1	2024-01-15T09:36:15.186183	Recipes
+// 1.20.1	2024-01-15T09:51:50.2575092	Recipes
+5509241b1a2c033be1fea069e9546f3f8a10e6ef data/warsmith/advancements/recipes/combat/diamond_katana.json
 d420259ca79ea9893181d3acc43e528fa2ab71ca data/warsmith/advancements/recipes/combat/iron_katana.json
+9b765b0b8ece8b5f809b7071cf530380f71f4f04 data/warsmith/advancements/recipes/combat/netherite_katana.json
+5244c59349097d26d82022d0d1ecb8fa48a6cd94 data/warsmith/recipes/diamond_katana.json
 832ab65ea3b6492e41069d28ef6671f3da11d0b3 data/warsmith/recipes/iron_katana.json
+f97b44440dd83e7d931dcb528648433ecdedc304 data/warsmith/recipes/netherite_katana.json

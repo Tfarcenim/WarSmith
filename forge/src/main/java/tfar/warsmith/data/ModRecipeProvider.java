@@ -17,11 +17,29 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DIAMOND_KATANA)
+                .pattern("  i")
+                .pattern(" i ")
+                .pattern("b  ")
+                .define('i', Items.DIAMOND)
+                .define('b',Items.BAMBOO)
+                .unlockedBy("has_bamboo",has(Items.BAMBOO))
+                .save(pWriter);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.IRON_KATANA)
                 .pattern("  i")
                 .pattern(" i ")
                 .pattern("b  ")
                 .define('i', Items.IRON_INGOT)
+                .define('b',Items.BAMBOO)
+                .unlockedBy("has_bamboo",has(Items.BAMBOO))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NETHERITE_KATANA)
+                .pattern("  i")
+                .pattern(" i ")
+                .pattern("b  ")
+                .define('i', Items.NETHERITE_INGOT)
                 .define('b',Items.BAMBOO)
                 .unlockedBy("has_bamboo",has(Items.BAMBOO))
                 .save(pWriter);
