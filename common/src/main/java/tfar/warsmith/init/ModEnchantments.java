@@ -8,5 +8,6 @@ import tfar.warsmith.enchantment.ModEnchantmentCategories;
 public class ModEnchantments {
 
     public static final Enchantment AMATERASU = new AmaterasuEnchantment(Enchantment.Rarity.RARE, ModEnchantmentCategories.KATANA, EquipmentSlot.MAINHAND);
+    public static final Enchantment SLEIGHT_OF_HAND = new AmaterasuEnchantment(Enchantment.Rarity.RARE, ModEnchantmentCategories.KATANA, EquipmentSlot.MAINHAND);
 
 }
