@@ -17,6 +17,9 @@
     "entrypoints": {
         "main": [
             "tfar.warsmith.WarSmithFabric"
+        ],
+        "mm:early_risers" : [
+            "tfar.warsmith.ModEarlyRiser"
         ]
     },
     "mixins": [

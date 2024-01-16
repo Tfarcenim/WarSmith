@@ -1,8 +1,14 @@
 package tfar.warsmith.platform;
 
+import com.chocohead.mm.api.ClassTinkerers;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import tfar.warsmith.WarSmith;
+import tfar.warsmith.enchantment.KatanaEnchantmentCategory;
+import tfar.warsmith.enchantment.ModEnchantmentCategory;
 import tfar.warsmith.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
 
@@ -42,4 +48,8 @@ public class FabricPlatformHelper implements IPlatformHelper {
         }
     }
 
+    @Override
+    public EnchantmentCategory create(String name, TagKey<Item> tagKey) {
+        return ClassTinkerers.getEnum(EnchantmentCategory.class,name);
+    }
 }

@@ -6,11 +6,13 @@ import net.minecraft.network.chat.ComponentContents;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
 import org.codehaus.plexus.util.StringUtils;
 import tfar.warsmith.WarSmith;
 import tfar.warsmith.init.ModCreativeTabs;
+import tfar.warsmith.init.ModEnchantments;
 import tfar.warsmith.init.ModItems;
 
 import java.util.function.Supplier;
@@ -25,6 +27,7 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultItem(() -> ModItems.DIAMOND_KATANA);
         addDefaultItem(() -> ModItems.IRON_KATANA);
         addDefaultItem(() -> ModItems.NETHERITE_KATANA);
+        addDefaultEnchantment(() -> ModEnchantments.AMATERASU);
         addTab(ModCreativeTabs.WARSMITH,"WarSmith");
     }
 
@@ -47,12 +50,20 @@ public class ModLangProvider extends LanguageProvider {
         addBlock(supplier,getNameFromBlock(supplier.get()));
     }
 
+    protected void addDefaultEnchantment(Supplier<? extends Enchantment> supplier) {
+        addEnchantment(supplier,getNameFromEnchantment(supplier.get()));
+    }
+
     public static String getNameFromItem(Item item) {
         return StringUtils.capitaliseAllWords(item.getDescriptionId().split("\\.")[2].replace("_", " "));
     }
 
     public static String getNameFromBlock(Block block) {
         return StringUtils.capitaliseAllWords(block.getDescriptionId().split("\\.")[2].replace("_", " "));
+    }
+
+    public static String getNameFromEnchantment(Enchantment enchantment) {
+        return StringUtils.capitaliseAllWords(enchantment.getDescriptionId().split("\\.")[2].replace("_", " "));
     }
 
 }

@@ -1,6 +1,9 @@
 package tfar.warsmith.platform.services;
 
 import net.minecraft.core.Registry;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
 public interface IPlatformHelper {
 
@@ -37,6 +40,8 @@ public interface IPlatformHelper {
     }
 
     <T extends Registry<? extends F>,F> void superRegister(Class<?> clazz, T registry, Class<F> filter);
+
+    EnchantmentCategory create(String name,TagKey<Item> tagKey);
 
 
 }

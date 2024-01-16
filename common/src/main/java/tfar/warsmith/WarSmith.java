@@ -1,13 +1,27 @@
 package tfar.warsmith;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tfar.warsmith.init.ModCreativeTabs;
+import tfar.warsmith.init.ModEnchantments;
 import tfar.warsmith.init.ModItems;
+import tfar.warsmith.item.KatanaItem;
 import tfar.warsmith.platform.Services;
+
+import java.util.Map;
+import java.util.UUID;
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
 // import and access the vanilla codebase, libraries used by vanilla, and optionally third party libraries that provide
@@ -32,7 +46,34 @@ public class WarSmith {
 
 
     public static void earlySetup() {
-        Services.PLATFORM.superRegister(ModItems.class,BuiltInRegistries.ITEM, Item.class);
-        Services.PLATFORM.superRegister(ModCreativeTabs.class,BuiltInRegistries.CREATIVE_MODE_TAB, CreativeModeTab.class);
+        Services.PLATFORM.superRegister(ModItems.class, BuiltInRegistries.ITEM, Item.class);
+        Services.PLATFORM.superRegister(ModCreativeTabs.class, BuiltInRegistries.CREATIVE_MODE_TAB, CreativeModeTab.class);
+        Services.PLATFORM.superRegister(ModEnchantments.class, BuiltInRegistries.ENCHANTMENT, Enchantment.class);
+    }
+
+
+    static UUID head_negator = UUID.fromString("aeb215b9-bf92-4083-87e7-de4932d0c5e6");
+    static UUID chest_negator = UUID.fromString("63476f76-f3c4-4bbe-8a0f-2822c66bd046");
+    static UUID leggings_negator = UUID.fromString("5706c1c8-4801-4e43-b056-88e7213708f9");
+    static UUID boots_negator = UUID.fromString("c92bf47f-83a2-4a73-9196-c9f72f9eca89");
+
+    static UUID[] uuids = new UUID[]{boots_negator,leggings_negator,chest_negator,head_negator};
+
+    public static float adjustDamage(LivingEntity livingEntity,DamageSource source,float base, float current) {
+        Entity entity = source.getDirectEntity();
+        float bonus = 0;
+        float diff = base - current;
+        if (entity instanceof LivingEntity living) {
+            ItemStack hand = livingEntity.getMainHandItem();
+            if (hand.getItem() instanceof KatanaItem) {
+                for (EquipmentSlot slot : EquipmentSlot.values()) {
+                    ItemStack stack = livingEntity.getItemBySlot(slot);
+                    if (stack.getItem() instanceof ArmorItem armorItem && armorItem.getMaterial().equals(ArmorMaterials.LEATHER)) {
+                        bonus += diff/4;
+                    }
+                }
+            }
+        }
+        return bonus;
     }
 }
