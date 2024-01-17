@@ -12,7 +12,8 @@
     "PlayerMixin"
   ],
   "client": [
-    "EntityRenderDispatcherMixin"
+    "EntityRenderDispatcherMixin",
+    "ItemInHandLayerMixin"
   ],
   "server": [
   ],
