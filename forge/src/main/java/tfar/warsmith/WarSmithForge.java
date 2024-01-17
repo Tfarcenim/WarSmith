@@ -1,9 +1,15 @@
 package tfar.warsmith;
 
+import com.google.common.collect.Multimap;
+import com.google.gson.internal.reflect.ReflectionHelper;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ItemAttributeModifierEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -11,6 +17,10 @@ import net.minecraftforge.registries.RegisterEvent;
 import org.apache.commons.lang3.tuple.Pair;
 import tfar.warsmith.data.Datagen;
 
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,11 +37,38 @@ public class WarSmithForge {
     
         // Use Forge to bootstrap the Common mod.
 
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        Method modifableMapMethod = null;
+        try {
+            modifableMapMethod = ItemAttributeModifierEvent.class.getDeclaredMethod("getModifiableMap");
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
+        modifableMapMethod.setAccessible(true);
+        try {
+            methodHandle = lookup.unreflect(modifableMapMethod);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
         IEventBus bus  = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::register);
         bus.addListener(Datagen::gather);
+
+        MinecraftForge.EVENT_BUS.addListener(this::onAttributeModified);
         WarSmith.init();
         WarSmith.earlySetup();
+    }
+
+    public static MethodHandle methodHandle;
+
+    private void onAttributeModified(ItemAttributeModifierEvent event) {
+        try {
+            Multimap<Attribute,AttributeModifier> map = (Multimap<Attribute, AttributeModifier>) methodHandle.invoke(event);
+            WarSmith.modifyAttributeModifiers(event.getItemStack(),event.getSlotType(),map);
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static Map<Registry<?>, List<Pair<ResourceLocation, Supplier<?>>>> registerLater = new HashMap<>();

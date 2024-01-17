@@ -9,9 +9,11 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tfar.warsmith.init.ModCreativeTabs;
@@ -20,6 +22,8 @@ import tfar.warsmith.init.ModItems;
 import tfar.warsmith.item.KatanaItem;
 import tfar.warsmith.platform.Services;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -56,6 +60,7 @@ public class WarSmith {
     static UUID chest_negator = UUID.fromString("63476f76-f3c4-4bbe-8a0f-2822c66bd046");
     static UUID leggings_negator = UUID.fromString("5706c1c8-4801-4e43-b056-88e7213708f9");
     static UUID boots_negator = UUID.fromString("c92bf47f-83a2-4a73-9196-c9f72f9eca89");
+    static UUID SELIGHT_OF_HAND_BOOST = UUID.fromString("be5eb80f-ef6a-4e51-ab9b-c1147ba2667e");
 
     static UUID[] uuids = new UUID[]{boots_negator,leggings_negator,chest_negator,head_negator};
 
@@ -75,5 +80,11 @@ public class WarSmith {
             }
         }
         return bonus;
+    }
+
+    public static void modifyAttributeModifiers(ItemStack stack, EquipmentSlot slot, Multimap<Attribute, AttributeModifier> attributeModifiers) {
+        if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SLEIGHT_OF_HAND,stack) > 0 && slot == EquipmentSlot.MAINHAND) {
+            attributeModifiers.get(Attributes.ATTACK_SPEED).add(new AttributeModifier(SELIGHT_OF_HAND_BOOST, "Sleight of Hand",2, AttributeModifier.Operation.ADDITION));
+        }
     }
 }

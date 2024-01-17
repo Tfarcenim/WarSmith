@@ -28,6 +28,7 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultItem(() -> ModItems.IRON_KATANA);
         addDefaultItem(() -> ModItems.NETHERITE_KATANA);
         addDefaultEnchantment(() -> ModEnchantments.AMATERASU);
+        addDefaultEnchantment(() -> ModEnchantments.SLEIGHT_OF_HAND);
         addTab(ModCreativeTabs.WARSMITH,"WarSmith");
     }
 
