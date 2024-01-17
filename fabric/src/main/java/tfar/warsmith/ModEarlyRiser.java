@@ -15,7 +15,7 @@ public class ModEarlyRiser implements Runnable{
         //String tagkeyParam = "L"+remapper.mapClassName("intermediary","net.minecraft.class_6862")+";";
 
         ClassTinkerers.enumBuilder(enchantmentTarget)
-                .addEnumSubclass("KATANA", "tfar.warsmith.enchantment.KatanaEnchantmentCategory")
+                .addEnumSubclass("KATANA", "tfar.warsmith.enchantment.categories.KatanaEnchantmentCategory")
                 .build();
     }
 }

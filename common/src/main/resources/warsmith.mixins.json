@@ -8,7 +8,8 @@
     "DamageSourcesMixin",
     "EnchantmentCategoryMixin",
     "EntityMixin",
-    "LivingEntityMixin"
+    "LivingEntityMixin",
+    "PlayerMixin"
   ],
   "client": [
     "EntityRenderDispatcherMixin"

@@ -1,4 +1,4 @@
-package tfar.warsmith.enchantment;
+package tfar.warsmith.enchantment.categories;
 
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import tfar.warsmith.platform.Services;

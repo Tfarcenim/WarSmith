@@ -1,4 +1,4 @@
-package tfar.warsmith.enchantment;
+package tfar.warsmith.enchantment.categories;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;

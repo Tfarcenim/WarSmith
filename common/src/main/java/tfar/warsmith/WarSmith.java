@@ -3,6 +3,7 @@ package tfar.warsmith;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -10,10 +11,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.phys.Vec3;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tfar.warsmith.init.ModCreativeTabs;
@@ -87,4 +90,30 @@ public class WarSmith {
             attributeModifiers.get(Attributes.ATTACK_SPEED).add(new AttributeModifier(SELIGHT_OF_HAND_BOOST, "Sleight of Hand",2, AttributeModifier.Operation.ADDITION));
         }
     }
+
+    public static float getSneakMultiplier(LivingEntity attacker,Entity target) {
+        int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SNEAK_ATTACK,attacker.getMainHandItem());
+        if (level > 0) {
+
+            Vec3 targetFacing = target.getLookAngle();
+            Vec3 attackerPos = attacker.position();
+
+            Vec3 attackerDirection = attackerPos.subtract(target.position()).normalize();
+
+            if (attackerDirection == Vec3.ZERO) return 1;//no multiplier if the attacker is inside
+
+            double angle = 180 / Math.PI * Math.acos(targetFacing.dot(attackerDirection));
+
+            if (angle>120) {
+                if (attacker instanceof Player player) {
+                    attacker.level().playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.PLAYER_ATTACK_CRIT, attacker.getSoundSource(),
+                            1.0F, 1.0F);
+                    player.crit(target);
+                }
+                return  1.15f + .1f * level;
+            }
+        }
+        return 1;
+    }
+
 }

@@ -7,8 +7,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import tfar.warsmith.WarSmith;
-import tfar.warsmith.enchantment.KatanaEnchantmentCategory;
-import tfar.warsmith.enchantment.ModEnchantmentCategory;
 import tfar.warsmith.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
 
