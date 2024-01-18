@@ -6,6 +6,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -21,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tfar.warsmith.init.ModCreativeTabs;
 import tfar.warsmith.init.ModEnchantments;
+import tfar.warsmith.init.ModEntityTypes;
 import tfar.warsmith.init.ModItems;
 import tfar.warsmith.item.KatanaItem;
 import tfar.warsmith.platform.Services;
@@ -56,6 +58,8 @@ public class WarSmith {
         Services.PLATFORM.superRegister(ModItems.class, BuiltInRegistries.ITEM, Item.class);
         Services.PLATFORM.superRegister(ModCreativeTabs.class, BuiltInRegistries.CREATIVE_MODE_TAB, CreativeModeTab.class);
         Services.PLATFORM.superRegister(ModEnchantments.class, BuiltInRegistries.ENCHANTMENT, Enchantment.class);
+        Services.PLATFORM.superRegister(ModEntityTypes.class, BuiltInRegistries.ENTITY_TYPE, EntityType.class);
+
     }
 
 
