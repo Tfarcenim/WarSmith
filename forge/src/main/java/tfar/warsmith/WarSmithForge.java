@@ -12,10 +12,15 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ItemAttributeModifierEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.RegisterEvent;
 import org.apache.commons.lang3.tuple.Pair;
+import tfar.warsmith.client.ClientMisc;
 import tfar.warsmith.data.Datagen;
+import tfar.warsmith.platform.ForgeClientHelper;
+import tfar.warsmith.platform.Services;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
@@ -30,7 +35,7 @@ import java.util.function.Supplier;
 public class WarSmithForge {
     
     public WarSmithForge() {
-    
+
         // This method is invoked by the Forge mod loader when it is ready
         // to load your mod. You can access Forge and Common code in this
         // project.
@@ -55,9 +60,18 @@ public class WarSmithForge {
         bus.addListener(this::register);
         bus.addListener(Datagen::gather);
 
+        if (FMLEnvironment.dist.isClient()) {
+            Services.PLATFORM.setClientHelper(new ForgeClientHelper());
+            bus.addListener(this::clientSetup);
+        }
+
         MinecraftForge.EVENT_BUS.addListener(this::onAttributeModified);
         WarSmith.init();
         WarSmith.earlySetup();
+    }
+
+    private void clientSetup(FMLClientSetupEvent event) {
+        ClientMisc.registerEntityRenderers();
     }
 
     public static MethodHandle methodHandle;

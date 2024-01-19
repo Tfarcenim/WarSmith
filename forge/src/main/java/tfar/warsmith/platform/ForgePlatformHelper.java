@@ -21,6 +21,7 @@ import java.util.function.Supplier;
 
 public class ForgePlatformHelper implements IPlatformHelper {
 
+    public ClientHelper CLIENT_HELPER;
     @Override
     public String getPlatformName() {
 
@@ -59,5 +60,15 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public EnchantmentCategory create(String name, TagKey<Item> tagKey) {
         return EnchantmentCategory.create(name,item -> item.builtInRegistryHolder().is(tagKey));
+    }
+
+    @Override
+    public ClientHelper getClientHelper() {
+        return CLIENT_HELPER;
+    }
+
+    @Override
+    public void setClientHelper(ClientHelper helper) {
+        CLIENT_HELPER = helper;
     }
 }

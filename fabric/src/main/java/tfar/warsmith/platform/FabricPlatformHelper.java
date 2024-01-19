@@ -15,6 +15,7 @@ import java.util.Locale;
 
 public class FabricPlatformHelper implements IPlatformHelper {
 
+    public ClientHelper CLIENT_HELPER;
     @Override
     public String getPlatformName() {
         return "Fabric";
@@ -49,5 +50,15 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public EnchantmentCategory create(String name, TagKey<Item> tagKey) {
         return ClassTinkerers.getEnum(EnchantmentCategory.class,name);
+    }
+
+    @Override
+    public ClientHelper getClientHelper() {
+        return CLIENT_HELPER;
+    }
+
+    @Override
+    public void setClientHelper(ClientHelper helper) {
+        CLIENT_HELPER = helper;
     }
 }

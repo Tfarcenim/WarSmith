@@ -24,7 +24,7 @@ public abstract class EntityRenderDispatcherMixin {
     @Shadow public Camera camera;
 
     @Shadow
-    protected static void fireVertex(PoseStack.Pose pMatrixEntry, VertexConsumer pBuffer, float pX, float pY, float pZ, float pTexU, float pTexV) {
+    private static void fireVertex(PoseStack.Pose pMatrixEntry, VertexConsumer pBuffer, float pX, float pY, float pZ, float pTexU, float pTexV) {
     }
 
     @Inject(method = "render",at = @At(value = "INVOKE",target = "Lnet/minecraft/world/entity/Entity;displayFireAnimation()Z"))

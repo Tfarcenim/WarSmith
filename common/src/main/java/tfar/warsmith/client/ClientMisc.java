@@ -5,6 +5,10 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import tfar.warsmith.client.render.KusarigamaEntityRenderer;
+import tfar.warsmith.init.ModEntityTypes;
+import tfar.warsmith.platform.ClientHelper;
+import tfar.warsmith.platform.Services;
 import tfar.warsmith.tags.ModItemTags;
 
 public class ClientMisc {
@@ -13,6 +17,11 @@ public class ClientMisc {
 
     public static boolean heldItemRender(LivingEntity livingEntity, ItemStack stack) {
         return stack.is(ModItemTags.KATANAS) && livingEntity.isInvisible();
+    }
+
+    public static void registerEntityRenderers() {
+        ClientHelper clientHelper = Services.PLATFORM.getClientHelper();
+        clientHelper.registerEntityRenderer(ModEntityTypes.KUSARIGAMA_ENTITY, KusarigamaEntityRenderer::new);
     }
 
 }

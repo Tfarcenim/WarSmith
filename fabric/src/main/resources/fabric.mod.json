@@ -20,6 +20,9 @@
         ],
         "mm:early_risers" : [
             "tfar.warsmith.ModEarlyRiser"
+        ],
+        "client": [
+            "tfar.warsmith.client.ClientWarSmithFabric"
         ]
     },
     "mixins": [
