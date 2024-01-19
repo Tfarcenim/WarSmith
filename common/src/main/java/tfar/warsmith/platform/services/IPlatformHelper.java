@@ -9,6 +9,8 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.phys.HitResult;
 import tfar.warsmith.platform.ClientHelper;
 
+import java.util.function.Predicate;
+
 public interface IPlatformHelper {
 
     /**
@@ -45,7 +47,10 @@ public interface IPlatformHelper {
 
     <T extends Registry<? extends F>,F> void superRegister(Class<?> clazz, T registry, Class<F> filter);
 
-    EnchantmentCategory create(String name,TagKey<Item> tagKey);
+    default EnchantmentCategory create(String name,TagKey<Item> tagKey) {
+        return create(name,item -> item.builtInRegistryHolder().is(tagKey));
+    }
+    EnchantmentCategory create(String name, Predicate<Item> predicate);
 
     boolean fireProjectileImpactEvent(Projectile projectile, HitResult hitResult);
 

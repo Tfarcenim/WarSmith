@@ -16,6 +16,7 @@ import net.fabricmc.loader.api.FabricLoader;
 
 import java.lang.reflect.Field;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 public class FabricPlatformHelper implements IPlatformHelper {
 
@@ -52,7 +53,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public EnchantmentCategory create(String name, TagKey<Item> tagKey) {
+    public EnchantmentCategory create(String name, Predicate<Item> predicate) {
         return ClassTinkerers.getEnum(EnchantmentCategory.class,name);
     }
 

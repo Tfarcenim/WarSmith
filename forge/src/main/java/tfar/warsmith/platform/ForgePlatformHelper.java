@@ -21,6 +21,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class ForgePlatformHelper implements IPlatformHelper {
@@ -62,10 +63,9 @@ public class ForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public EnchantmentCategory create(String name, TagKey<Item> tagKey) {
-        return EnchantmentCategory.create(name,item -> item.builtInRegistryHolder().is(tagKey));
+    public EnchantmentCategory create(String name, Predicate<Item> predicate) {
+        return EnchantmentCategory.create(name,predicate);
     }
-
 
     @Override
     public Attribute getEntityReachAttribute() {

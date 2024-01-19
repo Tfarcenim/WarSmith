@@ -22,6 +22,7 @@ public class WarSmithFabric implements ModInitializer {
         ModifyItemAttributeModifiersCallback.EVENT.register(this::modifyAttributeModifiers);
         // Use Fabric to bootstrap the Common mod.
         WarSmith.init();
+        WarSmith.afterRegistration();
     }
 
     void modifyAttributeModifiers(ItemStack stack, EquipmentSlot slot, Multimap<Attribute, AttributeModifier> attributeModifiers) {

@@ -13,6 +13,7 @@ import net.minecraftforge.event.ItemAttributeModifierEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.RegisterEvent;
@@ -59,6 +60,7 @@ public class WarSmithForge {
         IEventBus bus  = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::register);
         bus.addListener(Datagen::gather);
+        bus.addListener(this::commonSetup);
 
         if (FMLEnvironment.dist.isClient()) {
             Services.PLATFORM.setClientHelper(new ForgeClientHelper());
@@ -68,6 +70,10 @@ public class WarSmithForge {
         MinecraftForge.EVENT_BUS.addListener(this::onAttributeModified);
         WarSmith.init();
         WarSmith.earlySetup();
+    }
+
+    private void commonSetup(FMLCommonSetupEvent event) {
+        WarSmith.afterRegistration();
     }
 
     private void clientSetup(FMLClientSetupEvent event) {

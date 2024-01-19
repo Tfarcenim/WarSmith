@@ -17,14 +17,17 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.phys.Vec3;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tfar.warsmith.enchantment.categories.ModEnchantmentCategories;
 import tfar.warsmith.init.ModCreativeTabs;
 import tfar.warsmith.init.ModEnchantments;
 import tfar.warsmith.init.ModEntityTypes;
 import tfar.warsmith.init.ModItems;
 import tfar.warsmith.item.KatanaItem;
+import tfar.warsmith.mixin.EnchantmentAccessor;
 import tfar.warsmith.platform.Services;
 
 import java.util.Collection;
@@ -59,7 +62,10 @@ public class WarSmith {
         Services.PLATFORM.superRegister(ModCreativeTabs.class, BuiltInRegistries.CREATIVE_MODE_TAB, CreativeModeTab.class);
         Services.PLATFORM.superRegister(ModEnchantments.class, BuiltInRegistries.ENCHANTMENT, Enchantment.class);
         Services.PLATFORM.superRegister(ModEntityTypes.class, BuiltInRegistries.ENTITY_TYPE, EntityType.class);
+    }
 
+    public static void afterRegistration() {
+        ((EnchantmentAccessor)Enchantments.FIRE_ASPECT).setCategory(ModEnchantmentCategories.FIRE_ASPECT);
     }
 
 
