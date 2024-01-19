@@ -2,7 +2,6 @@ package tfar.warsmith.item;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.MultimapBuilder;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -15,10 +14,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import tfar.warsmith.duck.PlayerDuck;
 import tfar.warsmith.entity.KusarigamaEntity;
+import tfar.warsmith.init.ModEnchantments;
 import tfar.warsmith.platform.Services;
 
 import java.util.UUID;
@@ -27,7 +28,7 @@ public class KusarigamaItem extends WeaponItem {
 
     public static final UUID ENTITY_REACH_UUID = UUID.fromString("d9151dd5-1c86-4294-b5e0-802705497a65");
     public KusarigamaItem(Tier $$0, float attackDamage, double attackSpeed, Properties $$1) {
-        super($$0, attackDamage, attackSpeed, $$1);
+        super($$0, attackDamage, attackSpeed, $$1, Handedness.TWO_HAND);
     }
 
     /**
@@ -50,7 +51,8 @@ public class KusarigamaItem extends WeaponItem {
         } else {
             pLevel.playSound(null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.FISHING_BOBBER_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
             if (!pLevel.isClientSide) {
-                pLevel.addFreshEntity(new KusarigamaEntity(pPlayer, pLevel));
+                int thievingChain = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.THIEVING_CHAIN,itemstack);
+                pLevel.addFreshEntity(new KusarigamaEntity(pPlayer, pLevel,thievingChain));
             }
 
             pPlayer.awardStat(Stats.ITEM_USED.get(this));

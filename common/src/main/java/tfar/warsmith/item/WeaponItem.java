@@ -12,8 +12,11 @@ import net.minecraft.world.item.TieredItem;
 public class WeaponItem extends TieredItem {
     private final float attackDamage;
     protected final Multimap<Attribute, AttributeModifier> defaultModifiers;
-    public WeaponItem(Tier $$0, float attackDamage, double attackSpeed, Properties $$1) {
+    private final Handedness handedness;
+
+    public WeaponItem(Tier $$0, float attackDamage, double attackSpeed, Properties $$1,Handedness handedness) {
         super($$0, $$1);
+        this.handedness = handedness;
         this.attackDamage = attackDamage + $$0.getAttackDamageBonus();
         ImmutableMultimap.Builder<Attribute, AttributeModifier> $$4 = ImmutableMultimap.builder();
         $$4.put(
@@ -26,6 +29,10 @@ public class WeaponItem extends TieredItem {
 
     public float getAttackDamage() {
         return attackDamage;
+    }
+
+    public enum Handedness {
+        ONE_HAND,TWO_HAND;
     }
 
     @Override

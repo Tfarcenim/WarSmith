@@ -10,6 +10,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import tfar.warsmith.WarSmith;
+import tfar.warsmith.data.tags.ModBlockTagProvider;
+import tfar.warsmith.data.tags.ModItemTagProvider;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;

@@ -1,4 +1,4 @@
-package tfar.warsmith.data;
+package tfar.warsmith.data.tags;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

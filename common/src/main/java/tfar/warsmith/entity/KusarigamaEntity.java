@@ -30,25 +30,28 @@ import tfar.warsmith.platform.Services;
 import javax.annotation.Nullable;
 
 public class KusarigamaEntity extends Projectile {
+    private int thievingChain;
+
     public KusarigamaEntity(EntityType<? extends KusarigamaEntity> $$0, Level $$1) {
         super($$0, $$1);
     }
     private int life;
     private ChainState currentState = ChainState.FLYING;
 
-    public KusarigamaEntity(Player $$0, Level $$1) {
+    public KusarigamaEntity(Player player, Level $$1, int thievingChain) {
         this(ModEntityTypes.KUSARIGAMA_ENTITY, $$1);
-        this.setOwner($$0);
-        float $$4 = $$0.getXRot();
-        float $$5 = $$0.getYRot();
-        float $$6 = Mth.cos(-$$5 * (float) (Math.PI / 180.0) - (float) Math.PI);
-        float $$7 = Mth.sin(-$$5 * (float) (Math.PI / 180.0) - (float) Math.PI);
-        float $$8 = -Mth.cos(-$$4 * (float) (Math.PI / 180.0));
-        float $$9 = Mth.sin(-$$4 * (float) (Math.PI / 180.0));
-        double $$10 = $$0.getX() - (double)$$7 * 0.3;
-        double $$11 = $$0.getEyeY();
-        double $$12 = $$0.getZ() - (double)$$6 * 0.3;
-        this.moveTo($$10, $$11, $$12, $$5, $$4);
+        this.thievingChain = thievingChain;
+        this.setOwner(player);
+        float xRot = player.getXRot();
+        float yRot = player.getYRot();
+        float $$6 = Mth.cos(-yRot * (float) (Math.PI / 180.0) - (float) Math.PI);
+        float $$7 = Mth.sin(-yRot * (float) (Math.PI / 180.0) - (float) Math.PI);
+        float $$8 = -Mth.cos(-xRot * (float) (Math.PI / 180.0));
+        float $$9 = Mth.sin(-xRot * (float) (Math.PI / 180.0));
+        double xpos = player.getX() - $$7 * 0.3;
+        double ypos = player.getEyeY();
+        double zpos = player.getZ() - $$6 * 0.3;
+        this.moveTo(xpos, ypos, zpos, yRot, xRot);
         Vec3 $$13 = new Vec3(-$$7, Mth.clamp(-($$9 / $$8), -5.0F, 5.0F), -$$6);
         double $$14 = $$13.length();
         $$13 = $$13.multiply(
@@ -215,20 +218,14 @@ public class KusarigamaEntity extends Projectile {
     public int retrieve(ItemStack stack) {
         Player player = this.getPlayerOwner();
         if (!this.level().isClientSide && player != null && !this.shouldRemoveChain(player)) {
-            int $$2 = 0;
             if (this.hookedIn != null) {
                 this.pullEntity(this.hookedIn);
                 disarm(this.hookedIn);
                 this.level().broadcastEntityEvent(this, (byte)31);
-                $$2 = this.hookedIn instanceof ItemEntity ? 3 : 5;
-            }
-
-            if (this.onGround()) {
-                $$2 = 2;
             }
 
             this.discard();
-            return $$2;
+            return 1;
         } else {
             return 0;
         }
@@ -247,10 +244,19 @@ public class KusarigamaEntity extends Projectile {
             InteractionHand hand = random.nextBoolean() ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
             ItemStack held = living.getItemInHand(hand);
             if (!held.isEmpty()) {
-                ItemEntity itemEntity = new ItemEntity(level(),entity.getX(),entity.getY(),entity.getZ(),held);
-                Vec3 vec3 = new Vec3(entity.getX() - this.getX(), entity.getY() - this.getY(), entity.getZ() - this.getZ()).scale(0.1D);
-                itemEntity.setDeltaMovement(vec3);
-                level().addFreshEntity(itemEntity);
+                boolean theivingChainActive = .25 * thievingChain > random.nextDouble();
+                Player player = getPlayerOwner();
+                if (theivingChainActive && player != null) {
+                    if (!player.getInventory().add(held)) {
+                        ItemEntity itemEntity = new ItemEntity(level(), player.getX(), player.getY(), player.getZ(), held);
+                        level().addFreshEntity(itemEntity);
+                    }
+                } else {
+                    ItemEntity itemEntity = new ItemEntity(level(), entity.getX(), entity.getY(), entity.getZ(), held);
+                    Vec3 vec3 = new Vec3(entity.getX() - this.getX(), entity.getY() - this.getY(), entity.getZ() - this.getZ()).scale(0.1D);
+                    itemEntity.setDeltaMovement(vec3);
+                    level().addFreshEntity(itemEntity);
+                }
                 living.setItemInHand(hand,ItemStack.EMPTY);
             }
         }

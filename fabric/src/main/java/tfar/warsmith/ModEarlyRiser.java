@@ -17,5 +17,9 @@ public class ModEarlyRiser implements Runnable{
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("KATANA", "tfar.warsmith.enchantment.categories.KatanaEnchantmentCategory")
                 .build();
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("KUSARIGAMA", "tfar.warsmith.enchantment.categories.KusarigamaEnchantmentCategory")
+                .build();
     }
 }
