@@ -2,11 +2,15 @@
   "enchantment.warsmith.amaterasu": "Amaterasu",
   "enchantment.warsmith.sleight_of_hand": "Sleight Of Hand",
   "enchantment.warsmith.sneak_attack": "Sneak Attack",
+  "enchantment.warsmith.thieving_chain": "Thieving Chain",
   "item.warsmith.diamond_katana": "Diamond Katana",
   "item.warsmith.diamond_kusarigama": "Diamond Kusarigama",
+  "item.warsmith.diamond_sai": "Diamond Sai",
   "item.warsmith.iron_katana": "Iron Katana",
   "item.warsmith.iron_kusarigama": "Iron Kusarigama",
+  "item.warsmith.iron_sai": "Iron Sai",
   "item.warsmith.netherite_katana": "Netherite Katana",
   "item.warsmith.netherite_kusarigama": "Netherite Kusarigama",
+  "item.warsmith.netherite_sai": "Netherite Sai",
   "itemGroup.warsmith": "WarSmith"
 }
