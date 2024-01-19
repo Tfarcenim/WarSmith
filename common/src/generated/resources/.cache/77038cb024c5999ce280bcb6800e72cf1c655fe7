@@ -1,4 +1,7 @@
-// 1.20.1	2024-01-15T10:18:09.1779823	Model Definitions
+// 1.20.1	2024-01-19T06:25:48.7226405	Model Definitions
 4486d0c533a49cab0bd0e919868e3a99d76ebf69 assets/warsmith/models/item/diamond_katana.json
+4d5c053c88e84cd46431819a030f606398dd05c6 assets/warsmith/models/item/diamond_kusarigama.json
 74057697fe0b7b4dfd568b8b4f53ca05622ed337 assets/warsmith/models/item/iron_katana.json
+191c07a016845c1e41cd7a264d2b020e9b3920c5 assets/warsmith/models/item/iron_kusarigama.json
 f69f09b092a1bdea004f3d0dd0ee768e4590f1d3 assets/warsmith/models/item/netherite_katana.json
+17f690178984c0f222a4d5440e00a09f41c6b6a8 assets/warsmith/models/item/netherite_kusarigama.json

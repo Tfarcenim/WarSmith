@@ -8,6 +8,13 @@ public class ModCreativeTabs {
     public static final CreativeModeTab WARSMITH = CreativeModeTab.builder(null,-1)
             .title(Component.translatable("itemGroup.warsmith"))
             .icon(() -> new ItemStack(ModItems.IRON_KATANA))
-
+            .displayItems((parameters, output) -> {
+                output.accept(ModItems.IRON_KATANA);
+                output.accept(ModItems.DIAMOND_KATANA);
+                output.accept(ModItems.NETHERITE_KATANA);
+                output.accept(ModItems.IRON_KUSARIGAMA);
+                output.accept(ModItems.DIAMOND_KUSARIGAMA);
+                output.accept(ModItems.NETHERITE_KUSARIGAMA);
+            })
             .build();
 }

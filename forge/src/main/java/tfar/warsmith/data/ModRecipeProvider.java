@@ -43,5 +43,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('b',Items.BAMBOO)
                 .unlockedBy("has_bamboo",has(Items.BAMBOO))
                 .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.IRON_KUSARIGAMA)
+                .pattern("cii")
+                .pattern("csc")
+                .define('i', Items.IRON_INGOT)
+                .define('s',Items.STICK)
+                .define('c',Items.CHAIN)
+                .unlockedBy("has_chain",has(Items.CHAIN))
+                .save(pWriter);
     }
 }

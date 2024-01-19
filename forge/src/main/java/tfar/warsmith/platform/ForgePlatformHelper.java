@@ -4,8 +4,10 @@ import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.world.phys.HitResult;
 import org.apache.commons.lang3.tuple.Pair;
 import tfar.warsmith.WarSmith;
 import tfar.warsmith.WarSmithForge;
@@ -65,6 +67,11 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public ClientHelper getClientHelper() {
         return CLIENT_HELPER;
+    }
+
+    @Override
+    public boolean fireProjectileImpactEvent(Projectile projectile, HitResult hitResult) {
+        return net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(projectile,hitResult);
     }
 
     @Override

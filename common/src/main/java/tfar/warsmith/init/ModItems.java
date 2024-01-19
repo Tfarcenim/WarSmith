@@ -12,5 +12,7 @@ public class ModItems {
     public static final Item NETHERITE_KATANA = new KatanaItem(Tiers.NETHERITE,4,-2,new Item.Properties());
     public static final Item IRON_KUSARIGAMA = new KusarigamaItem(Tiers.IRON,4,-2,new Item.Properties());
 
+    public static final Item DIAMOND_KUSARIGAMA = new KusarigamaItem(Tiers.DIAMOND,4,-2,new Item.Properties());
+    public static final Item NETHERITE_KUSARIGAMA = new KusarigamaItem(Tiers.NETHERITE,4,-2,new Item.Properties());
 
 }

@@ -6,15 +6,13 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.FishingHook;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import tfar.warsmith.duck.PlayerDuck;
+import tfar.warsmith.entity.KusarigamaEntity;
 
 public class KusarigamaItem extends WeaponItem {
     public KusarigamaItem(Tier $$0, float attackDamage, double attackSpeed, Properties $$1) {
@@ -41,9 +39,7 @@ public class KusarigamaItem extends WeaponItem {
             } else {
                 pLevel.playSound(null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.FISHING_BOBBER_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
                 if (!pLevel.isClientSide) {
-                    int k = EnchantmentHelper.getFishingSpeedBonus(itemstack);
-                    int j = EnchantmentHelper.getFishingLuckBonus(itemstack);
-                    pLevel.addFreshEntity(new FishingHook(pPlayer, pLevel, j, k));
+                    pLevel.addFreshEntity(new KusarigamaEntity(pPlayer, pLevel));
                 }
 
                 pPlayer.awardStat(Stats.ITEM_USED.get(this));

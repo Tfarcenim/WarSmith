@@ -17,11 +17,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
+import tfar.warsmith.WarSmith;
 import tfar.warsmith.entity.KusarigamaEntity;
 import tfar.warsmith.item.KusarigamaItem;
 
 public class KusarigamaEntityRenderer extends EntityRenderer<KusarigamaEntity> {
-    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation("textures/entity/fishing_hook.png");
+    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(WarSmith.MOD_ID,"textures/item/kusarigama_ball.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutout(TEXTURE_LOCATION);
     private static final double VIEW_BOBBING_SCALE = 960.0D;
 
