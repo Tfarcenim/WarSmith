@@ -11,7 +11,7 @@ import net.minecraft.world.item.TieredItem;
 
 public class WeaponItem extends TieredItem {
     private final float attackDamage;
-    private final Multimap<Attribute, AttributeModifier> defaultModifiers;
+    protected final Multimap<Attribute, AttributeModifier> defaultModifiers;
     public WeaponItem(Tier $$0, float attackDamage, double attackSpeed, Properties $$1) {
         super($$0, $$1);
         this.attackDamage = attackDamage + $$0.getAttackDamageBonus();

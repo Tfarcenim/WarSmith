@@ -4,10 +4,12 @@ import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.phys.HitResult;
+import net.minecraftforge.common.ForgeMod;
 import org.apache.commons.lang3.tuple.Pair;
 import tfar.warsmith.WarSmith;
 import tfar.warsmith.WarSmithForge;
@@ -62,6 +64,12 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public EnchantmentCategory create(String name, TagKey<Item> tagKey) {
         return EnchantmentCategory.create(name,item -> item.builtInRegistryHolder().is(tagKey));
+    }
+
+
+    @Override
+    public Attribute getEntityReachAttribute() {
+        return ForgeMod.ENTITY_REACH.get();
     }
 
     @Override

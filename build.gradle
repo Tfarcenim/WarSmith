@@ -53,6 +53,13 @@ subprojects {
             name = "Jitpack"
             url 'https://jitpack.io/'
         }
+
+        maven {
+            url "https://maven.jamieswhiteshirt.com/libs-release"
+            content {
+                includeGroup "com.jamieswhiteshirt"
+            }
+        }
     }
 
     tasks.withType(JavaCompile).configureEach {

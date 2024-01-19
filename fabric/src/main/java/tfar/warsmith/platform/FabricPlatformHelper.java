@@ -1,9 +1,11 @@
 package tfar.warsmith.platform;
 
 import com.chocohead.mm.api.ClassTinkerers;
+import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -57,6 +59,11 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public boolean fireProjectileImpactEvent(Projectile projectile, HitResult hitResult) {
         return false;
+    }
+
+    @Override
+    public Attribute getEntityReachAttribute() {
+        return ReachEntityAttributes.ATTACK_RANGE;
     }
 
     @Override

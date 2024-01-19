@@ -2,6 +2,7 @@ package tfar.warsmith.platform.services;
 
 import net.minecraft.core.Registry;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -48,6 +49,7 @@ public interface IPlatformHelper {
 
     boolean fireProjectileImpactEvent(Projectile projectile, HitResult hitResult);
 
+    Attribute getEntityReachAttribute();
     ClientHelper getClientHelper();
 
     void setClientHelper(ClientHelper helper);
