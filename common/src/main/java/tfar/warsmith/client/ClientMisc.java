@@ -25,11 +25,12 @@ public class ClientMisc {
         return stack.is(ModItemTags.KATANAS) && livingEntity.isInvisible();
     }
 
+    public static final ResourceLocation CAST_PREDICATE = new ResourceLocation("cast");
     public static void clientSetup() {
         ClientHelper clientHelper = Services.PLATFORM.getClientHelper();
         clientHelper.registerEntityRenderer(ModEntityTypes.KUSARIGAMA_ENTITY, KusarigamaEntityRenderer::new);
 
-        ItemProperties.register(ModItems.IRON_KUSARIGAMA,new ResourceLocation("cast"),(stack, $$1, living, $$3) -> {
+        ItemProperties.register(ModItems.IRON_KUSARIGAMA,CAST_PREDICATE,(stack, $$1, living, $$3) -> {
             if (living == null) {
                 return 0.0F;
             } else {

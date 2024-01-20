@@ -1,6 +1,15 @@
 {
   "parent": "minecraft:item/handheld",
+  "overrides": [
+    {
+      "model": "warsmith:item/iron_kusarigama_cast",
+      "predicate": {
+        "minecraft:cast": 1
+      }
+    }
+  ],
   "textures": {
-    "layer0": "warsmith:item/iron_kusarigama"
+    "layer0": "warsmith:item/iron_kusarigama",
+    "layer1": "warsmith:item/kusarigama_chain"
   }
 }

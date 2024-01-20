@@ -13,6 +13,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.ItemStack;
@@ -107,6 +108,10 @@ public class KusarigamaEntity extends Projectile {
     private void setHookedEntity(@Nullable Entity pHookedEntity) {
         this.hookedIn = pHookedEntity;
         this.getEntityData().set(DATA_HOOKED_ENTITY, pHookedEntity == null ? 0 : pHookedEntity.getId() + 1);
+    }
+
+    public void onClientRemoval() {
+        this.updateOwnerInfo(null);
     }
 
     public void setOwner(@Nullable Entity pOwner) {

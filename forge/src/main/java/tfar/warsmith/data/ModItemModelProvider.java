@@ -9,6 +9,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
+import tfar.warsmith.WarSmith;
+import tfar.warsmith.client.ClientMisc;
 import tfar.warsmith.init.ModItems;
 import tfar.warsmith.item.KusarigamaItem;
 
@@ -30,27 +32,32 @@ public class ModItemModelProvider extends ItemModelGenerators {
                 ModItems.IRON_SAI,ModItems.DIAMOND_SAI,ModItems.NETHERITE_SAI
         );
         generateKusarigama(ModItems.IRON_KUSARIGAMA);
+        generateKusarigama(ModItems.DIAMOND_KUSARIGAMA);
+        generateKusarigama(ModItems.NETHERITE_KUSARIGAMA);
 
     }
 
     public void generateKusarigama(KusarigamaItem kusarigamaItem) {
         ResourceLocation resourcelocation = ModelLocationUtils.getModelLocation(kusarigamaItem);
         ResourceLocation resourcelocation1 = TextureMapping.getItemTexture(kusarigamaItem);
-        ModelTemplates.FLAT_ITEM.create(resourcelocation, TextureMapping.layer0(resourcelocation1), this.output, (p_267905_, p_267906_) -> {
-            return this.generateBaseKusarigama(p_267905_, p_267906_, kusarigamaItem.getTier());
-        });
+        TWO_LAYERED_HANDHELD_ITEM.create(resourcelocation, TextureMapping.layered(resourcelocation1,
+                        new ResourceLocation(WarSmith.MOD_ID,"item/kusarigama_chain")), this.output,
+                this::generateBaseKusarigama);
+
+        ModelTemplates.FLAT_HANDHELD_ITEM.create(ModelLocationUtils.getModelLocation(kusarigamaItem).withSuffix("_cast"),
+                TextureMapping.layer0(kusarigamaItem), this.output);
     }
 
-    public JsonObject generateBaseKusarigama(ResourceLocation pModelLocation, Map<TextureSlot, ResourceLocation> p_267324_, Tier pArmorMaterial) {
-        JsonObject jsonobject = ModelTemplates.TWO_LAYERED_ITEM.createBaseTemplate(pModelLocation, p_267324_);
+    public JsonObject generateBaseKusarigama(ResourceLocation pModelLocation, Map<TextureSlot, ResourceLocation> template) {
+        JsonObject jsonobject = TWO_LAYERED_HANDHELD_ITEM.createBaseTemplate(pModelLocation, template);
         JsonArray jsonarray = new JsonArray();
 
-            JsonObject jsonobject1 = new JsonObject();
-            JsonObject jsonobject2 = new JsonObject();
-            jsonobject2.addProperty("test_stuff", 1);
-            jsonobject1.add("predicate", jsonobject2);
-            jsonobject1.addProperty("model","test:model");
-            jsonarray.add(jsonobject1);
+            JsonObject overrideJson = new JsonObject();
+            JsonObject predicateJson = new JsonObject();
+            predicateJson.addProperty(ClientMisc.CAST_PREDICATE.toString(), 1);
+            overrideJson.add("predicate", predicateJson);
+            overrideJson.addProperty("model",pModelLocation.withSuffix("_cast").toString());
+            jsonarray.add(overrideJson);
 
         jsonobject.add("overrides", jsonarray);
         return jsonobject;
