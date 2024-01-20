@@ -19,6 +19,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.phys.Vec3;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tfar.warsmith.duck.PlayerDuck;
 import tfar.warsmith.enchantment.categories.ModEnchantmentCategories;
 import tfar.warsmith.init.ModCreativeTabs;
 import tfar.warsmith.init.ModEnchantments;
@@ -97,6 +98,11 @@ public class WarSmith {
         }
     }
 
+    public static float getTotalMultipliers(float damage, LivingEntity attacker, Entity target) {
+        float sneakMulti = getSneakMultiplier(attacker,target);
+        float opportunityMultiplier = getOpportunisticMultiplier(attacker, target);
+        return sneakMulti * opportunityMultiplier;
+    }
     public static float getSneakMultiplier(LivingEntity attacker,Entity target) {
         int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SNEAK_ATTACK,attacker.getMainHandItem());
         if (level > 0) {
@@ -122,6 +128,18 @@ public class WarSmith {
         return 1;
     }
 
+    public static float getOpportunisticMultiplier(LivingEntity attacker,Entity target) {
+        if (attacker instanceof Player player && target instanceof Player playerTarget) {
+            if (((PlayerDuck)player).hasOpportunisticStrike()) {
+                ((PlayerDuck) player).setOpportunisticStrike(false);
+                if (playerTarget.getCooldowns().isOnCooldown(playerTarget.getMainHandItem().getItem())) {
+                    return 1.5f;
+                }
+            }
+        }
+        return 1;
+    }
+
     //return true to cancel
     public static boolean livingAttackEvent(LivingEntity target, DamageSource source, float amount) {
         if (target.isUsingItem()) {
@@ -129,7 +147,11 @@ public class WarSmith {
             if (using.is(ModItemTags.SAIS)) {
                 Entity attacker = source.getDirectEntity();
                 if (attacker instanceof Player livingAttacker) {
-                    livingAttacker.getCooldowns().addCooldown(livingAttacker.getMainHandItem().getItem(), 100);
+                    livingAttacker.getCooldowns().addCooldown(livingAttacker.getMainHandItem().getItem(), 20);
+                    if (target instanceof Player playerTarget &&
+                            EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.OPPORTUNISTIC_STRIKE,playerTarget.getMainHandItem()) > 0) {
+                        ((PlayerDuck)playerTarget).setOpportunisticStrike(true);
+                    }
                     return true;
                 }
             }

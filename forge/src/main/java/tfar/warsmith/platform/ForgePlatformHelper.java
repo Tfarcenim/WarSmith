@@ -3,19 +3,20 @@ package tfar.warsmith.platform;
 import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.FMLLoader;
 import org.apache.commons.lang3.tuple.Pair;
 import tfar.warsmith.WarSmith;
 import tfar.warsmith.WarSmithForge;
+import tfar.warsmith.network.S2CModPacket;
 import tfar.warsmith.platform.services.IPlatformHelper;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.loading.FMLLoader;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -70,6 +71,11 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public Attribute getEntityReachAttribute() {
         return ForgeMod.ENTITY_REACH.get();
+    }
+
+    @Override
+    public void sendToClient(S2CModPacket msg, ResourceLocation channel, ServerPlayer player) {
+
     }
 
     @Override

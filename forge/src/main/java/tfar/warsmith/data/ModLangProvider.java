@@ -38,6 +38,7 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultEnchantment(() -> ModEnchantments.SLEIGHT_OF_HAND);
         addDefaultEnchantment(() -> ModEnchantments.SNEAK_ATTACK);
         addDefaultEnchantment(() -> ModEnchantments.THIEVING_CHAIN);
+        addDefaultEnchantment(() -> ModEnchantments.OPPORTUNISTIC_STRIKE);
 
         addTab(ModCreativeTabs.WARSMITH,WarSmith.MOD_NAME);
     }

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "c": {
+      "item": "minecraft:chain"
+    },
+    "i": {
+      "item": "minecraft:diamond"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "cii",
+    "csc"
+  ],
+  "result": {
+    "item": "warsmith:diamond_kusarigama"
+  },
+  "show_notification": true
+}

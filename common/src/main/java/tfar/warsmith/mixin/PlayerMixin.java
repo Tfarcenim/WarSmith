@@ -10,16 +10,17 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import tfar.warsmith.WarSmith;
 import tfar.warsmith.duck.PlayerDuck;
 import tfar.warsmith.entity.KusarigamaEntity;
-import tfar.warsmith.item.KusarigamaItem;
 
 @Debug(export = true)
 @Mixin(Player.class)
 public class PlayerMixin implements PlayerDuck {
 
+    private boolean hasOpportunisticStrike;
+
     @ModifyVariable(method = "attack",at = @At(value = "INVOKE",
             target = "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;getFireAspect(Lnet/minecraft/world/entity/LivingEntity;)I"),ordinal = 0)
     private float bonusSneakAttack(float damage,Entity entity) {
-        return damage * WarSmith.getSneakMultiplier((Player)(Object) this,entity);
+        return damage * WarSmith.getTotalMultipliers(damage,(Player)(Object) this,entity);
     }
 
     @Nullable private KusarigamaEntity kusarigama;
@@ -33,5 +34,15 @@ public class PlayerMixin implements PlayerDuck {
     @Override
     public void setKusarigama(KusarigamaEntity kusarigama) {
         this.kusarigama = kusarigama;
+    }
+
+    @Override
+    public boolean hasOpportunisticStrike() {
+        return hasOpportunisticStrike;
+    }
+
+    @Override
+    public void setOpportunisticStrike(boolean opportunity) {
+        hasOpportunisticStrike = opportunity;
     }
 }

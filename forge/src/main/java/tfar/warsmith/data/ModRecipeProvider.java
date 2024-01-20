@@ -52,5 +52,48 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('c',Items.CHAIN)
                 .unlockedBy("has_chain",has(Items.CHAIN))
                 .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DIAMOND_KUSARIGAMA)
+                .pattern("cii")
+                .pattern("csc")
+                .define('i', Items.DIAMOND)
+                .define('s',Items.STICK)
+                .define('c',Items.CHAIN)
+                .unlockedBy("has_chain",has(Items.CHAIN))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NETHERITE_KUSARIGAMA)
+                .pattern("cii")
+                .pattern("csc")
+                .define('i', Items.NETHERITE_INGOT)
+                .define('s',Items.STICK)
+                .define('c',Items.CHAIN)
+                .unlockedBy("has_chain",has(Items.CHAIN))
+                .save(pWriter);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.IRON_SAI)
+                .define('#', Items.STICK)
+                .define('X', Items.IRON_INGOT)
+                .pattern("XXX")
+                .pattern(" # ")
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DIAMOND_SAI)
+                .define('#', Items.STICK)
+                .define('X', Items.DIAMOND)
+                .pattern("XXX")
+                .pattern(" # ")
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NETHERITE_SAI)
+                .define('#', Items.STICK)
+                .define('X', Items.NETHERITE_INGOT)
+                .pattern("XXX")
+                .pattern(" # ")
+                .unlockedBy("has_netherite_ingot", has(Items.NETHERITE_INGOT))
+                .save(pWriter);
     }
 }

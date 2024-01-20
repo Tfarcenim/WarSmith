@@ -3,7 +3,6 @@ package tfar.warsmith;
 import com.chocohead.mm.api.ClassTinkerers;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.MappingResolver;
-import tfar.warsmith.tags.ModItemTags;
 
 public class ModEarlyRiser implements Runnable{
     @Override
@@ -20,6 +19,10 @@ public class ModEarlyRiser implements Runnable{
 
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("KUSARIGAMA", "tfar.warsmith.enchantment.categories.KusarigamaEnchantmentCategory")
+                .build();
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("SAI", "tfar.warsmith.enchantment.categories.SaiEnchantmentCategory")
                 .build();
 
         ClassTinkerers.enumBuilder(enchantmentTarget)
