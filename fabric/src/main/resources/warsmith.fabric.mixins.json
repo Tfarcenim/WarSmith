@@ -9,6 +9,7 @@
     "PlayerMixinFabric"
   ],
   "client": [
+    "MinecraftMixinFabric",
     "ScreenEffectRendererMixin"
   ],
   "server": [

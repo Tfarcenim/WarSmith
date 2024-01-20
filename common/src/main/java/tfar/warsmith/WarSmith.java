@@ -124,8 +124,8 @@ public class WarSmith {
 
     //return true to cancel
     public static boolean livingAttackEvent(LivingEntity target, DamageSource source, float amount) {
-        if (!target.getMainHandItem().isEmpty()) {
-            ItemStack using = target.getMainHandItem();
+        if (target.isUsingItem()) {
+            ItemStack using = target.getUseItem();
             if (using.is(ModItemTags.SAIS)) {
                 Entity attacker = source.getDirectEntity();
                 if (attacker instanceof Player livingAttacker) {

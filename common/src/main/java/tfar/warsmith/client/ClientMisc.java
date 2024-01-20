@@ -1,14 +1,17 @@
 package tfar.warsmith.client;
 
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import org.lwjgl.glfw.GLFW;
 import tfar.warsmith.client.render.KusarigamaEntityRenderer;
 import tfar.warsmith.duck.PlayerDuck;
 import tfar.warsmith.init.ModEntityTypes;
@@ -59,6 +62,12 @@ public class ClientMisc {
         ItemProperties.register(ModItems.IRON_SAI,BLOCKING_PREDICATE,SAI);
         ItemProperties.register(ModItems.DIAMOND_SAI,BLOCKING_PREDICATE,SAI);
         ItemProperties.register(ModItems.NETHERITE_SAI,BLOCKING_PREDICATE,SAI);
+    }
+
+    public static boolean onClickInput(int button, KeyMapping keyBinding, InteractionHand hand) {
+        Player player = getClientPlayer();
+        return hand == InteractionHand.MAIN_HAND && button == GLFW.GLFW_MOUSE_BUTTON_1 && keyBinding == Minecraft.getInstance().options.keyAttack &&
+                player.getCooldowns().isOnCooldown(player.getMainHandItem().getItem());
     }
 
     public static Player getClientPlayer() {
