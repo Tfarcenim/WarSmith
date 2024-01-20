@@ -9,7 +9,11 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
 
+import java.util.UUID;
+
 public class WeaponItem extends TieredItem {
+    public static final UUID ENTITY_REACH_UUID = UUID.fromString("d9151dd5-1c86-4294-b5e0-802705497a65");
+
     private final float attackDamage;
     protected final Multimap<Attribute, AttributeModifier> defaultModifiers;
     private final Handedness handedness;

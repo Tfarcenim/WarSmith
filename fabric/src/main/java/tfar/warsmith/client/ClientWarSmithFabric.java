@@ -8,6 +8,6 @@ public class ClientWarSmithFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         Services.PLATFORM.setClientHelper(new FabricClientHelper());
-        ClientMisc.registerEntityRenderers();
+        ClientMisc.clientSetup();
     }
 }

@@ -1,9 +1,7 @@
 package tfar.warsmith;
 
 import com.google.common.collect.Multimap;
-import com.google.gson.internal.reflect.ReflectionHelper;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -25,7 +23,6 @@ import tfar.warsmith.platform.Services;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
-import java.lang.invoke.MethodType;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
@@ -77,7 +74,7 @@ public class WarSmithForge {
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
-        ClientMisc.registerEntityRenderers();
+        ClientMisc.clientSetup();
     }
 
     public static MethodHandle methodHandle;

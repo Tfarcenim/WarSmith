@@ -22,11 +22,8 @@ import tfar.warsmith.entity.KusarigamaEntity;
 import tfar.warsmith.init.ModEnchantments;
 import tfar.warsmith.platform.Services;
 
-import java.util.UUID;
-
 public class KusarigamaItem extends WeaponItem {
 
-    public static final UUID ENTITY_REACH_UUID = UUID.fromString("d9151dd5-1c86-4294-b5e0-802705497a65");
     public KusarigamaItem(Tier $$0, float attackDamage, double attackSpeed, Properties $$1) {
         super($$0, attackDamage, attackSpeed, $$1, Handedness.TWO_HAND);
     }

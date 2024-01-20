@@ -15,6 +15,9 @@ public class ModCreativeTabs {
                 output.accept(ModItems.IRON_KUSARIGAMA);
                 output.accept(ModItems.DIAMOND_KUSARIGAMA);
                 output.accept(ModItems.NETHERITE_KUSARIGAMA);
+                output.accept(ModItems.IRON_SAI);
+                output.accept(ModItems.DIAMOND_SAI);
+                output.accept(ModItems.NETHERITE_SAI);
             })
             .build();
 }
