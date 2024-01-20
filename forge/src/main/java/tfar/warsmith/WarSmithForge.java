@@ -8,6 +8,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ItemAttributeModifierEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -65,8 +66,15 @@ public class WarSmithForge {
         }
 
         MinecraftForge.EVENT_BUS.addListener(this::onAttributeModified);
+        MinecraftForge.EVENT_BUS.addListener(this::livingAttack);
         WarSmith.init();
         WarSmith.earlySetup();
+    }
+
+    private void livingAttack(LivingAttackEvent event) {
+        if (WarSmith.livingAttackEvent(event.getEntity(),event.getSource(),event.getAmount())) {
+            event.setCanceled(true);
+        }
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

@@ -32,6 +32,7 @@ public class KusarigamaItem extends WeaponItem {
      * Called to trigger the item's "innate" right click behavior. To handle when this item is used on a Block, see
      * {@link #useOn(UseOnContext)}.
      */
+    @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         PlayerDuck playerDuck = (PlayerDuck) pPlayer;

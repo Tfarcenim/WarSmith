@@ -1,6 +1,5 @@
 package tfar.warsmith;
 
-import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
@@ -13,7 +12,6 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -29,10 +27,8 @@ import tfar.warsmith.init.ModItems;
 import tfar.warsmith.item.KatanaItem;
 import tfar.warsmith.mixin.EnchantmentAccessor;
 import tfar.warsmith.platform.Services;
+import tfar.warsmith.tags.ModItemTags;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
@@ -126,4 +122,18 @@ public class WarSmith {
         return 1;
     }
 
+    //return true to cancel
+    public static boolean livingAttackEvent(LivingEntity target, DamageSource source, float amount) {
+        if (!target.getMainHandItem().isEmpty()) {
+            ItemStack using = target.getMainHandItem();
+            if (using.is(ModItemTags.SAIS)) {
+                Entity attacker = source.getDirectEntity();
+                if (attacker instanceof Player livingAttacker) {
+                    livingAttacker.getCooldowns().addCooldown(livingAttacker.getMainHandItem().getItem(), 100);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

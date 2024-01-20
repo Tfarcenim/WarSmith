@@ -1,12 +1,15 @@
 package tfar.warsmith.platform.services;
 
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.phys.HitResult;
+import tfar.warsmith.network.S2CModPacket;
 import tfar.warsmith.platform.ClientHelper;
 
 import java.util.function.Predicate;
@@ -55,6 +58,10 @@ public interface IPlatformHelper {
     boolean fireProjectileImpactEvent(Projectile projectile, HitResult hitResult);
 
     Attribute getEntityReachAttribute();
+
+    void sendToClient(S2CModPacket msg, ResourceLocation channel, ServerPlayer player);
+
+
     ClientHelper getClientHelper();
 
     void setClientHelper(ClientHelper helper);

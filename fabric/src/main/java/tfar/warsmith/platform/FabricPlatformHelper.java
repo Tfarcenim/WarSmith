@@ -2,17 +2,21 @@ package tfar.warsmith.platform;
 
 import com.chocohead.mm.api.ClassTinkerers;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.phys.HitResult;
 import tfar.warsmith.WarSmith;
+import tfar.warsmith.network.S2CModPacket;
 import tfar.warsmith.platform.services.IPlatformHelper;
-import net.fabricmc.loader.api.FabricLoader;
 
 import java.lang.reflect.Field;
 import java.util.Locale;
@@ -65,6 +69,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public Attribute getEntityReachAttribute() {
         return ReachEntityAttributes.ATTACK_RANGE;
+    }
+
+    @Override
+    public void sendToClient(S2CModPacket msg, ResourceLocation channel, ServerPlayer player) {
+        FriendlyByteBuf buf = PacketByteBufs.create();
+        msg.write(buf);
+        ServerPlayNetworking.send(player, channel, buf);
     }
 
     @Override
