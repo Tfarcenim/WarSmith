@@ -59,6 +59,9 @@ public interface IPlatformHelper {
 
     Attribute getEntityReachAttribute();
 
+    Attribute getBlockReachAttribute();
+
+
     void sendToClient(S2CModPacket msg, ResourceLocation channel, ServerPlayer player);
 
 

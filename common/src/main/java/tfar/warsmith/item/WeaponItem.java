@@ -13,6 +13,7 @@ import java.util.UUID;
 
 public class WeaponItem extends TieredItem {
     public static final UUID ENTITY_REACH_UUID = UUID.fromString("d9151dd5-1c86-4294-b5e0-802705497a65");
+    public static final UUID BLOCK_REACH_UUID = UUID.fromString("aeb215b9-bf92-4083-87e7-de4932d0c5e6");
 
     private final float attackDamage;
     protected final Multimap<Attribute, AttributeModifier> defaultModifiers;

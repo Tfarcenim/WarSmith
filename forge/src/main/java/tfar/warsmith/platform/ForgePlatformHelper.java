@@ -74,6 +74,11 @@ public class ForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
+    public Attribute getBlockReachAttribute() {
+        return ForgeMod.BLOCK_REACH.get();
+    }
+
+    @Override
     public void sendToClient(S2CModPacket msg, ResourceLocation channel, ServerPlayer player) {
 
     }

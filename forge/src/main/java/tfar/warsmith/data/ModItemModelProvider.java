@@ -27,7 +27,8 @@ public class ModItemModelProvider extends ItemModelGenerators {
     public void run() {
         this.generateFlatHandheldItems(ModItems.IRON_KATANA,ModItems.DIAMOND_KATANA,ModItems.NETHERITE_KATANA,
             //    ModItems.IRON_KUSARIGAMA,ModItems.DIAMOND_KUSARIGAMA,ModItems.NETHERITE_KUSARIGAMA,
-                ModItems.IRON_SAI,ModItems.DIAMOND_SAI,ModItems.NETHERITE_SAI
+                ModItems.IRON_SAI,ModItems.DIAMOND_SAI,ModItems.NETHERITE_SAI,
+                ModItems.CLAYMORE
         );
         generateKusarigama(ModItems.IRON_KUSARIGAMA);
         generateKusarigama(ModItems.DIAMOND_KUSARIGAMA);

@@ -72,6 +72,11 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
+    public Attribute getBlockReachAttribute() {
+        return ReachEntityAttributes.REACH;
+    }
+
+    @Override
     public void sendToClient(S2CModPacket msg, ResourceLocation channel, ServerPlayer player) {
         FriendlyByteBuf buf = PacketByteBufs.create();
         msg.write(buf);

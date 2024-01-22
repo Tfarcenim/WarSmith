@@ -66,13 +66,10 @@ public class WarSmith {
     }
 
 
-    static UUID head_negator = UUID.fromString("aeb215b9-bf92-4083-87e7-de4932d0c5e6");
     static UUID chest_negator = UUID.fromString("63476f76-f3c4-4bbe-8a0f-2822c66bd046");
     static UUID leggings_negator = UUID.fromString("5706c1c8-4801-4e43-b056-88e7213708f9");
     static UUID boots_negator = UUID.fromString("c92bf47f-83a2-4a73-9196-c9f72f9eca89");
     static UUID SELIGHT_OF_HAND_BOOST = UUID.fromString("be5eb80f-ef6a-4e51-ab9b-c1147ba2667e");
-
-    static UUID[] uuids = new UUID[]{boots_negator,leggings_negator,chest_negator,head_negator};
 
     public static float adjustDamage(LivingEntity livingEntity,DamageSource source,float base, float current) {
         Entity entity = source.getDirectEntity();
