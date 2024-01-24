@@ -24,7 +24,7 @@ public class SaiItem extends WeaponItem {
         Multimap<Attribute, AttributeModifier> superModifiers = ArrayListMultimap.create(super.getDefaultAttributeModifiers(slot));
         if (slot == EquipmentSlot.MAINHAND) {
             superModifiers.put(Services.PLATFORM.getEntityReachAttribute(),
-                    new AttributeModifier(ENTITY_REACH_UUID, "Weapon Modifier", -.5, AttributeModifier.Operation.MULTIPLY_TOTAL));
+                    new AttributeModifier(ENTITY_REACH_UUID, "Weapon Modifier", -1.5, AttributeModifier.Operation.ADDITION));
         }
         return superModifiers;
     }

@@ -23,9 +23,9 @@ public class ClaymoreItem extends SwordItem {
         Multimap<Attribute, AttributeModifier> superModifiers = ArrayListMultimap.create(super.getDefaultAttributeModifiers(slot));
         if (slot == EquipmentSlot.MAINHAND) {
             superModifiers.put(Services.PLATFORM.getEntityReachAttribute(),
-                    new AttributeModifier(WeaponItem.ENTITY_REACH_UUID, "Weapon Modifier", .5, AttributeModifier.Operation.MULTIPLY_TOTAL));
+                    new AttributeModifier(WeaponItem.ENTITY_REACH_UUID, "Weapon Modifier",1.5, AttributeModifier.Operation.ADDITION));//player default is 3
             superModifiers.put(Services.PLATFORM.getBlockReachAttribute(),
-                    new AttributeModifier(WeaponItem.BLOCK_REACH_UUID, "Weapon Modifier", .5, AttributeModifier.Operation.MULTIPLY_TOTAL));
+                    new AttributeModifier(WeaponItem.BLOCK_REACH_UUID, "Weapon Modifier", 2.25, AttributeModifier.Operation.ADDITION));//player default is 4.5
         }
         return superModifiers;
     }
