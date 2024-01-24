@@ -27,13 +27,13 @@ public class ModItemModelProvider extends ItemModelGenerators {
     public void run() {
         this.generateFlatHandheldItems(ModItems.IRON_KATANA,ModItems.DIAMOND_KATANA,ModItems.NETHERITE_KATANA,
             //    ModItems.IRON_KUSARIGAMA,ModItems.DIAMOND_KUSARIGAMA,ModItems.NETHERITE_KUSARIGAMA,
-                ModItems.IRON_SAI,ModItems.DIAMOND_SAI,ModItems.NETHERITE_SAI,
-                ModItems.CLAYMORE
+                ModItems.IRON_SAI,ModItems.DIAMOND_SAI,ModItems.NETHERITE_SAI
         );
         generateKusarigama(ModItems.IRON_KUSARIGAMA);
         generateKusarigama(ModItems.DIAMOND_KUSARIGAMA);
         generateKusarigama(ModItems.NETHERITE_KUSARIGAMA);
 
+        generateFlatItem(ModItems.CLAYMORE,LARGE_FLAT_HANDHELD_ITEM);
     }
 
     public void generateKusarigama(KusarigamaItem kusarigamaItem) {
@@ -74,10 +74,17 @@ public class ModItemModelProvider extends ItemModelGenerators {
         }
     }
 
+    public static final ModelTemplate LARGE_FLAT_HANDHELD_ITEM = createItem(WarSmith.MOD_ID,"large_handheld", TextureSlot.LAYER0);
+
     public static final ModelTemplate TWO_LAYERED_HANDHELD_ITEM = createItem("handheld", TextureSlot.LAYER0, TextureSlot.LAYER1);
 
     private static ModelTemplate createItem(String pItemModelLocation, TextureSlot... pRequiredSlots) {
         return new ModelTemplate(Optional.of(new ResourceLocation("minecraft", "item/" + pItemModelLocation)), Optional.empty(), pRequiredSlots);
     }
+
+    private static ModelTemplate createItem(String domain, String pItemModelLocation, TextureSlot... pRequiredSlots) {
+        return new ModelTemplate(Optional.of(new ResourceLocation(domain, "item/" + pItemModelLocation)), Optional.empty(), pRequiredSlots);
+    }
+
 
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "warsmith:item/large_handheld",
   "textures": {
     "layer0": "warsmith:item/claymore"
   }
