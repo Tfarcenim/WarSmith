@@ -12,9 +12,7 @@ import tfar.warsmith.platform.Services;
 public class ClaymoreItem extends SwordItem {
     //2 handed
     public ClaymoreItem(Tier $$0, int damage, float attackSpeed, Properties $$3) {
-        super($$0, damage, attackSpeed, $$3);
-        $$3.durability(0);
-        $$3.defaultDurability(1500);
+        super($$0, damage, attackSpeed, $$3.durability(0).defaultDurability(1500));
     }
 
 
