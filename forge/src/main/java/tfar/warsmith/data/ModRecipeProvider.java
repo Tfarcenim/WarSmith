@@ -36,15 +36,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_bamboo",has(Items.BAMBOO))
                 .save(pWriter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NETHERITE_KATANA)
-                .pattern("  i")
-                .pattern(" i ")
-                .pattern("b  ")
-                .define('i', Items.NETHERITE_INGOT)
-                .define('b',Items.BAMBOO)
-                .unlockedBy("has_bamboo",has(Items.BAMBOO))
-                .save(pWriter);
-
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.IRON_KUSARIGAMA)
                 .pattern("cii")
                 .pattern("csc")
@@ -63,16 +54,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_chain",has(Items.CHAIN))
                 .save(pWriter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NETHERITE_KUSARIGAMA)
-                .pattern("cii")
-                .pattern("csc")
-                .define('i', Items.NETHERITE_INGOT)
-                .define('s',Items.STICK)
-                .define('c',Items.CHAIN)
-                .unlockedBy("has_chain",has(Items.CHAIN))
-                .save(pWriter);
-
-
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.IRON_SAI)
                 .define('#', Items.STICK)
                 .define('X', Items.IRON_INGOT)
@@ -87,14 +68,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("XXX")
                 .pattern(" # ")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
-                .save(pWriter);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NETHERITE_SAI)
-                .define('#', Items.STICK)
-                .define('X', Items.NETHERITE_INGOT)
-                .pattern("XXX")
-                .pattern(" # ")
-                .unlockedBy("has_netherite_ingot", has(Items.NETHERITE_INGOT))
                 .save(pWriter);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.IRON_HALBERD)
@@ -134,7 +107,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('s', Items.STICK)
                 .define('i', Items.DIAMOND)
                 .define('f', ItemTags.WOODEN_FENCES)
-                .unlockedBy("has_fences",has(ItemTags.WOODEN_FENCES));
+                .unlockedBy("has_fences",has(ItemTags.WOODEN_FENCES))
+                .save(pWriter);
 
     }
 }

@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_netherite_ingot": {
+    "has_fences": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:netherite_ingot"
-            ]
+            "tag": "minecraft:wooden_fences"
           }
         ]
       },
@@ -15,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "warsmith:netherite_sai"
+        "recipe": "warsmith:diamond_battleaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_netherite_ingot",
+      "has_fences",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "warsmith:netherite_sai"
+      "warsmith:diamond_battleaxe"
     ]
   },
   "sends_telemetry_event": false

@@ -2,22 +2,23 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "c": {
-      "item": "minecraft:chain"
+    "f": {
+      "tag": "minecraft:wooden_fences"
     },
     "i": {
-      "item": "minecraft:netherite_ingot"
+      "item": "minecraft:diamond"
     },
     "s": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "cii",
-    "csc"
+    "ii",
+    "fi",
+    "s "
   ],
   "result": {
-    "item": "warsmith:netherite_kusarigama"
+    "item": "warsmith:diamond_battleaxe"
   },
   "show_notification": true
 }
