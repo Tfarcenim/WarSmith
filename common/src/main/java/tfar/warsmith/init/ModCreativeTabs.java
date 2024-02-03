@@ -22,9 +22,9 @@ public class ModCreativeTabs {
                 output.accept(ModItems.IRON_HALBERD);
                 output.accept(ModItems.DIAMOND_HALBERD);
                 output.accept(ModItems.NETHERITE_HALBERD);
-                output.accept(ModItems.IRON_BATTLE_AXE);
-                output.accept(ModItems.DIAMOND_BATTLE_AXE);
-                output.accept(ModItems.NETHERITE_BATTLE_AXE);
+                output.accept(ModItems.IRON_BATTLEAXE);
+                output.accept(ModItems.DIAMOND_BATTLEAXE);
+                output.accept(ModItems.NETHERITE_BATTLEAXE);
             })
             .build();
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "warsmith:item/diamond_battle_axe"
+    "layer0": "warsmith:item/diamond_battleaxe"
   }
 }

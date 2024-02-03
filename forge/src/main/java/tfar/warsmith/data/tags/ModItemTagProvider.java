@@ -25,7 +25,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModItemTags.KUSARIGAMAS).add(ModItems.IRON_KUSARIGAMA,ModItems.DIAMOND_KUSARIGAMA,ModItems.NETHERITE_KUSARIGAMA);
         tag(ModItemTags.SAIS).add(ModItems.IRON_SAI,ModItems.DIAMOND_SAI,ModItems.NETHERITE_SAI);
         tag(ModItemTags.HALBERDS).add(ModItems.IRON_HALBERD,ModItems.DIAMOND_HALBERD,ModItems.NETHERITE_HALBERD);
+        tag(ModItemTags.BATTLEAXES).add(ModItems.IRON_BATTLEAXE,ModItems.DIAMOND_BATTLEAXE,ModItems.NETHERITE_BATTLEAXE);
 
-        tag(ItemTags.TOOLS).addTags(ModItemTags.KATANAS,ModItemTags.KUSARIGAMAS,ModItemTags.SAIS,ModItemTags.HALBERDS);
+        tag(ItemTags.TOOLS).addTags(ModItemTags.KATANAS,ModItemTags.KUSARIGAMAS,ModItemTags.SAIS,ModItemTags.HALBERDS,ModItemTags.BATTLEAXES);
     }
 }

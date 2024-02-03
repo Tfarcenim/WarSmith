@@ -1,8 +1,9 @@
-// 1.20.1	2024-02-03T15:00:57.2581025	Recipes
+// 1.20.1	2024-02-03T16:58:58.7242895	Recipes
 5c51c5438e093842e6c5ea4365c2232fbcf3d5a5 data/warsmith/advancements/recipes/combat/diamond_halberd.json
 5509241b1a2c033be1fea069e9546f3f8a10e6ef data/warsmith/advancements/recipes/combat/diamond_katana.json
 1cff822e9adbb519f8c371cc45815017220e9690 data/warsmith/advancements/recipes/combat/diamond_kusarigama.json
 8cdc64affbcb325f6f646c6398b109927cc6aa21 data/warsmith/advancements/recipes/combat/diamond_sai.json
+e2c3c44cb193513c7b4394270d39b7998046f351 data/warsmith/advancements/recipes/combat/iron_battleaxe.json
 1d2456b03feedb8350bee30c37ff77a6f71ff703 data/warsmith/advancements/recipes/combat/iron_halberd.json
 d420259ca79ea9893181d3acc43e528fa2ab71ca data/warsmith/advancements/recipes/combat/iron_katana.json
 2d32a1343d316d4d15ea8157096faac876f44d21 data/warsmith/advancements/recipes/combat/iron_kusarigama.json
@@ -14,6 +15,7 @@ df1f2222811cf50174f170f557a0aa8b267c2880 data/warsmith/advancements/recipes/comb
 5244c59349097d26d82022d0d1ecb8fa48a6cd94 data/warsmith/recipes/diamond_katana.json
 1d67637ee82627b6861864bef51367fa4646014b data/warsmith/recipes/diamond_kusarigama.json
 e0a01bea514a4770fe7df80a5b07e404d3b8d7fe data/warsmith/recipes/diamond_sai.json
+bc46917e2fe177cde89a45f6b7fb762ad6bf9e95 data/warsmith/recipes/iron_battleaxe.json
 7821483110452dbe017c66e85e9c75d5ab620afe data/warsmith/recipes/iron_halberd.json
 832ab65ea3b6492e41069d28ef6671f3da11d0b3 data/warsmith/recipes/iron_katana.json
 2092472be20978b07d49da68e714be062e4d36ac data/warsmith/recipes/iron_kusarigama.json

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "f": {
+      "tag": "minecraft:wooden_fences"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "ii",
+    "fi",
+    "s "
+  ],
+  "result": {
+    "item": "warsmith:iron_battleaxe"
+  },
+  "show_notification": true
+}

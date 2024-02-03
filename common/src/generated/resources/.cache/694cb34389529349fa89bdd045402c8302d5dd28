@@ -1,5 +1,6 @@
-// 1.20.1	2024-02-03T15:00:57.2611032	Tags for minecraft:item mod id warsmith
-adf4e8bc7908b2dfcccad5df32b41f228a8721c5 data/minecraft/tags/items/tools.json
+// 1.20.1	2024-02-03T16:57:08.2461852	Tags for minecraft:item mod id warsmith
+63e8c78c8841a78627befd559fd48cc0d73c5c68 data/minecraft/tags/items/tools.json
+74f6ad4282f28645a0621c80ec6cb518d6125ec6 data/warsmith/tags/items/battleaxes.json
 0c791fb94e7a93bd25dafdbbfe85db098c81dcbc data/warsmith/tags/items/halberds.json
 e1d539f95c9e059a57e214ade3539fb008d36ec7 data/warsmith/tags/items/katanas.json
 7a082fe20d6a541845fe294baf135f0f215fe27f data/warsmith/tags/items/kusarigamas.json
