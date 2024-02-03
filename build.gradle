@@ -60,6 +60,7 @@ subprojects {
                 includeGroup "com.jamieswhiteshirt"
             }
         }
+        maven { url "https://maven.shedaniel.me/" }
     }
 
     tasks.withType(JavaCompile).configureEach {

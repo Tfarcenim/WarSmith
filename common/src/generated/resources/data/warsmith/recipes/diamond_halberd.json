@@ -2,6 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
+    "I": {
+      "item": "minecraft:diamond_axe"
+    },
     "f": {
       "tag": "minecraft:wooden_fences"
     },
@@ -10,8 +13,8 @@
     }
   },
   "pattern": [
-    "ii",
-    "fi",
+    "Ii",
+    "f ",
     "f "
   ],
   "result": {

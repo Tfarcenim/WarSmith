@@ -37,6 +37,9 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultItem(() -> ModItems.IRON_HALBERD);
         addDefaultItem(() -> ModItems.DIAMOND_HALBERD);
         addDefaultItem(() -> ModItems.NETHERITE_HALBERD);
+        addDefaultItem(() -> ModItems.IRON_BATTLE_AXE);
+        addDefaultItem(() -> ModItems.DIAMOND_BATTLE_AXE);
+        addDefaultItem(() -> ModItems.NETHERITE_BATTLE_AXE);
 
         addDefaultEnchantment(() -> ModEnchantments.AMATERASU);
         addDefaultEnchantment(() -> ModEnchantments.SLEIGHT_OF_HAND);

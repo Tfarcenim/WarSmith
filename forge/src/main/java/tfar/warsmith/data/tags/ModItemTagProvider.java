@@ -3,6 +3,7 @@ package tfar.warsmith.data.tags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -17,6 +18,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         super(pOutput, pLookupProvider, pBlockTags, WarSmith.MOD_ID, existingFileHelper);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         tag(ModItemTags.KATANAS).add(ModItems.IRON_KATANA,ModItems.DIAMOND_KATANA,ModItems.NETHERITE_KATANA);
@@ -24,5 +26,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModItemTags.SAIS).add(ModItems.IRON_SAI,ModItems.DIAMOND_SAI,ModItems.NETHERITE_SAI);
         tag(ModItemTags.HALBERDS).add(ModItems.IRON_HALBERD,ModItems.DIAMOND_HALBERD,ModItems.NETHERITE_HALBERD);
 
+        tag(ItemTags.TOOLS).addTags(ModItemTags.KATANAS,ModItemTags.KUSARIGAMAS,ModItemTags.SAIS,ModItemTags.HALBERDS);
     }
 }

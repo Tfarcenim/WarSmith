@@ -98,30 +98,24 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pWriter);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.IRON_HALBERD)
-                .pattern("ii")
-                .pattern("fi")
+                .pattern("Ii")
                 .pattern("f ")
+                .pattern("f ")
+                .define('I', Items.IRON_AXE)
                 .define('i', Items.IRON_INGOT)
                 .define('f', ItemTags.WOODEN_FENCES)
                 .unlockedBy("has_fences",has(ItemTags.WOODEN_FENCES))
                 .save(pWriter);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DIAMOND_HALBERD)
-                .pattern("ii")
-                .pattern("fi")
+                .pattern("Ii")
                 .pattern("f ")
+                .pattern("f ")
+                .define('I', Items.DIAMOND_AXE)
                 .define('i', Items.DIAMOND)
                 .define('f', ItemTags.WOODEN_FENCES)
                 .unlockedBy("has_fences",has(ItemTags.WOODEN_FENCES))
                 .save(pWriter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NETHERITE_HALBERD)
-                .pattern("ii")
-                .pattern("fi")
-                .pattern("f ")
-                .define('i', Items.NETHERITE_INGOT)
-                .define('f', ItemTags.WOODEN_FENCES)
-                .unlockedBy("has_fences",has(ItemTags.WOODEN_FENCES))
-                .save(pWriter);
     }
 }

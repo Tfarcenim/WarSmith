@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-24T08:50:32.243243	Recipes
+// 1.20.1	2024-02-03T15:00:57.2581025	Recipes
 5c51c5438e093842e6c5ea4365c2232fbcf3d5a5 data/warsmith/advancements/recipes/combat/diamond_halberd.json
 5509241b1a2c033be1fea069e9546f3f8a10e6ef data/warsmith/advancements/recipes/combat/diamond_katana.json
 1cff822e9adbb519f8c371cc45815017220e9690 data/warsmith/advancements/recipes/combat/diamond_kusarigama.json
@@ -7,19 +7,17 @@
 d420259ca79ea9893181d3acc43e528fa2ab71ca data/warsmith/advancements/recipes/combat/iron_katana.json
 2d32a1343d316d4d15ea8157096faac876f44d21 data/warsmith/advancements/recipes/combat/iron_kusarigama.json
 b12e19656e22cd8f84de5af23663fd82b64ea54a data/warsmith/advancements/recipes/combat/iron_sai.json
-4b8bf428a40814f3c0e29f8a4e3a6c1ba473d2e7 data/warsmith/advancements/recipes/combat/netherite_halberd.json
 9b765b0b8ece8b5f809b7071cf530380f71f4f04 data/warsmith/advancements/recipes/combat/netherite_katana.json
 fcc0c3418c17eb98be9e6d41561c635de4b9d038 data/warsmith/advancements/recipes/combat/netherite_kusarigama.json
 df1f2222811cf50174f170f557a0aa8b267c2880 data/warsmith/advancements/recipes/combat/netherite_sai.json
-cde5b4a0b457f4a56f9ba5ae4933f9f47ab24139 data/warsmith/recipes/diamond_halberd.json
+6558d760e53d43bcb5e07baa0ab1286c18ea1b3c data/warsmith/recipes/diamond_halberd.json
 5244c59349097d26d82022d0d1ecb8fa48a6cd94 data/warsmith/recipes/diamond_katana.json
 1d67637ee82627b6861864bef51367fa4646014b data/warsmith/recipes/diamond_kusarigama.json
 e0a01bea514a4770fe7df80a5b07e404d3b8d7fe data/warsmith/recipes/diamond_sai.json
-4bb1e849b9ae260e373e56d66f16b620a461a8a6 data/warsmith/recipes/iron_halberd.json
+7821483110452dbe017c66e85e9c75d5ab620afe data/warsmith/recipes/iron_halberd.json
 832ab65ea3b6492e41069d28ef6671f3da11d0b3 data/warsmith/recipes/iron_katana.json
 2092472be20978b07d49da68e714be062e4d36ac data/warsmith/recipes/iron_kusarigama.json
 4435161fddd734c4c594b8b1cece5000b97ff313 data/warsmith/recipes/iron_sai.json
-bb384b5a8b3ae7d0bacd3f5e9a0f9ab2a58515c4 data/warsmith/recipes/netherite_halberd.json
 f97b44440dd83e7d931dcb528648433ecdedc304 data/warsmith/recipes/netherite_katana.json
 7f705af521cbb3160fbc3a2b1117d7d38f46b9b3 data/warsmith/recipes/netherite_kusarigama.json
 94c28415d6455aefe0cc663cd8ead96510a0c48d data/warsmith/recipes/netherite_sai.json
