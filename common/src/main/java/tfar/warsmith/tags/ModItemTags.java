@@ -10,6 +10,7 @@ public class ModItemTags {
     public static final TagKey<Item> KATANAS = bind("katanas");
     public static final TagKey<Item> KUSARIGAMAS = bind("kusarigamas");
     public static final TagKey<Item> SAIS = bind("sais");
+    public static final TagKey<Item> HALBERDS = bind("halberds");
 
     private static TagKey<Item> bind(String $$0) {
         return TagKey.create(Registries.ITEM,new ResourceLocation(WarSmith.MOD_ID,$$0));

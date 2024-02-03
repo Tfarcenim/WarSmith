@@ -5,6 +5,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import tfar.warsmith.init.ModItems;
 
@@ -94,6 +95,33 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("XXX")
                 .pattern(" # ")
                 .unlockedBy("has_netherite_ingot", has(Items.NETHERITE_INGOT))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.IRON_HALBERD)
+                .pattern("ii")
+                .pattern("fi")
+                .pattern("f ")
+                .define('i', Items.IRON_INGOT)
+                .define('f', ItemTags.WOODEN_FENCES)
+                .unlockedBy("has_fences",has(ItemTags.WOODEN_FENCES))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DIAMOND_HALBERD)
+                .pattern("ii")
+                .pattern("fi")
+                .pattern("f ")
+                .define('i', Items.DIAMOND)
+                .define('f', ItemTags.WOODEN_FENCES)
+                .unlockedBy("has_fences",has(ItemTags.WOODEN_FENCES))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.NETHERITE_HALBERD)
+                .pattern("ii")
+                .pattern("fi")
+                .pattern("f ")
+                .define('i', Items.NETHERITE_INGOT)
+                .define('f', ItemTags.WOODEN_FENCES)
+                .unlockedBy("has_fences",has(ItemTags.WOODEN_FENCES))
                 .save(pWriter);
     }
 }

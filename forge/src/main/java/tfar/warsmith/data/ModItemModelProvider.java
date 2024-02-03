@@ -34,6 +34,12 @@ public class ModItemModelProvider extends ItemModelGenerators {
         generateKusarigama(ModItems.NETHERITE_KUSARIGAMA);
 
         generateFlatItem(ModItems.CLAYMORE,LARGE_FLAT_HANDHELD_ITEM);
+
+        generateFlatItem(ModItems.IRON_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
+        generateFlatItem(ModItems.DIAMOND_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
+        generateFlatItem(ModItems.NETHERITE_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
+
+
     }
 
     public void generateKusarigama(KusarigamaItem kusarigamaItem) {
@@ -75,6 +81,8 @@ public class ModItemModelProvider extends ItemModelGenerators {
     }
 
     public static final ModelTemplate LARGE_FLAT_HANDHELD_ITEM = createItem(WarSmith.MOD_ID,"large_handheld", TextureSlot.LAYER0);
+    public static final ModelTemplate EXTRA_LARGE_FLAT_HANDHELD_ITEM = createItem(WarSmith.MOD_ID,"extra_large_handheld", TextureSlot.LAYER0);
+
 
     public static final ModelTemplate TWO_LAYERED_HANDHELD_ITEM = createItem("handheld", TextureSlot.LAYER0, TextureSlot.LAYER1);
 

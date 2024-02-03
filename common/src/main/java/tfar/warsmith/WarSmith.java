@@ -96,10 +96,39 @@ public class WarSmith {
     }
 
     public static float getTotalMultipliers(float damage, LivingEntity attacker, Entity target) {
-        float sneakMulti = getSneakMultiplier(attacker,target);
-        float opportunityMultiplier = getOpportunisticMultiplier(attacker, target);
-        return sneakMulti * opportunityMultiplier;
+        float multiplier = 1;
+        multiplier *= getSneakMultiplier(attacker,target);
+        multiplier *= getOpportunisticMultiplier(attacker, target);
+        multiplier *= getGoliathMultiplier(attacker,target);
+        return multiplier;
     }
+
+    private static final float referenceVolume = EntityType.ENDERMAN.getWidth() * EntityType.ENDERMAN.getWidth() * EntityType.ENDERMAN.getHeight();
+
+    public static float getGoliathMultiplier(LivingEntity attacker, Entity target) {
+        if (target instanceof LivingEntity && EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.GOLIATH_FELLER,attacker.getMainHandItem()) > 0) {
+            float volume = target.getBbHeight() * target.getBbWidth() * target.getBbWidth();
+            if (volume >= referenceVolume) {
+                return 1.2f;
+            }
+        }
+        return 1;
+    }
+
+
+    public static float getClaymoreMultiplier(LivingEntity attacker, Entity target) {
+        if (target instanceof LivingEntity living && attacker.getMainHandItem().is(ModItems.CLAYMORE)) {
+            Iterable<ItemStack> armor = living.getArmorSlots();
+            for (ItemStack stack : armor) {
+                if (!stack.isEmpty()) {
+                    return 1.4f;
+                }
+            }
+        }
+        return 1;
+    }
+
+
     public static float getSneakMultiplier(LivingEntity attacker,Entity target) {
         int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SNEAK_ATTACK,attacker.getMainHandItem());
         if (level > 0) {
@@ -154,5 +183,16 @@ public class WarSmith {
             }
         }
         return false;
+    }
+
+
+    public static void livingDamageEvent(LivingEntity livingEntity,DamageSource damageSource, float damageAmount) {
+        Entity attacker = damageSource.getDirectEntity();
+        if (attacker instanceof LivingEntity livingAttacker) {
+            ItemStack stack = livingAttacker.getMainHandItem();
+            if (stack.is(ModItemTags.HALBERDS)) {
+                livingEntity.stopRiding();
+            }
+        }
     }
 }

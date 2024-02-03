@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "f": {
+      "tag": "minecraft:wooden_fences"
+    },
+    "i": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "ii",
+    "fi",
+    "f "
+  ],
+  "result": {
+    "item": "warsmith:diamond_halberd"
+  },
+  "show_notification": true
+}

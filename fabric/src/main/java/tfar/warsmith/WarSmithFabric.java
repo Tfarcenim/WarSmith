@@ -26,7 +26,7 @@ public class WarSmithFabric implements ModInitializer {
         WarSmith.init();
         WarSmith.afterRegistration();
 
-        VillagerTrades.EnchantedItemForEmeralds trade = new VillagerTrades.EnchantedItemForEmeralds(ModItems.CLAYMORE, 26, 3, 1);
+        VillagerTrades.ItemsForEmeralds trade = new VillagerTrades.ItemsForEmeralds(ModItems.CLAYMORE, 26, 3, 1);
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH,1,itemListings -> itemListings.add(trade));
     }

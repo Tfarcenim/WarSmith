@@ -2,10 +2,7 @@ package tfar.warsmith.init;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
-import tfar.warsmith.item.ClaymoreItem;
-import tfar.warsmith.item.KatanaItem;
-import tfar.warsmith.item.KusarigamaItem;
-import tfar.warsmith.item.SaiItem;
+import tfar.warsmith.item.*;
 
 public class ModItems {
 
@@ -20,5 +17,12 @@ public class ModItems {
     public static final Item NETHERITE_SAI = new SaiItem(Tiers.NETHERITE,2,-2.5,new Item.Properties().fireResistant());
     public static final Item CLAYMORE = new ClaymoreItem(Tiers.IRON,7,-2.8f,new Item.Properties());
 
+    public static final Item IRON_HALBERD = new HalberdItem(Tiers.IRON,9,-3.2,new Item.Properties());
+    public static final Item DIAMOND_HALBERD = new HalberdItem(Tiers.DIAMOND,9,-3.2,new Item.Properties());
+    public static final Item NETHERITE_HALBERD = new HalberdItem(Tiers.NETHERITE,9,-3.2,new Item.Properties().fireResistant());
+
+    public static final Item IRON_BATTLE_AXE = new BattleAxeItem(Tiers.IRON,9,-3.2f,new Item.Properties());
+    public static final Item DIAMOND_BATTLE_AXE = new BattleAxeItem(Tiers.DIAMOND,9,-3.2f,new Item.Properties());
+    public static final Item NETHERITE_BATTLE_AXE = new BattleAxeItem(Tiers.NETHERITE,9,-3.2f,new Item.Properties().fireResistant());
 
 }

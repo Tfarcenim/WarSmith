@@ -11,8 +11,6 @@ public class ModEarlyRiser implements Runnable{
 
         String enchantmentTarget = remapper.mapClassName("intermediary", "net.minecraft.class_1886");
 
-        //String tagkeyParam = "L"+remapper.mapClassName("intermediary","net.minecraft.class_6862")+";";
-
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("KATANA", "tfar.warsmith.enchantment.categories.KatanaEnchantmentCategory")
                 .build();
@@ -27,6 +25,10 @@ public class ModEarlyRiser implements Runnable{
 
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("FIRE_ASPECT", "tfar.warsmith.enchantment.categories.FireAspectEnchantmentCategory")
+                .build();
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("HALBERD", "tfar.warsmith.enchantment.categories.HalberdEnchantmentCategory")
                 .build();
     }
 }

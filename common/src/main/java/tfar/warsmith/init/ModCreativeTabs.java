@@ -19,6 +19,9 @@ public class ModCreativeTabs {
                 output.accept(ModItems.DIAMOND_SAI);
                 output.accept(ModItems.NETHERITE_SAI);
                 output.accept(ModItems.CLAYMORE);
+                output.accept(ModItems.IRON_HALBERD);
+                output.accept(ModItems.DIAMOND_HALBERD);
+                output.accept(ModItems.NETHERITE_HALBERD);
             })
             .build();
 }

@@ -34,6 +34,9 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultItem(() -> ModItems.DIAMOND_SAI);
         addDefaultItem(() -> ModItems.NETHERITE_SAI);
         addDefaultItem(() -> ModItems.CLAYMORE);
+        addDefaultItem(() -> ModItems.IRON_HALBERD);
+        addDefaultItem(() -> ModItems.DIAMOND_HALBERD);
+        addDefaultItem(() -> ModItems.NETHERITE_HALBERD);
 
         addDefaultEnchantment(() -> ModEnchantments.AMATERASU);
         addDefaultEnchantment(() -> ModEnchantments.SLEIGHT_OF_HAND);
@@ -41,6 +44,9 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultEnchantment(() -> ModEnchantments.THIEVING_CHAIN);
         addDefaultEnchantment(() -> ModEnchantments.OPPORTUNISTIC_STRIKE);
         addDefaultEnchantment(() -> ModEnchantments.TOXIC_ADVANTAGE);
+        addDefaultEnchantment(() -> ModEnchantments.HALT);
+        addDefaultEnchantment(() -> ModEnchantments.DEVASTATING_SLASH);
+        addDefaultEnchantment(() -> ModEnchantments.GOLIATH_FELLER);
 
         addTab(ModCreativeTabs.WARSMITH,WarSmith.MOD_NAME);
     }

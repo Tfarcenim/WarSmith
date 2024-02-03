@@ -1,0 +1,6 @@
+{
+  "parent": "warsmith:item/extra_large_handheld",
+  "textures": {
+    "layer0": "warsmith:item/diamond_halberd"
+  }
+}
