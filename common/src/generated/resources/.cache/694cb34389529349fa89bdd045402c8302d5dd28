@@ -1,8 +1,12 @@
-// 1.20.1	2024-02-03T18:27:59.5144661	Tags for minecraft:item mod id warsmith
+// 1.20.1	2024-02-04T00:01:19.9397783	Tags for minecraft:item mod id warsmith
 63e8c78c8841a78627befd559fd48cc0d73c5c68 data/minecraft/tags/items/tools.json
 74f6ad4282f28645a0621c80ec6cb518d6125ec6 data/warsmith/tags/items/battleaxes.json
-f1487449425526d29101511e4beee8257ff639a7 data/warsmith/tags/items/can_apply_fire_aspect.json
+348199f1ce406011919a272b5376a5a04ee1cb23 data/warsmith/tags/items/can_apply_bane_of_arthropods.json
+46bb19adad20ab508bc903b13478c62cc6e22d51 data/warsmith/tags/items/can_apply_fire_aspect.json
 348199f1ce406011919a272b5376a5a04ee1cb23 data/warsmith/tags/items/can_apply_knockback.json
+348199f1ce406011919a272b5376a5a04ee1cb23 data/warsmith/tags/items/can_apply_looting.json
+348199f1ce406011919a272b5376a5a04ee1cb23 data/warsmith/tags/items/can_apply_sharpness.json
+348199f1ce406011919a272b5376a5a04ee1cb23 data/warsmith/tags/items/can_apply_smite.json
 0c791fb94e7a93bd25dafdbbfe85db098c81dcbc data/warsmith/tags/items/halberds.json
 e1d539f95c9e059a57e214ade3539fb008d36ec7 data/warsmith/tags/items/katanas.json
 7a082fe20d6a541845fe294baf135f0f215fe27f data/warsmith/tags/items/kusarigamas.json

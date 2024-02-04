@@ -62,8 +62,12 @@ public class WarSmith {
     }
 
     public static void afterRegistration() {
+        ((EnchantmentAccessor)Enchantments.BANE_OF_ARTHROPODS).setCategory(ModEnchantmentCategories.BANE_OF_ARTHROPODS);
         ((EnchantmentAccessor)Enchantments.FIRE_ASPECT).setCategory(ModEnchantmentCategories.FIRE_ASPECT);
         ((EnchantmentAccessor)Enchantments.KNOCKBACK).setCategory(ModEnchantmentCategories.KNOCKBACK);
+        ((EnchantmentAccessor)Enchantments.MOB_LOOTING).setCategory(ModEnchantmentCategories.LOOTING);
+        ((EnchantmentAccessor)Enchantments.SHARPNESS).setCategory(ModEnchantmentCategories.SHARPNESS);
+        ((EnchantmentAccessor)Enchantments.SMITE).setCategory(ModEnchantmentCategories.SMITE);
     }
 
 

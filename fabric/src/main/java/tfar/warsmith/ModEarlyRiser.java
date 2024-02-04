@@ -23,9 +23,7 @@ public class ModEarlyRiser implements Runnable{
                 .addEnumSubclass("SAI", "tfar.warsmith.enchantment.categories.SaiEnchantmentCategory")
                 .build();
 
-        ClassTinkerers.enumBuilder(enchantmentTarget)
-                .addEnumSubclass("FIRE_ASPECT", "tfar.warsmith.enchantment.categories.FireAspectEnchantmentCategory")
-                .build();
+
 
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("HALBERD", "tfar.warsmith.enchantment.categories.HalberdEnchantmentCategory")
@@ -35,8 +33,30 @@ public class ModEarlyRiser implements Runnable{
                 .addEnumSubclass("BATTLEAXE", "tfar.warsmith.enchantment.categories.BattleAxeEnchantmentCategory")
                 .build();
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("BANE_OF_ARTHROPODS", "tfar.warsmith.enchantment.categories.BaneOfArthropodsEnchantmentCategory")
+                .build();
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("FIRE_ASPECT", "tfar.warsmith.enchantment.categories.FireAspectEnchantmentCategory")
+                .build();
+
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("KNOCKBACK", "tfar.warsmith.enchantment.categories.KnockbackEnchantmentCategory")
+                .build();
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("LOOTING", "tfar.warsmith.enchantment.categories.LootingEnchantmentCategory")
+                .build();
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("SHARPNESS", "tfar.warsmith.enchantment.categories.SharpnessEnchantmentCategory")
+                .build();
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("SMITE", "tfar.warsmith.enchantment.categories.SmiteEnchantmentCategory")
                 .build();
 
     }
