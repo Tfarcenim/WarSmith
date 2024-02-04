@@ -7,7 +7,9 @@ import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import tfar.warsmith.WarSmith;
 import tfar.warsmith.duck.PlayerDuck;
 import tfar.warsmith.entity.KusarigamaEntity;
@@ -27,6 +29,11 @@ public class PlayerMixin implements PlayerDuck {
     @ModifyVariable(method = "attack",at = @At(value = "INVOKE",target = "Lnet/minecraft/world/entity/player/Player;getAttackStrengthScale(F)F"),ordinal = 0)
     private float boostBaseDamage(float damage, Entity entity) {
         return damage * WarSmith.getClaymoreMultiplier(selfCast(),entity);
+    }
+
+    @Inject(method = "touch",at = @At("RETURN"))
+    private void onPlayerTouch(Entity $$0, CallbackInfo ci) {
+        WarSmith.onPlayerTouch(selfCast(),$$0);
     }
 
     @Unique

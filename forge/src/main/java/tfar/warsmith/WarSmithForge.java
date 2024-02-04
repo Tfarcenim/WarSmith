@@ -10,6 +10,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ItemAttributeModifierEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.player.CriticalHitEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -69,8 +70,13 @@ public class WarSmithForge {
         MinecraftForge.EVENT_BUS.addListener(this::onAttributeModified);
         MinecraftForge.EVENT_BUS.addListener(this::livingAttack);
         MinecraftForge.EVENT_BUS.addListener(this::livingDamage);
+        MinecraftForge.EVENT_BUS.addListener(this::onCriticalHit);
         WarSmith.init();
         WarSmith.earlySetup();
+    }
+
+    private void onCriticalHit(CriticalHitEvent event) {
+        event.setDamageModifier(WarSmith.onCriticalHit(event.getEntity(), event.getTarget(),event.getOldDamageModifier(),event.isVanillaCritical()));
     }
 
     private void livingDamage(LivingDamageEvent event) {

@@ -26,14 +26,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModItemTags.SAIS).add(ModItems.IRON_SAI,ModItems.DIAMOND_SAI,ModItems.NETHERITE_SAI);
         tag(ModItemTags.HALBERDS).add(ModItems.IRON_HALBERD,ModItems.DIAMOND_HALBERD,ModItems.NETHERITE_HALBERD);
         tag(ModItemTags.BATTLEAXES).add(ModItems.IRON_BATTLEAXE,ModItems.DIAMOND_BATTLEAXE,ModItems.NETHERITE_BATTLEAXE);
+        tag(ModItemTags.RAPIERS).add(ModItems.RAPIER);
 
         tag(ModItemTags.CAN_APPLY_BANE_OF_ARTHROPODS).addTags(ItemTags.SWORDS,ModItemTags.BATTLEAXES);
         tag(ModItemTags.CAN_APPLY_FIRE_ASPECT).addTags(ItemTags.SWORDS,ModItemTags.BATTLEAXES,ModItemTags.KUSARIGAMAS);
         tag(ModItemTags.CAN_APPLY_KNOCKBACK).addTags(ItemTags.SWORDS,ModItemTags.BATTLEAXES);
-        tag(ModItemTags.CAN_APPLY_LOOTING).addTags(ItemTags.SWORDS,ModItemTags.BATTLEAXES);
+        tag(ModItemTags.CAN_APPLY_LOOTING).addTags(ItemTags.SWORDS,ModItemTags.BATTLEAXES,ModItemTags.RAPIERS);
         tag(ModItemTags.CAN_APPLY_SHARPNESS).addTags(ItemTags.SWORDS,ModItemTags.BATTLEAXES);
         tag(ModItemTags.CAN_APPLY_SMITE).addTags(ItemTags.SWORDS,ModItemTags.BATTLEAXES);
 
-        tag(ItemTags.TOOLS).addTags(ModItemTags.KATANAS,ModItemTags.KUSARIGAMAS,ModItemTags.SAIS,ModItemTags.HALBERDS,ModItemTags.BATTLEAXES);
+        tag(ModItemTags.CAN_APPLY_SLEIGHT_OF_HAND).addTags(ModItemTags.KATANAS,ModItemTags.RAPIERS);
+
+        tag(ItemTags.TOOLS).addTags(ModItemTags.KATANAS,ModItemTags.KUSARIGAMAS,ModItemTags.SAIS,ModItemTags.HALBERDS,ModItemTags.BATTLEAXES,ModItemTags.RAPIERS);
     }
 }

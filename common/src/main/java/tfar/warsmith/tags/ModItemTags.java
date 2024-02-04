@@ -12,13 +12,14 @@ public class ModItemTags {
     public static final TagKey<Item> SAIS = bind("sais");
     public static final TagKey<Item> HALBERDS = bind("halberds");
     public static final TagKey<Item> BATTLEAXES = bind("battleaxes");
-
+    public static final TagKey<Item> RAPIERS = bind("rapiers");
     public static final TagKey<Item> CAN_APPLY_BANE_OF_ARTHROPODS = bind("can_apply_bane_of_arthropods");
     public static final TagKey<Item> CAN_APPLY_FIRE_ASPECT = bind("can_apply_fire_aspect");
     public static final TagKey<Item> CAN_APPLY_KNOCKBACK = bind("can_apply_knockback");
     public static final TagKey<Item> CAN_APPLY_LOOTING = bind("can_apply_looting");
     public static final TagKey<Item> CAN_APPLY_SHARPNESS = bind("can_apply_sharpness");
     public static final TagKey<Item> CAN_APPLY_SMITE = bind("can_apply_smite");
+    public static final TagKey<Item> CAN_APPLY_SLEIGHT_OF_HAND = bind("can_apply_sleight_of_hand");
 
     private static TagKey<Item> bind(String $$0) {
         return TagKey.create(Registries.ITEM,new ResourceLocation(WarSmith.MOD_ID,$$0));

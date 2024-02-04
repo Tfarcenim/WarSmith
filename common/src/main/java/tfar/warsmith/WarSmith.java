@@ -200,4 +200,35 @@ public class WarSmith {
             }
         }
     }
+
+    public static float armorMultiplier(DamageSource source) {
+        Entity entity = source.getDirectEntity();
+        if (entity instanceof LivingEntity living) {
+            ItemStack handStack = living.getMainHandItem();
+            int pierceLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.ARMOR_PIERCING,handStack);
+            if (handStack.is(ModItems.RAPIER)) {
+                pierceLevel +=1;
+            }
+            return (float) Math.pow(2,-pierceLevel);
+        }
+        return 1;
+    }
+
+    public static void onPlayerTouch(Player player, Entity touching) {
+        ItemStack handStack = player.getMainHandItem();
+        if (!player.level().isClientSide &&handStack.is(ModItemTags.RAPIERS) &&player.getCooldowns().isOnCooldown(handStack.getItem()) &&
+                EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.PIERCING_DASH,handStack) > 0) {
+            player.attack(touching);
+        }
+    }
+
+    public static float onCriticalHit(Player player, Entity target, float damageModifier, boolean vanillaCritical) {
+        if (vanillaCritical) {
+            if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.CRITICAL_STRIKE, player.getMainHandItem()) > 0) {
+                return 2;
+            }
+            return 1.5f;
+        }
+        return 1;
+    }
 }

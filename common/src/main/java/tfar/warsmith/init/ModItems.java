@@ -25,6 +25,6 @@ public class ModItems {
     public static final Item DIAMOND_BATTLEAXE = new BattleAxeItem(Tiers.DIAMOND,5,-3,new Item.Properties());
     public static final Item NETHERITE_BATTLEAXE = new BattleAxeItem(Tiers.NETHERITE,5,-3,new Item.Properties().fireResistant());
 
-    public static final Item RAPIER = new RapierItem(Tiers.IRON,2,-2,new Item.Properties());
+    public static final Item RAPIER = new RapierItem(Tiers.IRON,4,-2,new Item.Properties());
 
 }
