@@ -13,6 +13,9 @@ public class ModItemTags {
     public static final TagKey<Item> HALBERDS = bind("halberds");
     public static final TagKey<Item> BATTLEAXES = bind("battleaxes");
 
+    public static final TagKey<Item> CAN_APPLY_FIRE_ASPECT = bind("can_apply_fire_aspect");
+    public static final TagKey<Item> CAN_APPLY_KNOCKBACK = bind("can_apply_knockback");
+
     private static TagKey<Item> bind(String $$0) {
         return TagKey.create(Registries.ITEM,new ResourceLocation(WarSmith.MOD_ID,$$0));
     }

@@ -8,6 +8,7 @@
     "DamageSourcesMixin",
     "EnchantmentAccessor",
     "EnchantmentCategoryMixin",
+    "EnchantmentHelperMixin",
     "EntityMixin",
     "FireAspectEnchantMixin",
     "LivingEntityMixin",

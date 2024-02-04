@@ -1,18 +1,10 @@
 package tfar.warsmith.enchantment.categories;
 
-import net.minecraft.world.item.Item;
-import tfar.warsmith.mixin.EnchantmentCategoryMixin;
+import tfar.warsmith.tags.ModItemTags;
 
-import java.util.function.Predicate;
+public class FireAspectEnchantmentCategory extends ModEnchantmentCategory {
 
-public class FireAspectEnchantmentCategory extends EnchantmentCategoryMixin {
-
-    private Predicate<Item> cache;
-    @Override
-    public boolean canEnchant(Item item) {
-        if (cache == null) {
-            cache = ModEnchantmentCategories.createFireAspectWrapper();
-        }
-        return cache.test(item);
+    public FireAspectEnchantmentCategory() {
+        super(ModItemTags.CAN_APPLY_FIRE_ASPECT);
     }
 }

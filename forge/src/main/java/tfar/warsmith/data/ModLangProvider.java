@@ -50,6 +50,7 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultEnchantment(() -> ModEnchantments.HALT);
         addDefaultEnchantment(() -> ModEnchantments.DEVASTATING_SLASH);
         addDefaultEnchantment(() -> ModEnchantments.GOLIATH_FELLER);
+        addDefaultEnchantment(() -> ModEnchantments.DEADLY_SWEEP);
 
         addTab(ModCreativeTabs.WARSMITH,WarSmith.MOD_NAME);
     }

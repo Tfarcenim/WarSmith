@@ -16,5 +16,6 @@ public class ModEnchantments {
     public static final Enchantment HALT = new HaltEnchantment(Enchantment.Rarity.RARE, ModEnchantmentCategories.HALBERD, EquipmentSlot.MAINHAND);
     public static final Enchantment GOLIATH_FELLER = new GoliathFellerEnchantment(Enchantment.Rarity.RARE, ModEnchantmentCategories.HALBERD, EquipmentSlot.MAINHAND);
     public static final Enchantment DEVASTATING_SLASH = new DevastatingSlashEnchantment(Enchantment.Rarity.RARE, ModEnchantmentCategories.HALBERD, EquipmentSlot.MAINHAND);
+    public static final Enchantment DEADLY_SWEEP = new DeadlySweepEnchantment(Enchantment.Rarity.RARE,ModEnchantmentCategories.BATTLEAXE,EquipmentSlot.MAINHAND);
 
 }

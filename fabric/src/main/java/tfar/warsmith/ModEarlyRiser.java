@@ -30,5 +30,14 @@ public class ModEarlyRiser implements Runnable{
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("HALBERD", "tfar.warsmith.enchantment.categories.HalberdEnchantmentCategory")
                 .build();
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("BATTLEAXE", "tfar.warsmith.enchantment.categories.BattleAxeEnchantmentCategory")
+                .build();
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("KNOCKBACK", "tfar.warsmith.enchantment.categories.KnockbackEnchantmentCategory")
+                .build();
+
     }
 }

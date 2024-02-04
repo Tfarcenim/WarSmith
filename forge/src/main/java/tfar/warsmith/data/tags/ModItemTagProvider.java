@@ -27,6 +27,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModItemTags.HALBERDS).add(ModItems.IRON_HALBERD,ModItems.DIAMOND_HALBERD,ModItems.NETHERITE_HALBERD);
         tag(ModItemTags.BATTLEAXES).add(ModItems.IRON_BATTLEAXE,ModItems.DIAMOND_BATTLEAXE,ModItems.NETHERITE_BATTLEAXE);
 
+        tag(ModItemTags.CAN_APPLY_FIRE_ASPECT).addTags(ItemTags.SWORDS,ModItemTags.KUSARIGAMAS);
+        tag(ModItemTags.CAN_APPLY_KNOCKBACK).addTags(ItemTags.SWORDS,ModItemTags.BATTLEAXES);
+
         tag(ItemTags.TOOLS).addTags(ModItemTags.KATANAS,ModItemTags.KUSARIGAMAS,ModItemTags.SAIS,ModItemTags.HALBERDS,ModItemTags.BATTLEAXES);
     }
 }

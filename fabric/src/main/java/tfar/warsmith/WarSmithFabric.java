@@ -9,8 +9,10 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import tfar.warsmith.init.ModItems;
+import tfar.warsmith.tags.ModItemTags;
 
 public class WarSmithFabric implements ModInitializer {
     
@@ -33,5 +35,11 @@ public class WarSmithFabric implements ModInitializer {
 
     void modifyAttributeModifiers(ItemStack stack, EquipmentSlot slot, Multimap<Attribute, AttributeModifier> attributeModifiers) {
         WarSmith.modifyAttributeModifiers(stack, slot, attributeModifiers);
+    }
+
+    public static boolean forceSweep(Player player, boolean original, boolean fullAttackStrength, boolean bl1, boolean bl2) {
+        if (original) return true;
+
+        return fullAttackStrength && !bl1 && !bl2 && player.getMainHandItem().is(ModItemTags.BATTLEAXES);
     }
 }
