@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-03T17:18:19.7186719	Model Definitions
+// 1.20.1	2024-02-04T09:57:29.2265866	Model Definitions
 6441ad19501fe7ea35dc96166e949f6549f41a72 assets/warsmith/models/item/claymore.json
 6e518192cf2b671683a5e802e4d22f06646cae83 assets/warsmith/models/item/diamond_battleaxe.json
 ccfe7aadc494ddf376b17aad62caa9869e4cb493 assets/warsmith/models/item/diamond_halberd.json
@@ -18,3 +18,4 @@ f69f09b092a1bdea004f3d0dd0ee768e4590f1d3 assets/warsmith/models/item/netherite_k
 adf6b119bd6cf263065ce0e880c9bdef2e84efdd assets/warsmith/models/item/netherite_kusarigama.json
 17f690178984c0f222a4d5440e00a09f41c6b6a8 assets/warsmith/models/item/netherite_kusarigama_cast.json
 fc3ae8ab53639dcb188fb10ac2467399ecc5efb6 assets/warsmith/models/item/netherite_sai.json
+692299117105fefe0fe2da2fc7f1c6ebe8a942df assets/warsmith/models/item/rapier.json

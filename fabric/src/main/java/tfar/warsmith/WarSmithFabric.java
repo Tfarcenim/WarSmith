@@ -30,7 +30,12 @@ public class WarSmithFabric implements ModInitializer {
 
         VillagerTrades.ItemsForEmeralds trade = new VillagerTrades.ItemsForEmeralds(ModItems.CLAYMORE, 26, 3, 1);
 
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH,1,itemListings -> itemListings.add(trade));
+        VillagerTrades.ItemsForEmeralds trade1 = new VillagerTrades.ItemsForEmeralds(ModItems.RAPIER, 34, 3, 1);
+
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH,1,itemListings -> {
+            itemListings.add(trade);
+            itemListings.add(trade1);
+        });
     }
 
     void modifyAttributeModifiers(ItemStack stack, EquipmentSlot slot, Multimap<Attribute, AttributeModifier> attributeModifiers) {

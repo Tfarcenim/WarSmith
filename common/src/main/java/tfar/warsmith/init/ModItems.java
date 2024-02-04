@@ -21,10 +21,10 @@ public class ModItems {
     public static final Item DIAMOND_HALBERD = new HalberdItem(Tiers.DIAMOND,9,-3.2,new Item.Properties());
     public static final Item NETHERITE_HALBERD = new HalberdItem(Tiers.NETHERITE,9,-3.2,new Item.Properties().fireResistant());
 
-    public static final Item IRON_BATTLEAXE = new BattleAxeItem(Tiers.IRON,6,-3.2f,new Item.Properties());
-    public static final Item DIAMOND_BATTLEAXE = new BattleAxeItem(Tiers.DIAMOND,5,-3.2f,new Item.Properties());
-    public static final Item NETHERITE_BATTLEAXE = new BattleAxeItem(Tiers.NETHERITE,5,-3.2f,new Item.Properties().fireResistant());
+    public static final Item IRON_BATTLEAXE = new BattleAxeItem(Tiers.IRON,6,-3.1f,new Item.Properties());
+    public static final Item DIAMOND_BATTLEAXE = new BattleAxeItem(Tiers.DIAMOND,5,-3,new Item.Properties());
+    public static final Item NETHERITE_BATTLEAXE = new BattleAxeItem(Tiers.NETHERITE,5,-3,new Item.Properties().fireResistant());
 
-   // public static final Item RAPIER = new
+    public static final Item RAPIER = new RapierItem(Tiers.IRON,2,-2,new Item.Properties());
 
 }
