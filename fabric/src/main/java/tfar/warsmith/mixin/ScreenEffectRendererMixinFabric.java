@@ -17,7 +17,7 @@ import tfar.warsmith.client.ClientMisc;
 import tfar.warsmith.duck.EntityDuck;
 
 @Mixin(ScreenEffectRenderer.class)
-public class ScreenEffectRendererMixin {
+public class ScreenEffectRendererMixinFabric {
 
     @Inject(method = "renderScreenEffect",at = @At("RETURN"))
     private static void onRenderScreenEffect(Minecraft minecraft, PoseStack poseStack, CallbackInfo ci) {

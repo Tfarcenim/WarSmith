@@ -3,6 +3,7 @@ package tfar.warsmith.data;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
@@ -41,7 +42,24 @@ public class ModItemModelProvider extends ItemModelGenerators {
         generateFlatItem(ModItems.DIAMOND_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
         generateFlatItem(ModItems.NETHERITE_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
 
+        generateFlatItem(ModItems.IRON_MACE,MACE);
 
+        generateSpriteModel(ModItems.IRON_MACE,ModelTemplates.FLAT_HANDHELD_ITEM);
+
+
+    }
+
+    public void generateSpriteModel(Item pItem, ModelTemplate pModelTemplate) {
+        pModelTemplate.create(getItemSpriteTexture(pItem), sprite(pItem), this.output);
+    }
+
+    public static TextureMapping sprite(Item pLayerZeroItem) {
+        return new TextureMapping().put(TextureSlot.LAYER0, getItemSpriteTexture(pLayerZeroItem));
+    }
+
+    public static ResourceLocation getItemSpriteTexture(Item pItem) {
+        ResourceLocation resourcelocation = BuiltInRegistries.ITEM.getKey(pItem);
+        return resourcelocation.withPrefix("item/sprite/");
     }
 
     public void generateKusarigama(KusarigamaItem kusarigamaItem) {
@@ -81,6 +99,9 @@ public class ModItemModelProvider extends ItemModelGenerators {
             generateFlatItem(item,ModelTemplates.FLAT_HANDHELD_ITEM);
         }
     }
+
+    public static final ModelTemplate MACE = createItem(WarSmith.MOD_ID,"mace", TextureSlot.LAYER0);
+
 
     public static final ModelTemplate LARGE_FLAT_HANDHELD_ITEM = createItem(WarSmith.MOD_ID,"large_handheld", TextureSlot.LAYER0);
     public static final ModelTemplate EXTRA_LARGE_FLAT_HANDHELD_ITEM = createItem(WarSmith.MOD_ID,"extra_large_handheld", TextureSlot.LAYER0);

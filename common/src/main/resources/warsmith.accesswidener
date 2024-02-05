@@ -4,3 +4,5 @@ extendable class net/minecraft/world/item/enchantment/EnchantmentCategory
 accessible method net/minecraft/client/renderer/item/ItemProperties register (Lnet/minecraft/world/item/Item;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/item/ClampedItemPropertyFunction;)V
 extendable method net/minecraft/world/entity/projectile/Projectile <init> (Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;)V
 accessible class net/minecraft/world/entity/npc/VillagerTrades$EnchantedItemForEmeralds
+
+accessible class net/minecraft/client/resources/model/ModelManager$ReloadState

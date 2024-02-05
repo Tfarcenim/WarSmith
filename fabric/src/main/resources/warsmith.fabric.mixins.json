@@ -9,8 +9,9 @@
     "PlayerMixinFabric"
   ],
   "client": [
+    "BakedModelManagerMixinFabric",
     "MinecraftMixinFabric",
-    "ScreenEffectRendererMixin"
+    "ScreenEffectRendererMixinFabric"
   ],
   "server": [
   ],
