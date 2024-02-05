@@ -47,7 +47,7 @@ public class ClientMisc {
         }
     };
 
-    public static final ClampedItemPropertyFunction SAI = (stack, $$1, living, $$3) ->
+    public static final ClampedItemPropertyFunction BLOCKING = (stack, $$1, living, $$3) ->
             living != null && living.isUsingItem() && living.getUseItem() == stack ? 1 : 0;
 
 
@@ -59,9 +59,13 @@ public class ClientMisc {
         ItemProperties.register(ModItems.DIAMOND_KUSARIGAMA,CAST_PREDICATE,KUSARIGAMA);
         ItemProperties.register(ModItems.NETHERITE_KUSARIGAMA,CAST_PREDICATE,KUSARIGAMA);
 
-        ItemProperties.register(ModItems.IRON_SAI,BLOCKING_PREDICATE,SAI);
-        ItemProperties.register(ModItems.DIAMOND_SAI,BLOCKING_PREDICATE,SAI);
-        ItemProperties.register(ModItems.NETHERITE_SAI,BLOCKING_PREDICATE,SAI);
+        ItemProperties.register(ModItems.IRON_SAI,BLOCKING_PREDICATE, BLOCKING);
+        ItemProperties.register(ModItems.DIAMOND_SAI,BLOCKING_PREDICATE, BLOCKING);
+        ItemProperties.register(ModItems.NETHERITE_SAI,BLOCKING_PREDICATE, BLOCKING);
+
+        ItemProperties.register(ModItems.IRON_CUTLASS,BLOCKING_PREDICATE, BLOCKING);
+        ItemProperties.register(ModItems.DIAMOND_CUTLASS,BLOCKING_PREDICATE, BLOCKING);
+        ItemProperties.register(ModItems.NETHERITE_CUTLASS,BLOCKING_PREDICATE, BLOCKING);
     }
 
     public static boolean onClickInput(int button, KeyMapping keyBinding, InteractionHand hand) {
