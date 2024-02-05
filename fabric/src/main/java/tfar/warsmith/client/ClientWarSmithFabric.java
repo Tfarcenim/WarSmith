@@ -10,7 +10,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
-import tfar.warsmith.WarSmith;
 import tfar.warsmith.client.perspective.BakedPerspectiveModel;
 import tfar.warsmith.init.ModItems;
 import tfar.warsmith.platform.FabricClientHelper;
@@ -26,16 +25,7 @@ public class ClientWarSmithFabric implements ClientModInitializer {
 
 
         ModelLoadingPlugin.register(pluginContext ->
-                pluginContext.addModels(sprite(ModItems.IRON_MACE)));
-    }
-
-
-    private static ResourceLocation d3(String path) {
-        return new ResourceLocation(WarSmith.MOD_ID,path).withPrefix("item/3d/");
-    }
-
-    private static ResourceLocation sprite(String path) {
-        return new ResourceLocation(WarSmith.MOD_ID,path).withPrefix("item/sprite/");
+                pluginContext.addModels(sprite(ModItems.IRON_MACE),sprite(ModItems.DIAMOND_MACE),sprite(ModItems.NETHERITE_MACE)));
     }
 
     private static ResourceLocation sprite(Item path) {
@@ -52,12 +42,14 @@ public class ClientWarSmithFabric implements ClientModInitializer {
      //           .forEach(resourceLocationBakedModelEntry -> gauntletModels.put(resourceLocationBakedModelEntry.getKey(),resourceLocationBakedModelEntry.getValue()));
 
         createGuiSpriteModel(ModItems.IRON_MACE,bakedTopLevelModels);
+        createGuiSpriteModel(ModItems.DIAMOND_MACE,bakedTopLevelModels);
+        createGuiSpriteModel(ModItems.NETHERITE_MACE,bakedTopLevelModels);
         }
 
     private static void createGuiSpriteModel(Item item,Map<ResourceLocation, BakedModel> bakedTopLevelModels) {
         ResourceLocation path = getDefaultModel(item);
 
-        ResourceLocation spriteLocation = sprite(BuiltInRegistries.ITEM.getKey(item).getPath());
+        ResourceLocation spriteLocation = sprite(item);
 
         BakedModel bakedModel = bakedTopLevelModels.get(path);
         if (bakedModel != null) {

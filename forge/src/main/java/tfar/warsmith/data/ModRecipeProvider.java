@@ -110,5 +110,25 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_fences",has(ItemTags.WOODEN_FENCES))
                 .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.IRON_MACE)
+                .pattern("iIi")
+                .pattern(" s ")
+                .pattern(" s ")
+                .define('s', Items.STICK)
+                .define('i', Items.IRON_INGOT)
+                .define('I', Items.IRON_BLOCK)
+                .unlockedBy("has_iron_block",has(Items.IRON_BLOCK))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DIAMOND_MACE)
+                .pattern("iIi")
+                .pattern(" s ")
+                .pattern(" s ")
+                .define('s', Items.STICK)
+                .define('i', Items.DIAMOND)
+                .define('I', Items.IRON_BLOCK)
+                .unlockedBy("has_iron_block",has(Items.IRON_BLOCK))
+                .save(pWriter);
+
     }
 }

@@ -42,11 +42,16 @@ public class ModItemModelProvider extends ItemModelGenerators {
         generateFlatItem(ModItems.DIAMOND_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
         generateFlatItem(ModItems.NETHERITE_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
 
-        generateRegularModel(ModItems.IRON_MACE,MACE);
 
-        generateSpriteModel(ModItems.IRON_MACE,ModelTemplates.FLAT_HANDHELD_ITEM);
+        makeMaceModel(ModItems.IRON_MACE);
+        makeMaceModel(ModItems.DIAMOND_MACE);
+        makeMaceModel(ModItems.NETHERITE_MACE);
 
+    }
 
+    public void makeMaceModel(Item item) {
+        generateRegularModel(item,MACE);
+        generateSpriteModel(item,ModelTemplates.FLAT_HANDHELD_ITEM);
     }
 
     public void generateRegularModel(Item pItem, ModelTemplate pModelTemplate) {

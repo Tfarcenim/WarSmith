@@ -1,10 +1,11 @@
-// 1.20.1	2024-02-04T21:22:58.0194256	Model Definitions
+// 1.20.1	2024-02-04T21:46:02.210506	Model Definitions
 6441ad19501fe7ea35dc96166e949f6549f41a72 assets/warsmith/models/item/claymore.json
 6e518192cf2b671683a5e802e4d22f06646cae83 assets/warsmith/models/item/diamond_battleaxe.json
 ccfe7aadc494ddf376b17aad62caa9869e4cb493 assets/warsmith/models/item/diamond_halberd.json
 4486d0c533a49cab0bd0e919868e3a99d76ebf69 assets/warsmith/models/item/diamond_katana.json
 753d4adf3c1239505bca8eeb13cf304e0880f02a assets/warsmith/models/item/diamond_kusarigama.json
 4d5c053c88e84cd46431819a030f606398dd05c6 assets/warsmith/models/item/diamond_kusarigama_cast.json
+a28b055b682164f21305ff47fd0be65822853b71 assets/warsmith/models/item/diamond_mace.json
 a50359627fbe85dc69c8bafa2fe9acfab6bd93e0 assets/warsmith/models/item/diamond_sai.json
 0a85a802386b56785bcfff986bc902cf0c3b03c5 assets/warsmith/models/item/iron_battleaxe.json
 0bc8bb996d596ae96d507dc132de77e433135bad assets/warsmith/models/item/iron_halberd.json
@@ -18,6 +19,9 @@ a1b4f5996138d0c29f8b7dc23cce5f805bcc1a1f assets/warsmith/models/item/netherite_b
 f69f09b092a1bdea004f3d0dd0ee768e4590f1d3 assets/warsmith/models/item/netherite_katana.json
 adf6b119bd6cf263065ce0e880c9bdef2e84efdd assets/warsmith/models/item/netherite_kusarigama.json
 17f690178984c0f222a4d5440e00a09f41c6b6a8 assets/warsmith/models/item/netherite_kusarigama_cast.json
+4527afa032140cbdd10717cf0d178ca00bb48ee3 assets/warsmith/models/item/netherite_mace.json
 fc3ae8ab53639dcb188fb10ac2467399ecc5efb6 assets/warsmith/models/item/netherite_sai.json
 692299117105fefe0fe2da2fc7f1c6ebe8a942df assets/warsmith/models/item/rapier.json
+73ba9071a35e9201b60adbf9345b8dc763452a64 assets/warsmith/models/item/sprite/diamond_mace.json
 81e15794d4a76a62718a7ad1615de1c6c1e90141 assets/warsmith/models/item/sprite/iron_mace.json
+3d13441d0981e8306b3f245766c98ab2bc66f434 assets/warsmith/models/item/sprite/netherite_mace.json
