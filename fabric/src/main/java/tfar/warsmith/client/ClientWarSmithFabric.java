@@ -2,6 +2,7 @@ package tfar.warsmith.client;
 
 import com.google.common.collect.ImmutableMap;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -22,6 +23,10 @@ public class ClientWarSmithFabric implements ClientModInitializer {
     public void onInitializeClient() {
         Services.PLATFORM.setClientHelper(new FabricClientHelper());
         ClientMisc.clientSetup();
+
+
+        ModelLoadingPlugin.register(pluginContext ->
+                pluginContext.addModels(sprite(ModItems.IRON_MACE)));
     }
 
 
@@ -31,6 +36,10 @@ public class ClientWarSmithFabric implements ClientModInitializer {
 
     private static ResourceLocation sprite(String path) {
         return new ResourceLocation(WarSmith.MOD_ID,path).withPrefix("item/sprite/");
+    }
+
+    private static ResourceLocation sprite(Item path) {
+        return BuiltInRegistries.ITEM.getKey(path).withPrefix("item/sprite/");
     }
 
 

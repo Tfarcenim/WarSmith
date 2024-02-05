@@ -42,11 +42,15 @@ public class ModItemModelProvider extends ItemModelGenerators {
         generateFlatItem(ModItems.DIAMOND_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
         generateFlatItem(ModItems.NETHERITE_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
 
-        generateFlatItem(ModItems.IRON_MACE,MACE);
+        generateRegularModel(ModItems.IRON_MACE,MACE);
 
         generateSpriteModel(ModItems.IRON_MACE,ModelTemplates.FLAT_HANDHELD_ITEM);
 
 
+    }
+
+    public void generateRegularModel(Item pItem, ModelTemplate pModelTemplate) {
+        pModelTemplate.create(ModelLocationUtils.getModelLocation(pItem), d3(pItem), this.output);
     }
 
     public void generateSpriteModel(Item pItem, ModelTemplate pModelTemplate) {
@@ -55,6 +59,15 @@ public class ModItemModelProvider extends ItemModelGenerators {
 
     public static TextureMapping sprite(Item pLayerZeroItem) {
         return new TextureMapping().put(TextureSlot.LAYER0, getItemSpriteTexture(pLayerZeroItem));
+    }
+
+    public static TextureMapping d3(Item pLayerZeroItem) {
+        return new TextureMapping().put(TextureSlot.LAYER0, getItem3dTexture(pLayerZeroItem));
+    }
+
+    public static ResourceLocation getItem3dTexture(Item pItem) {
+        ResourceLocation resourcelocation = BuiltInRegistries.ITEM.getKey(pItem);
+        return resourcelocation.withPrefix("item/3d/");
     }
 
     public static ResourceLocation getItemSpriteTexture(Item pItem) {

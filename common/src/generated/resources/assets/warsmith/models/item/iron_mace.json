@@ -1,6 +1,6 @@
 {
   "parent": "warsmith:item/mace",
   "textures": {
-    "layer0": "warsmith:item/iron_mace"
+    "layer0": "warsmith:item/3d/iron_mace"
   }
 }
