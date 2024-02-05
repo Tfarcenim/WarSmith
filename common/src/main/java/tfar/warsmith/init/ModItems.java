@@ -31,4 +31,8 @@ public class ModItems {
     public static final Item DIAMOND_MACE = new MaceItem(Tiers.DIAMOND,4,-2.8,new Item.Properties());
     public static final Item NETHERITE_MACE = new MaceItem(Tiers.NETHERITE,4,-2.8,new Item.Properties().fireResistant());
 
+    public static final Item IRON_CUTLASS = new CutlassItem(Tiers.IRON,4,-2.4f,new Item.Properties());
+    public static final Item DIAMOND_CUTLASS = new CutlassItem(Tiers.DIAMOND,4,-2.4f,new Item.Properties());
+    public static final Item NETHERITE_CUTLASS = new CutlassItem(Tiers.NETHERITE,4,-2.4f,new Item.Properties().fireResistant());
+
 }

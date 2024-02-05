@@ -1,6 +1,7 @@
-// 1.20.1	2024-02-04T21:46:02.210506	Model Definitions
+// 1.20.1	2024-02-05T01:07:16.0263946	Model Definitions
 6441ad19501fe7ea35dc96166e949f6549f41a72 assets/warsmith/models/item/claymore.json
 6e518192cf2b671683a5e802e4d22f06646cae83 assets/warsmith/models/item/diamond_battleaxe.json
+edcb7ea882eb5a7e63d97686cc0d1447b45e0fa7 assets/warsmith/models/item/diamond_cutlass.json
 ccfe7aadc494ddf376b17aad62caa9869e4cb493 assets/warsmith/models/item/diamond_halberd.json
 4486d0c533a49cab0bd0e919868e3a99d76ebf69 assets/warsmith/models/item/diamond_katana.json
 753d4adf3c1239505bca8eeb13cf304e0880f02a assets/warsmith/models/item/diamond_kusarigama.json
@@ -8,6 +9,7 @@ ccfe7aadc494ddf376b17aad62caa9869e4cb493 assets/warsmith/models/item/diamond_hal
 a28b055b682164f21305ff47fd0be65822853b71 assets/warsmith/models/item/diamond_mace.json
 a50359627fbe85dc69c8bafa2fe9acfab6bd93e0 assets/warsmith/models/item/diamond_sai.json
 0a85a802386b56785bcfff986bc902cf0c3b03c5 assets/warsmith/models/item/iron_battleaxe.json
+a226d11cf55e801dd8faf73513a7de6e9f6e9403 assets/warsmith/models/item/iron_cutlass.json
 0bc8bb996d596ae96d507dc132de77e433135bad assets/warsmith/models/item/iron_halberd.json
 74057697fe0b7b4dfd568b8b4f53ca05622ed337 assets/warsmith/models/item/iron_katana.json
 ce2031551d953c164f609e84f73de1e8aa965ce2 assets/warsmith/models/item/iron_kusarigama.json
@@ -15,6 +17,7 @@ ce2031551d953c164f609e84f73de1e8aa965ce2 assets/warsmith/models/item/iron_kusari
 46975d5b6277de5be21958f0b95ac20141c9019f assets/warsmith/models/item/iron_mace.json
 faa6188f38d225fddc84b87c8567e68ee3270f2f assets/warsmith/models/item/iron_sai.json
 a1b4f5996138d0c29f8b7dc23cce5f805bcc1a1f assets/warsmith/models/item/netherite_battleaxe.json
+09baecb5aaf8773797e1b4d677044fa511ef2d73 assets/warsmith/models/item/netherite_cutlass.json
 29a73bb19b045b02db4de9a7e90ae23d9230b27b assets/warsmith/models/item/netherite_halberd.json
 f69f09b092a1bdea004f3d0dd0ee768e4590f1d3 assets/warsmith/models/item/netherite_katana.json
 adf6b119bd6cf263065ce0e880c9bdef2e84efdd assets/warsmith/models/item/netherite_kusarigama.json

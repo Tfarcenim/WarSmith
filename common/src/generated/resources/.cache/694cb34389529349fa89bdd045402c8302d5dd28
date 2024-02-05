@@ -1,13 +1,15 @@
-// 1.20.1	2024-02-04T23:23:55.0102568	Tags for minecraft:item mod id warsmith
+// 1.20.1	2024-02-05T01:07:16.028394	Tags for minecraft:item mod id warsmith
+f341868c7389c3c67b2e2088d0cd643f438d1b08 data/minecraft/tags/items/swords.json
 7064cec214524d62a6b8c8cfdf74d20d6cf45f3b data/minecraft/tags/items/tools.json
 74f6ad4282f28645a0621c80ec6cb518d6125ec6 data/warsmith/tags/items/battleaxes.json
-348199f1ce406011919a272b5376a5a04ee1cb23 data/warsmith/tags/items/can_apply_bane_of_arthropods.json
-46bb19adad20ab508bc903b13478c62cc6e22d51 data/warsmith/tags/items/can_apply_fire_aspect.json
+eec034480e3a340a2973bb142658b9a8e2b62781 data/warsmith/tags/items/can_apply_bane_of_arthropods.json
+ab7ed269a11e0f0df56a89cbe078e502e7e9973e data/warsmith/tags/items/can_apply_fire_aspect.json
 348199f1ce406011919a272b5376a5a04ee1cb23 data/warsmith/tags/items/can_apply_knockback.json
-a2b60176081d48684f99dbcf49e4327a21ff0c89 data/warsmith/tags/items/can_apply_looting.json
+e192b2d5730a515beb0fba37cf83e36157eaf440 data/warsmith/tags/items/can_apply_looting.json
 348199f1ce406011919a272b5376a5a04ee1cb23 data/warsmith/tags/items/can_apply_sharpness.json
 3c0cfac75e73951a52efd42abc492ed5f2e3491e data/warsmith/tags/items/can_apply_sleight_of_hand.json
 348199f1ce406011919a272b5376a5a04ee1cb23 data/warsmith/tags/items/can_apply_smite.json
+577288cb4f589f5f5e3a3fe2b14511eb8c4bfae9 data/warsmith/tags/items/cutlasses.json
 0c791fb94e7a93bd25dafdbbfe85db098c81dcbc data/warsmith/tags/items/halberds.json
 e1d539f95c9e059a57e214ade3539fb008d36ec7 data/warsmith/tags/items/katanas.json
 7a082fe20d6a541845fe294baf135f0f215fe27f data/warsmith/tags/items/kusarigamas.json

@@ -2,6 +2,7 @@
   "values": [
     "#minecraft:swords",
     "#warsmith:battleaxes",
-    "#warsmith:rapiers"
+    "#warsmith:rapiers",
+    "#warsmith:maces"
   ]
 }
