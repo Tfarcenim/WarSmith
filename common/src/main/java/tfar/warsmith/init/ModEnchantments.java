@@ -21,5 +21,6 @@ public class ModEnchantments {
     public static final Enchantment CRITICAL_STRIKE = new CriticalStrikeEnchantment(Enchantment.Rarity.RARE,ModEnchantmentCategories.RAPIER,EquipmentSlot.MAINHAND);
     public static final Enchantment DASHING = new DashingEnchantment(Enchantment.Rarity.RARE,ModEnchantmentCategories.RAPIER,EquipmentSlot.MAINHAND);
     public static final Enchantment ARMOR_PIERCING = new ArmorPiercingEnchantment(Enchantment.Rarity.RARE,ModEnchantmentCategories.RAPIER,EquipmentSlot.MAINHAND);
+    public static final Enchantment REND = new RendEnchantment(Enchantment.Rarity.RARE,ModEnchantmentCategories.MACE,EquipmentSlot.MAINHAND);
 
 }

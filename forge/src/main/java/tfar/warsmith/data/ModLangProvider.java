@@ -59,6 +59,7 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultEnchantment(() -> ModEnchantments.CRITICAL_STRIKE);
         addDefaultEnchantment(() -> ModEnchantments.DASHING);
         addDefaultEnchantment(() -> ModEnchantments.ARMOR_PIERCING);
+        addDefaultEnchantment(() -> ModEnchantments.REND);
 
         addTab(ModCreativeTabs.WARSMITH,WarSmith.MOD_NAME);
     }

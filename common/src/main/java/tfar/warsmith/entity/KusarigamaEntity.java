@@ -13,7 +13,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.ItemStack;
@@ -39,8 +38,8 @@ public class KusarigamaEntity extends Projectile {
     private int life;
     private ChainState currentState = ChainState.FLYING;
 
-    public KusarigamaEntity(Player player, Level $$1, int thievingChain) {
-        this(ModEntityTypes.KUSARIGAMA_ENTITY, $$1);
+    public KusarigamaEntity(Player player, Level level, int thievingChain) {
+        this(ModEntityTypes.KUSARIGAMA_ENTITY, level);
         this.thievingChain = thievingChain;
         this.setOwner(player);
         float xRot = player.getXRot();
@@ -193,7 +192,7 @@ public class KusarigamaEntity extends Projectile {
             }
 
             double d1 = 0.92D;
-            this.setDeltaMovement(this.getDeltaMovement().scale(0.92D));
+            this.setDeltaMovement(this.getDeltaMovement().scale(d1));
             this.reapplyPosition();
         }
     }

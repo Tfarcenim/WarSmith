@@ -26,6 +26,9 @@ public class ModCreativeTabs {
                 output.accept(ModItems.DIAMOND_BATTLEAXE);
                 output.accept(ModItems.NETHERITE_BATTLEAXE);
                 output.accept(ModItems.RAPIER);
+                output.accept(ModItems.IRON_MACE);
+                output.accept(ModItems.DIAMOND_MACE);
+                output.accept(ModItems.NETHERITE_MACE);
             })
             .build();
 }

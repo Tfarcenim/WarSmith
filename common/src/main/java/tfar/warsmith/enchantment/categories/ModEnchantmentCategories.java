@@ -11,6 +11,7 @@ public class ModEnchantmentCategories {
     public static final EnchantmentCategory HALBERD = Services.PLATFORM.create("HALBERD", ModItemTags.HALBERDS);
     public static final EnchantmentCategory BATTLEAXE = Services.PLATFORM.create("BATTLEAXE",ModItemTags.BATTLEAXES);
     public static final EnchantmentCategory RAPIER = Services.PLATFORM.create("RAPIER",ModItemTags.RAPIERS);
+    public static final EnchantmentCategory MACE = Services.PLATFORM.create("MACE",ModItemTags.MACES);
     public static final EnchantmentCategory SLEIGHT_OF_HAND = Services.PLATFORM.create("SLEIGHT_OF_HAND",ModItemTags.CAN_APPLY_SLEIGHT_OF_HAND);
 
     //todo remove in 1.20.4+

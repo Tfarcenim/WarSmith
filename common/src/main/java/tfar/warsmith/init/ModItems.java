@@ -27,8 +27,8 @@ public class ModItems {
 
     public static final Item RAPIER = new RapierItem(Tiers.IRON,4,-2,new Item.Properties());
 
-    public static final Item IRON_MACE = new MaceItem(Tiers.IRON,6,-3.1f,new Item.Properties());
-    public static final Item DIAMOND_MACE = new MaceItem(Tiers.DIAMOND,5,-3,new Item.Properties());
-    public static final Item NETHERITE_MACE = new MaceItem(Tiers.NETHERITE,5,-3,new Item.Properties().fireResistant());
+    public static final Item IRON_MACE = new MaceItem(Tiers.IRON,4,-2.8,new Item.Properties());
+    public static final Item DIAMOND_MACE = new MaceItem(Tiers.DIAMOND,4,-2.8,new Item.Properties());
+    public static final Item NETHERITE_MACE = new MaceItem(Tiers.NETHERITE,4,-2.8,new Item.Properties().fireResistant());
 
 }

@@ -4,6 +4,8 @@ import com.google.common.collect.Multimap;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -26,6 +28,7 @@ import tfar.warsmith.init.ModEnchantments;
 import tfar.warsmith.init.ModEntityTypes;
 import tfar.warsmith.init.ModItems;
 import tfar.warsmith.item.KatanaItem;
+import tfar.warsmith.item.MaceItem;
 import tfar.warsmith.mixin.EnchantmentAccessor;
 import tfar.warsmith.platform.Services;
 import tfar.warsmith.tags.ModItemTags;
@@ -73,7 +76,7 @@ public class WarSmith {
 
   //  static UUID chest_negator = UUID.fromString("63476f76-f3c4-4bbe-8a0f-2822c66bd046");
   //  static UUID leggings_negator = UUID.fromString("5706c1c8-4801-4e43-b056-88e7213708f9");
-  //  static UUID boots_negator = UUID.fromString("c92bf47f-83a2-4a73-9196-c9f72f9eca89");
+    static UUID MACE_CHARGE = UUID.fromString("c92bf47f-83a2-4a73-9196-c9f72f9eca89");
     static UUID SELIGHT_OF_HAND_BOOST = UUID.fromString("be5eb80f-ef6a-4e51-ab9b-c1147ba2667e");
 
     public static float adjustDamage(LivingEntity livingEntity,DamageSource source,float base, float current) {
@@ -97,6 +100,10 @@ public class WarSmith {
     public static void modifyAttributeModifiers(ItemStack stack, EquipmentSlot slot, Multimap<Attribute, AttributeModifier> attributeModifiers) {
         if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SLEIGHT_OF_HAND,stack) > 0 && slot == EquipmentSlot.MAINHAND) {
             attributeModifiers.get(Attributes.ATTACK_SPEED).add(new AttributeModifier(SELIGHT_OF_HAND_BOOST, "Sleight of Hand",2, AttributeModifier.Operation.ADDITION));
+        }
+
+        if (slot == EquipmentSlot.MAINHAND && stack.getItem() instanceof MaceItem && MaceItem.isCharged(stack)) {
+            attributeModifiers.get(Attributes.ATTACK_DAMAGE).add(new AttributeModifier(MACE_CHARGE,"Mace Charge",3, AttributeModifier.Operation.ADDITION));
         }
     }
 
@@ -197,6 +204,15 @@ public class WarSmith {
             ItemStack stack = livingAttacker.getMainHandItem();
             if (stack.is(ModItemTags.HALBERDS)) {
                 livingEntity.stopRiding();
+            }
+
+            if (stack.getItem() instanceof MaceItem && MaceItem.isCharged(stack)) {
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION,200));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.DARKNESS,200));
+                if (livingAttacker instanceof Player playerAttacker) {
+                    playerAttacker.getCooldowns().addCooldown(stack.getItem(),200);
+                }
+                MaceItem.unCharge(stack);
             }
         }
     }

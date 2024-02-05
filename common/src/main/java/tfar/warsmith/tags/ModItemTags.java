@@ -13,6 +13,8 @@ public class ModItemTags {
     public static final TagKey<Item> HALBERDS = bind("halberds");
     public static final TagKey<Item> BATTLEAXES = bind("battleaxes");
     public static final TagKey<Item> RAPIERS = bind("rapiers");
+    public static final TagKey<Item> MACES = bind("maces");
+
     public static final TagKey<Item> CAN_APPLY_BANE_OF_ARTHROPODS = bind("can_apply_bane_of_arthropods");
     public static final TagKey<Item> CAN_APPLY_FIRE_ASPECT = bind("can_apply_fire_aspect");
     public static final TagKey<Item> CAN_APPLY_KNOCKBACK = bind("can_apply_knockback");

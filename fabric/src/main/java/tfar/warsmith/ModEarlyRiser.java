@@ -38,10 +38,14 @@ public class ModEarlyRiser implements Runnable{
                 .build();
 
         ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("MACE", "tfar.warsmith.enchantment.categories.MaceEnchantmentCategory")
+                .build();
+
+        ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("SLEIGHT_OF_HAND", "tfar.warsmith.enchantment.categories.SleightOfHandEnchantmentCategory")
                 .build();
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////todo remove in 1.20.4+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////todo remove in 1.20.5+
 
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("BANE_OF_ARTHROPODS", "tfar.warsmith.enchantment.categories.BaneOfArthropodsEnchantmentCategory")
