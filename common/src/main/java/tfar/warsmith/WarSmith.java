@@ -166,6 +166,10 @@ public class WarSmith {
         return 1;
     }
 
+    public static float blockDamage(LivingEntity living, float amount, DamageSource source) {
+        return amount;
+    }
+
     public static float getOpportunisticMultiplier(LivingEntity attacker,Entity target) {
         if (attacker instanceof Player player && target instanceof Player playerTarget) {
             if (((PlayerDuck)player).hasOpportunisticStrike()) {

@@ -90,6 +90,7 @@ public class WarSmithForge {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
+        registerLater.clear();
         WarSmith.afterRegistration();
     }
 

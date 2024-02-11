@@ -1,0 +1,6 @@
+{
+  "parent": "warsmith:item/cutlass_blocking",
+  "textures": {
+    "layer0": "warsmith:item/netherite_cutlass"
+  }
+}

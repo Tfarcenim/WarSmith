@@ -1,5 +1,13 @@
 {
   "parent": "minecraft:item/handheld",
+  "overrides": [
+    {
+      "model": "warsmith:item/netherite_sai_blocking",
+      "predicate": {
+        "minecraft:blocking": 1
+      }
+    }
+  ],
   "textures": {
     "layer0": "warsmith:item/netherite_sai"
   }

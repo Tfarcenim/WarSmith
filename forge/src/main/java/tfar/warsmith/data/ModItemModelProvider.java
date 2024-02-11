@@ -28,11 +28,14 @@ public class ModItemModelProvider extends ItemModelGenerators {
     public void run() {
         this.generateFlatHandheldItems(ModItems.IRON_KATANA,ModItems.DIAMOND_KATANA,ModItems.NETHERITE_KATANA,
             //    ModItems.IRON_KUSARIGAMA,ModItems.DIAMOND_KUSARIGAMA,ModItems.NETHERITE_KUSARIGAMA,
-                ModItems.IRON_SAI,ModItems.DIAMOND_SAI,ModItems.NETHERITE_SAI,
                 ModItems.IRON_BATTLEAXE,ModItems.DIAMOND_BATTLEAXE,ModItems.NETHERITE_BATTLEAXE,
-                ModItems.RAPIER,
-                ModItems.IRON_CUTLASS,ModItems.DIAMOND_CUTLASS,ModItems.NETHERITE_CUTLASS
+                ModItems.RAPIER
                 );
+
+        generateSai(ModItems.IRON_SAI);
+        generateSai(ModItems.DIAMOND_SAI);
+        generateSai(ModItems.NETHERITE_SAI);
+
         generateKusarigama(ModItems.IRON_KUSARIGAMA);
         generateKusarigama(ModItems.DIAMOND_KUSARIGAMA);
         generateKusarigama(ModItems.NETHERITE_KUSARIGAMA);
@@ -48,6 +51,9 @@ public class ModItemModelProvider extends ItemModelGenerators {
         makeMaceModel(ModItems.DIAMOND_MACE);
         makeMaceModel(ModItems.NETHERITE_MACE);
 
+        generateCutlass(ModItems.IRON_CUTLASS);
+        generateCutlass(ModItems.DIAMOND_CUTLASS);
+        generateCutlass(ModItems.NETHERITE_CUTLASS);
     }
 
     public void makeMaceModel(Item item) {
@@ -79,6 +85,56 @@ public class ModItemModelProvider extends ItemModelGenerators {
     public static ResourceLocation getItemSpriteTexture(Item pItem) {
         ResourceLocation resourcelocation = BuiltInRegistries.ITEM.getKey(pItem);
         return resourcelocation.withPrefix("item/sprite/");
+    }
+
+    public void generateSai(Item item) {
+        ResourceLocation base = ModelLocationUtils.getModelLocation(item);
+        ResourceLocation texture = TextureMapping.getItemTexture(item);
+        ModelTemplates.FLAT_HANDHELD_ITEM.create(base, TextureMapping.layer0(texture), this.output,
+                this::generateBaseSai);
+
+        BLOCKING_HANDHELD_ITEM.create(base.withSuffix("_blocking"),
+                TextureMapping.layer0(texture), this.output);
+    }
+
+    public JsonObject generateBaseSai(ResourceLocation pModelLocation, Map<TextureSlot, ResourceLocation> template) {
+        JsonObject jsonobject = ModelTemplates.FLAT_HANDHELD_ITEM.createBaseTemplate(pModelLocation, template);
+        JsonArray jsonarray = new JsonArray();
+
+        JsonObject overrideJson = new JsonObject();
+        JsonObject predicateJson = new JsonObject();
+        predicateJson.addProperty(ClientMisc.BLOCKING_PREDICATE.toString(), 1);
+        overrideJson.add("predicate", predicateJson);
+        overrideJson.addProperty("model",pModelLocation.withSuffix("_blocking").toString());
+        jsonarray.add(overrideJson);
+
+        jsonobject.add("overrides", jsonarray);
+        return jsonobject;
+    }
+
+    public void generateCutlass(Item item) {
+        ResourceLocation base = ModelLocationUtils.getModelLocation(item);
+        ResourceLocation texture = TextureMapping.getItemTexture(item);
+        ModelTemplates.FLAT_HANDHELD_ITEM.create(base, TextureMapping.layer0(texture), this.output,
+                this::generateBaseCutlass);
+
+        BLOCKING_HANDHELD_ITEM.create(base.withSuffix("_blocking"),
+                TextureMapping.layer0(texture), this.output);
+    }
+
+    public JsonObject generateBaseCutlass(ResourceLocation pModelLocation, Map<TextureSlot, ResourceLocation> template) {
+        JsonObject jsonobject = ModelTemplates.FLAT_HANDHELD_ITEM.createBaseTemplate(pModelLocation, template);
+        JsonArray jsonarray = new JsonArray();
+
+        JsonObject overrideJson = new JsonObject();
+        JsonObject predicateJson = new JsonObject();
+        predicateJson.addProperty(ClientMisc.BLOCKING_PREDICATE.toString(), 1);
+        overrideJson.add("predicate", predicateJson);
+        overrideJson.addProperty("model",pModelLocation.withSuffix("_blocking").toString());
+        jsonarray.add(overrideJson);
+
+        jsonobject.add("overrides", jsonarray);
+        return jsonobject;
     }
 
     public void generateKusarigama(KusarigamaItem kusarigamaItem) {
@@ -121,6 +177,7 @@ public class ModItemModelProvider extends ItemModelGenerators {
 
     public static final ModelTemplate MACE = createItem(WarSmith.MOD_ID,"mace", TextureSlot.LAYER0);
 
+    public static final ModelTemplate BLOCKING_HANDHELD_ITEM = createItem(WarSmith.MOD_ID,"cutlass_blocking", TextureSlot.LAYER0);
 
     public static final ModelTemplate LARGE_FLAT_HANDHELD_ITEM = createItem(WarSmith.MOD_ID,"large_handheld", TextureSlot.LAYER0);
     public static final ModelTemplate EXTRA_LARGE_FLAT_HANDHELD_ITEM = createItem(WarSmith.MOD_ID,"extra_large_handheld", TextureSlot.LAYER0);

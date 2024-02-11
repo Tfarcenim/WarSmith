@@ -24,4 +24,15 @@ public class LivingEntityMixinFabric {
         WarSmith.livingDamageEvent((LivingEntity) (Object)this,damageSource,damageAmount);
     }
 
+  /*  @ModifyVariable(method = "hurt",at = @At(value = "INVOKE",target = "Lnet/minecraft/world/entity/WalkAnimationState;setSpeed(F)V"),print = true,ordinal = 0)
+    private float blockDamageCutlass(float amount,DamageSource source) {
+        return WarSmith.blockDamage((LivingEntity)(Object)this,amount,source);
+    }
+
+    @ModifyVariable(method = "hurt",at = @At(value = "INVOKE",target = "Lnet/minecraft/world/entity/WalkAnimationState;setSpeed(F)V",shift = At.Shift.AFTER)
+            ,print = true,ordinal = 0)
+    private boolean blockDamageCutlassAfter(boolean b,DamageSource source,float amount) {
+        return amount <= 0;
+    }*/
+
 }
