@@ -9,6 +9,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
@@ -69,6 +70,11 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public Attribute getEntityReachAttribute() {
         return ReachEntityAttributes.ATTACK_RANGE;
+    }
+
+    @Override
+    public double getEntityReach(LivingEntity living) {
+        return ReachEntityAttributes.getAttackRange(living,3);
     }
 
     @Override

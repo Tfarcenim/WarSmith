@@ -2,6 +2,9 @@ package tfar.warsmith;
 
 import com.google.common.collect.Multimap;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -250,5 +253,20 @@ public class WarSmith {
             return 1.5f;
         }
         return 1;
+    }
+
+    public static void removeEnchantment(ItemStack stack,Enchantment enchantment) {
+        ListTag enchs = stack.getEnchantmentTags();//compoundTag
+        CompoundTag target = null;
+        for (Tag tag : enchs) {
+            CompoundTag compoundTag = (CompoundTag) tag;
+            if (compoundTag.getString("id").equals(EnchantmentHelper.getEnchantmentId(enchantment).toString())) {
+                target = compoundTag;
+                break;
+            }
+        }
+        if (target != null) {
+            enchs.remove(target);
+        }
     }
 }

@@ -35,8 +35,8 @@ public class ModItems {
     public static final Item DIAMOND_CUTLASS = new CutlassItem(Tiers.DIAMOND,4,-2.4f,new Item.Properties());
     public static final Item NETHERITE_CUTLASS = new CutlassItem(Tiers.NETHERITE,4,-2.4f,new Item.Properties().fireResistant());
 
-    public static final Item BASEBALL_BAT = new BaseballBatItem(Tiers.WOOD,4,-2.4f,new Item.Properties());
-    public static final Item SPIKED_BASEBALL_BAT = new BaseballBatItem(Tiers.IRON,4,-2.4f,new Item.Properties());
-    public static final Item NETHERITE_BASEBALL_BAT = new BaseballBatItem(Tiers.NETHERITE,4,-2.4f,new Item.Properties().fireResistant());
+    public static final Item BASEBALL_BAT = new BaseballBatItem(Tiers.WOOD,2,-2.4f, 8, new Item.Properties());
+    public static final Item SPIKED_BASEBALL_BAT = new BaseballBatItem(Tiers.IRON,3,-2.4f, 5, new Item.Properties());
+    public static final Item NETHERITE_BASEBALL_BAT = new BaseballBatItem(Tiers.NETHERITE,2,-2.4f, 16, new Item.Properties().fireResistant());
 
 }

@@ -4,6 +4,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
@@ -58,6 +59,7 @@ public interface IPlatformHelper {
     boolean fireProjectileImpactEvent(Projectile projectile, HitResult hitResult);
 
     Attribute getEntityReachAttribute();
+    double getEntityReach(LivingEntity living);
 
     Attribute getBlockReachAttribute();
 

@@ -2,12 +2,12 @@ package tfar.warsmith.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import tfar.warsmith.WarSmith;
 import tfar.warsmith.WarSmithFabric;
 
@@ -27,4 +27,10 @@ public class PlayerMixinFabric {
     private float boostCritical(float original,Entity target) {
         return WarSmith.onCriticalHit((Player) (Object)this,target,original,true);
     }
+
+    @Inject(method = "createAttributes",at = @At("RETURN"))
+    private static void addKnockback(CallbackInfoReturnable<AttributeSupplier.Builder> cir) {
+        cir.getReturnValue().add(Attributes.ATTACK_KNOCKBACK);
+    }
+
 }
