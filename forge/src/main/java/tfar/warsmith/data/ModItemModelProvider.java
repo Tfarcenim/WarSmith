@@ -46,18 +46,21 @@ public class ModItemModelProvider extends ItemModelGenerators {
         generateFlatItem(ModItems.DIAMOND_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
         generateFlatItem(ModItems.NETHERITE_HALBERD,EXTRA_LARGE_FLAT_HANDHELD_ITEM);
 
+        makePerspectiveModel(ModItems.IRON_MACE,MACE);
+        makePerspectiveModel(ModItems.DIAMOND_MACE, MACE);
+        makePerspectiveModel(ModItems.NETHERITE_MACE, MACE);
 
-        makeMaceModel(ModItems.IRON_MACE);
-        makeMaceModel(ModItems.DIAMOND_MACE);
-        makeMaceModel(ModItems.NETHERITE_MACE);
+        makePerspectiveModel(ModItems.BASEBALL_BAT,BASEBALL_BAT);
+        makePerspectiveModel(ModItems.SPIKED_BASEBALL_BAT, BASEBALL_BAT);
+        makePerspectiveModel(ModItems.NETHERITE_BASEBALL_BAT, BASEBALL_BAT);
 
         generateCutlass(ModItems.IRON_CUTLASS);
         generateCutlass(ModItems.DIAMOND_CUTLASS);
         generateCutlass(ModItems.NETHERITE_CUTLASS);
     }
 
-    public void makeMaceModel(Item item) {
-        generateRegularModel(item,MACE);
+    public void makePerspectiveModel(Item item, ModelTemplate template) {
+        generateRegularModel(item,template);
         generateSpriteModel(item,ModelTemplates.FLAT_HANDHELD_ITEM);
     }
 
@@ -176,6 +179,7 @@ public class ModItemModelProvider extends ItemModelGenerators {
     }
 
     public static final ModelTemplate MACE = createItem(WarSmith.MOD_ID,"mace", TextureSlot.LAYER0);
+    public static final ModelTemplate BASEBALL_BAT = createItem(WarSmith.MOD_ID,"baseball_bat_3d", TextureSlot.LAYER0);
 
     public static final ModelTemplate BLOCKING_HANDHELD_ITEM = createItem(WarSmith.MOD_ID,"cutlass_blocking", TextureSlot.LAYER0);
 

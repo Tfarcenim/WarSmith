@@ -29,6 +29,12 @@ public class ModCreativeTabs {
                 output.accept(ModItems.IRON_MACE);
                 output.accept(ModItems.DIAMOND_MACE);
                 output.accept(ModItems.NETHERITE_MACE);
+                output.accept(ModItems.IRON_CUTLASS);
+                output.accept(ModItems.DIAMOND_CUTLASS);
+                output.accept(ModItems.NETHERITE_CUTLASS);
+                output.accept(ModItems.BASEBALL_BAT);
+                output.accept(ModItems.SPIKED_BASEBALL_BAT);
+                output.accept(ModItems.NETHERITE_BASEBALL_BAT);
             })
             .build();
 }

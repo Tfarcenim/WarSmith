@@ -14,6 +14,7 @@
   "enchantment.warsmith.sneak_attack": "Sneak Attack",
   "enchantment.warsmith.thieving_chain": "Thieving Chain",
   "enchantment.warsmith.toxic_advantage": "Toxic Advantage",
+  "item.warsmith.baseball_bat": "Baseball Bat",
   "item.warsmith.claymore": "Claymore",
   "item.warsmith.diamond_battleaxe": "Diamond Battleaxe",
   "item.warsmith.diamond_cutlass": "Diamond Cutlass",
@@ -29,6 +30,7 @@
   "item.warsmith.iron_kusarigama": "Iron Kusarigama",
   "item.warsmith.iron_mace": "Iron Mace",
   "item.warsmith.iron_sai": "Iron Sai",
+  "item.warsmith.netherite_baseball_bat": "Netherite Baseball Bat",
   "item.warsmith.netherite_battleaxe": "Netherite Battleaxe",
   "item.warsmith.netherite_cutlass": "Netherite Cutlass",
   "item.warsmith.netherite_halberd": "Netherite Halberd",
@@ -37,5 +39,6 @@
   "item.warsmith.netherite_mace": "Netherite Mace",
   "item.warsmith.netherite_sai": "Netherite Sai",
   "item.warsmith.rapier": "Rapier",
+  "item.warsmith.spiked_baseball_bat": "Spiked Baseball Bat",
   "itemGroup.warsmith": "WarSmith"
 }

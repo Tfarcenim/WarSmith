@@ -1,4 +1,5 @@
-// 1.20.1	2024-02-11T14:59:07.6780987	Model Definitions
+// 1.20.1	2024-02-11T18:01:48.1896083	Model Definitions
+635d2bde30b0daae2a1fa2490fa42ad219f3a1f8 assets/warsmith/models/item/baseball_bat.json
 6441ad19501fe7ea35dc96166e949f6549f41a72 assets/warsmith/models/item/claymore.json
 6e518192cf2b671683a5e802e4d22f06646cae83 assets/warsmith/models/item/diamond_battleaxe.json
 4ef30c83a6e1e9bc38482077d3bf75a22cbaf9c6 assets/warsmith/models/item/diamond_cutlass.json
@@ -20,6 +21,7 @@ ce2031551d953c164f609e84f73de1e8aa965ce2 assets/warsmith/models/item/iron_kusari
 46975d5b6277de5be21958f0b95ac20141c9019f assets/warsmith/models/item/iron_mace.json
 5bbc5cd7769709abbd2f3e50a39b32f301e83abb assets/warsmith/models/item/iron_sai.json
 dbce9e4d4d90d6b9b9d95c14fb9b138a4742de89 assets/warsmith/models/item/iron_sai_blocking.json
+87c9d50e71f2c6b18a9f4b90c51d4ffb4bccdf8d assets/warsmith/models/item/netherite_baseball_bat.json
 a1b4f5996138d0c29f8b7dc23cce5f805bcc1a1f assets/warsmith/models/item/netherite_battleaxe.json
 29004cb4c411a668b0751df3c7214fecb39fbf44 assets/warsmith/models/item/netherite_cutlass.json
 ca559cb7c27febcb3ad56cdaeb8603acad635c97 assets/warsmith/models/item/netherite_cutlass_blocking.json
@@ -31,6 +33,10 @@ adf6b119bd6cf263065ce0e880c9bdef2e84efdd assets/warsmith/models/item/netherite_k
 4e9474a0711de3bfde8d2cca526cb4e50567cde7 assets/warsmith/models/item/netherite_sai.json
 47ffabdb71550f56802354c36506b3619fc92ce1 assets/warsmith/models/item/netherite_sai_blocking.json
 692299117105fefe0fe2da2fc7f1c6ebe8a942df assets/warsmith/models/item/rapier.json
+cb75dbe21f32754645a68fbd52686aefb10ef1f6 assets/warsmith/models/item/spiked_baseball_bat.json
+9cc8b848aa6448331a759d4912da29c8d349011b assets/warsmith/models/item/sprite/baseball_bat.json
 73ba9071a35e9201b60adbf9345b8dc763452a64 assets/warsmith/models/item/sprite/diamond_mace.json
 81e15794d4a76a62718a7ad1615de1c6c1e90141 assets/warsmith/models/item/sprite/iron_mace.json
+84a3536e432bfaf11b45d19498aa49a47138d5bb assets/warsmith/models/item/sprite/netherite_baseball_bat.json
 3d13441d0981e8306b3f245766c98ab2bc66f434 assets/warsmith/models/item/sprite/netherite_mace.json
+adff3a9e5e1a9f2da41bfe4d1c7cde8dac3840bf assets/warsmith/models/item/sprite/spiked_baseball_bat.json

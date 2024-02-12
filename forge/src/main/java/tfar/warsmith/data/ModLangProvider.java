@@ -47,6 +47,9 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultItem(() -> ModItems.IRON_CUTLASS);
         addDefaultItem(() -> ModItems.DIAMOND_CUTLASS);
         addDefaultItem(() -> ModItems.NETHERITE_CUTLASS);
+        addDefaultItem(() -> ModItems.BASEBALL_BAT);
+        addDefaultItem(() -> ModItems.SPIKED_BASEBALL_BAT);
+        addDefaultItem(() -> ModItems.NETHERITE_BASEBALL_BAT);
 
         addDefaultEnchantment(() -> ModEnchantments.AMATERASU);
         addDefaultEnchantment(() -> ModEnchantments.SLEIGHT_OF_HAND);

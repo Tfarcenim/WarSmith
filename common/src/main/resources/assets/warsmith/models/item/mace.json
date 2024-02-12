@@ -3,8 +3,8 @@
 	"texture_size": [32, 32],
 	"gui_light": "front",
 	"textures": {
-		"layer0": "netherite_mace",
-		"particle": "iron_mace"
+		"layer0": "warsmith:item/3d/iron_mace",
+		"particle": "warsmith:item/3d/iron_mace"
 	},
 	"elements": [
 		{

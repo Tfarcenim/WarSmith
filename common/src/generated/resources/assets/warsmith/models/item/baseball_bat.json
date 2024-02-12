@@ -1,0 +1,6 @@
+{
+  "parent": "warsmith:item/baseball_bat_3d",
+  "textures": {
+    "layer0": "warsmith:item/3d/baseball_bat"
+  }
+}
