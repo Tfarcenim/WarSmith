@@ -16,6 +16,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -250,7 +251,7 @@ public class WarSmith {
             if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.CRITICAL_STRIKE, player.getMainHandItem()) > 0) {
                 return 2;
             }
-            return 1.5f;
+            return damageModifier;
         }
         return 1;
     }
@@ -269,4 +270,12 @@ public class WarSmith {
             enchs.remove(target);
         }
     }
+
+    public static void removeArmor(LivingEntity target,EquipmentSlot slot) {
+        ItemStack held = target.getItemBySlot(slot);
+        ItemEntity itemEntity = new ItemEntity(target.level(), target.getX(), target.getY(), target.getZ(), held);
+        target.level().addFreshEntity(itemEntity);
+        target.setItemSlot(slot,ItemStack.EMPTY);
+    }
+
 }
