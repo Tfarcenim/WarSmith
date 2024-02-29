@@ -29,6 +29,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModItemTags.RAPIERS).add(ModItems.RAPIER);
         tag(ModItemTags.MACES).add(ModItems.IRON_MACE,ModItems.DIAMOND_MACE,ModItems.NETHERITE_MACE);
         tag(ModItemTags.CUTLASSES).add(ModItems.IRON_CUTLASS,ModItems.DIAMOND_CUTLASS,ModItems.NETHERITE_CUTLASS);
+        tag(ModItemTags.BASEBALL_BATS).add(ModItems.BASEBALL_BAT,ModItems.SPIKED_BASEBALL_BAT,ModItems.NETHERITE_BASEBALL_BAT);
 
         tag(ModItemTags.CAN_APPLY_BANE_OF_ARTHROPODS).addTags(ItemTags.SWORDS,ModItemTags.BATTLEAXES,ModItemTags.MACES);
         tag(ModItemTags.CAN_APPLY_FIRE_ASPECT).addTags(ItemTags.SWORDS,ModItemTags.BATTLEAXES,ModItemTags.KUSARIGAMAS,ModItemTags.MACES);
@@ -40,7 +41,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModItemTags.CAN_APPLY_SLEIGHT_OF_HAND).addTags(ModItemTags.KATANAS,ModItemTags.RAPIERS);
 
         tag(ItemTags.TOOLS).addTags(ModItemTags.KATANAS,ModItemTags.KUSARIGAMAS,ModItemTags.SAIS,ModItemTags.HALBERDS,
-                ModItemTags.BATTLEAXES,ModItemTags.RAPIERS,ModItemTags.MACES);
+                ModItemTags.BATTLEAXES,ModItemTags.RAPIERS,ModItemTags.MACES,ModItemTags.BASEBALL_BATS);
 
         tag(ItemTags.SWORDS).addTag(ModItemTags.CUTLASSES);
     }

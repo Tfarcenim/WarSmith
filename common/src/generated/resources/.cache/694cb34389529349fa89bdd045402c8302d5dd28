@@ -1,6 +1,7 @@
-// 1.20.1	2024-02-05T01:07:16.028394	Tags for minecraft:item mod id warsmith
+// 1.20.1	2024-02-27T23:47:51.15885	Tags for minecraft:item mod id warsmith
 f341868c7389c3c67b2e2088d0cd643f438d1b08 data/minecraft/tags/items/swords.json
-7064cec214524d62a6b8c8cfdf74d20d6cf45f3b data/minecraft/tags/items/tools.json
+656671ff77e5db1693298eb3afb81023f7ed5965 data/minecraft/tags/items/tools.json
+721c9e7e2a00db6f7e9db3f10aca20ca3ef7986a data/warsmith/tags/items/baseball_bats.json
 74f6ad4282f28645a0621c80ec6cb518d6125ec6 data/warsmith/tags/items/battleaxes.json
 eec034480e3a340a2973bb142658b9a8e2b62781 data/warsmith/tags/items/can_apply_bane_of_arthropods.json
 ab7ed269a11e0f0df56a89cbe078e502e7e9973e data/warsmith/tags/items/can_apply_fire_aspect.json

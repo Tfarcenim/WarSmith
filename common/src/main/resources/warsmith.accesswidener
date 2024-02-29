@@ -7,3 +7,5 @@ accessible class net/minecraft/world/entity/npc/VillagerTrades$EnchantedItemForE
 
 accessible class net/minecraft/client/resources/model/ModelManager$ReloadState
 accessible field net/minecraft/world/item/enchantment/Enchantments ARMOR_SLOTS [Lnet/minecraft/world/entity/EquipmentSlot;
+
+accessible method net/minecraft/world/level/Level getDestroyType (Lnet/minecraft/world/level/GameRules$Key;)Lnet/minecraft/world/level/Explosion$BlockInteraction;

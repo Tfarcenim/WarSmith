@@ -18,6 +18,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import tfar.warsmith.WarSmith;
+import tfar.warsmith.duck.PlayerDuck;
 import tfar.warsmith.platform.Services;
 
 public class BaseballBatItem extends WeaponItem {
@@ -70,11 +71,13 @@ public class BaseballBatItem extends WeaponItem {
                  //   player.getAttribute(Attributes.ATTACK_KNOCKBACK).addTransientModifier(knockbackBoost);
 
                     player.resetAttackStrengthTicker();
+                    ((PlayerDuck)player).setChargedBaseballBat(true);
                     player.attack(entity);
                     player.swing(InteractionHand.MAIN_HAND);
                     player.getAttribute(Attributes.ATTACK_DAMAGE).removeModifier(swingBoost);
                     WarSmith.removeEnchantment(pStack, Enchantments.KNOCKBACK);
-            //        player.getAttribute(Attributes.ATTACK_KNOCKBACK).removeModifier(knockbackBoost);
+                    ((PlayerDuck)player).setChargedBaseballBat(false);
+                    //        player.getAttribute(Attributes.ATTACK_KNOCKBACK).removeModifier(knockbackBoost);
                 }
             }
         }

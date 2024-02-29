@@ -23,6 +23,7 @@ public class ModItemTags {
     public static final TagKey<Item> CAN_APPLY_SHARPNESS = bind("can_apply_sharpness");
     public static final TagKey<Item> CAN_APPLY_SMITE = bind("can_apply_smite");
     public static final TagKey<Item> CAN_APPLY_SLEIGHT_OF_HAND = bind("can_apply_sleight_of_hand");
+    public static final TagKey<Item> BASEBALL_BATS = bind("baseball_bats");
 
     private static TagKey<Item> bind(String $$0) {
         return TagKey.create(Registries.ITEM,new ResourceLocation(WarSmith.MOD_ID,$$0));

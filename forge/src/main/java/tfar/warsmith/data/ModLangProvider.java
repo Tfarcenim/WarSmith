@@ -66,6 +66,8 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultEnchantment(() -> ModEnchantments.DASHING);
         addDefaultEnchantment(() -> ModEnchantments.ARMOR_PIERCING);
         addDefaultEnchantment(() -> ModEnchantments.REND);
+        addDefaultEnchantment(() -> ModEnchantments.SKULL_CRUSHER);
+        addDefaultEnchantment(() -> ModEnchantments.FLAMING_MISSLE);
 
         addTab(ModCreativeTabs.WARSMITH,WarSmith.MOD_NAME);
     }

@@ -37,6 +37,9 @@ import tfar.warsmith.mixin.EnchantmentAccessor;
 import tfar.warsmith.platform.Services;
 import tfar.warsmith.tags.ModItemTags;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
@@ -186,6 +189,10 @@ public class WarSmith {
         return 1;
     }
 
+    public static void removeItemEntities(List<Entity> items) {
+        items.removeIf(ItemEntity.class::isInstance);
+    }
+
     //return true to cancel
     public static boolean livingAttackEvent(LivingEntity target, DamageSource source, float amount) {
         if (target.isUsingItem()) {
@@ -254,6 +261,31 @@ public class WarSmith {
             return damageModifier;
         }
         return 1;
+    }
+
+    public static final Map<EntityType<?>,Item> headMap = new HashMap<>();
+
+    static {
+        headMap.put(EntityType.WITHER_SKELETON,Items.WITHER_SKELETON_SKULL);
+        headMap.put(EntityType.SKELETON,Items.SKELETON_SKULL);
+        headMap.put(EntityType.ZOMBIE,Items.ZOMBIE_HEAD);
+        headMap.put(EntityType.CREEPER,Items.CREEPER_HEAD);
+        headMap.put(EntityType.PLAYER,Items.PLAYER_HEAD);
+        headMap.put(EntityType.PIGLIN,Items.PIGLIN_HEAD);
+    }
+
+    public static void onDropCustomLoot(LivingEntity entity, DamageSource pDamageSource, int pLooting, boolean pHitByPlayer) {
+        Entity attacker = pDamageSource.getEntity();
+
+        if (attacker instanceof Player player && ((PlayerDuck) player).isChargedBaseballBat()) {
+            if (EnchantmentHelper.getEnchantmentLevel(ModEnchantments.SKULL_CRUSHER, player) > 0) {
+                Item skull = headMap.get(entity.getType());
+                if (skull != null) {
+                    ItemStack itemstack = new ItemStack(skull);
+                    entity.spawnAtLocation(itemstack);
+                }
+            }
+        }
     }
 
     public static void removeEnchantment(ItemStack stack,Enchantment enchantment) {

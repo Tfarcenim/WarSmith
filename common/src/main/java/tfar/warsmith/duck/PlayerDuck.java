@@ -12,4 +12,7 @@ public interface PlayerDuck {
     boolean hasOpportunisticStrike();
     void setOpportunisticStrike(boolean opportunity);
 
+    boolean isChargedBaseballBat();
+    void setChargedBaseballBat(boolean value);
+
 }

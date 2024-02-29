@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import tfar.warsmith.WarSmith;
 
@@ -38,5 +39,11 @@ public abstract class LivingEntityMixin {
         if (bonus > 0) {
             cir.setReturnValue(cir.getReturnValue() + bonus);
         }
+    }
+
+    //mainly needed for fabric, should this be moved out of common?
+    @Inject(method = "dropCustomDeathLoot",at = @At("HEAD"))
+    private void addSkullCrusherHeads(DamageSource pDamageSource, int pLooting, boolean pHitByPlayer, CallbackInfo ci) {
+        WarSmith.onDropCustomLoot((LivingEntity) (Object)this,pDamageSource,pLooting,pHitByPlayer);
     }
 }

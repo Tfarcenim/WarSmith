@@ -19,6 +19,7 @@ import tfar.warsmith.entity.KusarigamaEntity;
 public class PlayerMixin implements PlayerDuck {
 
     private boolean hasOpportunisticStrike;
+    private boolean hasChargedBaseballBat;
 
     @ModifyVariable(method = "attack",at = @At(value = "INVOKE",
             target = "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;getFireAspect(Lnet/minecraft/world/entity/LivingEntity;)I"),ordinal = 0)
@@ -62,5 +63,15 @@ public class PlayerMixin implements PlayerDuck {
     @Override
     public void setOpportunisticStrike(boolean opportunity) {
         hasOpportunisticStrike = opportunity;
+    }
+
+    @Override
+    public boolean isChargedBaseballBat() {
+        return hasChargedBaseballBat;
+    }
+
+    @Override
+    public void setChargedBaseballBat(boolean value) {
+        hasChargedBaseballBat = value;
     }
 }

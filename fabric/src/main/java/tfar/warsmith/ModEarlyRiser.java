@@ -45,6 +45,10 @@ public class ModEarlyRiser implements Runnable{
                 .addEnumSubclass("SLEIGHT_OF_HAND", "tfar.warsmith.enchantment.categories.SleightOfHandEnchantmentCategory")
                 .build();
 
+        ClassTinkerers.enumBuilder(enchantmentTarget)
+                .addEnumSubclass("BASEBALL_BAT", "tfar.warsmith.enchantment.categories.BaseballBatEnchantmentCategory")
+                .build();
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////todo remove in 1.20.5+
 
         ClassTinkerers.enumBuilder(enchantmentTarget)
@@ -70,6 +74,8 @@ public class ModEarlyRiser implements Runnable{
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("SMITE", "tfar.warsmith.enchantment.categories.SmiteEnchantmentCategory")
                 .build();
+
+
 
     }
 }

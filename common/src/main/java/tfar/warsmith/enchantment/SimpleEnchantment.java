@@ -51,7 +51,7 @@ public class SimpleEnchantment extends Enchantment {
 
         IntUnaryOperator minCost = level -> 1 + level * 10;
         IntUnaryOperator range = level -> 5;
-        PostAttack postAttack = (attacker, target, level) -> {};
+        PostAttack postAttack = (attacker, target, enchantmentLevel) -> {};
 
         public Builder(Rarity rarity, EnchantmentCategory category, EquipmentSlot... slots) {
             this.rarity = rarity;
@@ -90,6 +90,6 @@ public class SimpleEnchantment extends Enchantment {
 
     @FunctionalInterface
     public interface PostAttack {
-        void doPostAttack(LivingEntity attacker, Entity target, int level);
+        void doPostAttack(LivingEntity attacker, Entity target, int enchantmentLevel);
     }
 }

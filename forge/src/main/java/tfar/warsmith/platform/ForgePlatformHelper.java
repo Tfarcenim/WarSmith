@@ -4,6 +4,7 @@ import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
@@ -71,6 +72,11 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public Attribute getEntityReachAttribute() {
         return ForgeMod.ENTITY_REACH.get();
+    }
+
+    @Override
+    public double getEntityReach(LivingEntity living) {
+        return living.getAttribute(ForgeMod.ENTITY_REACH.get()).getValue();
     }
 
     @Override

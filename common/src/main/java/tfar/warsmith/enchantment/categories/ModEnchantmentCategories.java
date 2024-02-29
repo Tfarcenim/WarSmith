@@ -12,9 +12,10 @@ public class ModEnchantmentCategories {
     public static final EnchantmentCategory BATTLEAXE = Services.PLATFORM.create("BATTLEAXE",ModItemTags.BATTLEAXES);
     public static final EnchantmentCategory RAPIER = Services.PLATFORM.create("RAPIER",ModItemTags.RAPIERS);
     public static final EnchantmentCategory MACE = Services.PLATFORM.create("MACE",ModItemTags.MACES);
+    public static final EnchantmentCategory BASEBALL_BAT = Services.PLATFORM.create("BASEBALL_BAT",ModItemTags.BASEBALL_BATS);
     public static final EnchantmentCategory SLEIGHT_OF_HAND = Services.PLATFORM.create("SLEIGHT_OF_HAND",ModItemTags.CAN_APPLY_SLEIGHT_OF_HAND);
 
-    //todo remove in 1.20.4+
+    //todo remove in 1.20.5+
     public static final EnchantmentCategory BANE_OF_ARTHROPODS = Services.PLATFORM.create("BANE_OF_ARTHROPODS", ModItemTags.CAN_APPLY_BANE_OF_ARTHROPODS);
     public static final EnchantmentCategory FIRE_ASPECT = Services.PLATFORM.create("FIRE_ASPECT", ModItemTags.CAN_APPLY_FIRE_ASPECT);
     public static final EnchantmentCategory KNOCKBACK = Services.PLATFORM.create("KNOCKBACK", ModItemTags.CAN_APPLY_KNOCKBACK);
