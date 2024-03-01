@@ -2,6 +2,7 @@ package tfar.warsmith.platform;
 
 import com.chocohead.mm.api.ClassTinkerers;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.loader.api.FabricLoader;
@@ -16,6 +17,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.phys.HitResult;
 import tfar.warsmith.WarSmith;
+import tfar.warsmith.network.C2SModPacket;
 import tfar.warsmith.network.S2CModPacket;
 import tfar.warsmith.platform.services.IPlatformHelper;
 
@@ -80,6 +82,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public Attribute getBlockReachAttribute() {
         return ReachEntityAttributes.REACH;
+    }
+
+    @Override
+    public void sendToServer(C2SModPacket msg, ResourceLocation channel) {
+        FriendlyByteBuf buf = PacketByteBufs.create();
+        msg.write(buf);
+        ClientPlayNetworking.send(channel, buf);
     }
 
     @Override

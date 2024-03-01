@@ -19,34 +19,34 @@ import java.util.List;
 
 public class ModEnchantments {
 
-    public static final Enchantment AMATERASU = SimpleEnchantment.Builder
+    public static final Enchantment AMATERASU = SimpleEnchantment.Properties
             .builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.KATANA, EquipmentSlot.MAINHAND)
             .maxLevel(2)
             .minCost(level -> 20 * level - 10)
             .range(level -> 50)
             .postAttack((attacker, target, level) -> ((EntityDuck) target).setSecondsOnSoulFire(level * 4))
             .build();
-    public static final Enchantment SLEIGHT_OF_HAND = SimpleEnchantment.Builder
+    public static final Enchantment SLEIGHT_OF_HAND = SimpleEnchantment.Properties
             .builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.SLEIGHT_OF_HAND, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .build();
-    public static final Enchantment SNEAK_ATTACK = SimpleEnchantment.Builder
+    public static final Enchantment SNEAK_ATTACK = SimpleEnchantment.Properties
             .builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.KATANA, EquipmentSlot.MAINHAND)
             .maxLevel(3)
             .minCost(level -> level * 8 - 3)
             .range(level -> 50)
             .build();
-    public static final Enchantment THIEVING_CHAIN = SimpleEnchantment.Builder
+    public static final Enchantment THIEVING_CHAIN = SimpleEnchantment.Properties
             .builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.KUSARIGAMA, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .build();
-    public static final Enchantment OPPORTUNISTIC_STRIKE = SimpleEnchantment.Builder.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.SAI, EquipmentSlot.MAINHAND)
+    public static final Enchantment OPPORTUNISTIC_STRIKE = SimpleEnchantment.Properties.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.SAI, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .build();
-    public static final Enchantment TOXIC_ADVANTAGE = SimpleEnchantment.Builder.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.SAI, EquipmentSlot.MAINHAND)
+    public static final Enchantment TOXIC_ADVANTAGE = SimpleEnchantment.Properties.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.SAI, EquipmentSlot.MAINHAND)
             .maxLevel(3)
             .minCost(level -> level * 8 - 3)
             .range(level -> 50)
@@ -58,7 +58,7 @@ public class ModEnchantments {
                 }
             })
             .build();
-    public static final Enchantment HALT = SimpleEnchantment.Builder.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.HALBERD, EquipmentSlot.MAINHAND)
+    public static final Enchantment HALT = SimpleEnchantment.Properties.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.HALBERD, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .postAttack((attacker, target, level) -> {
@@ -67,12 +67,12 @@ public class ModEnchantments {
                 }
             })
             .build();
-    public static final Enchantment GOLIATH_FELLER = SimpleEnchantment.Builder.builder
+    public static final Enchantment GOLIATH_FELLER = SimpleEnchantment.Properties.builder
                     (Enchantment.Rarity.RARE, ModEnchantmentCategories.HALBERD, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .build();
-    public static final Enchantment DEVASTATING_SLASH = SimpleEnchantment.Builder
+    public static final Enchantment DEVASTATING_SLASH = SimpleEnchantment.Properties
             .builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.HALBERD, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
@@ -82,28 +82,28 @@ public class ModEnchantments {
                 }
             })
             .build();
-    public static final Enchantment DEADLY_SWEEP = SimpleEnchantment.Builder.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.BATTLEAXE, EquipmentSlot.MAINHAND)
+    public static final Enchantment DEADLY_SWEEP = SimpleEnchantment.Properties.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.BATTLEAXE, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .build();
-    public static final Enchantment PIERCING_DASH = SimpleEnchantment.Builder.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.RAPIER, EquipmentSlot.MAINHAND)
+    public static final Enchantment PIERCING_DASH = SimpleEnchantment.Properties.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.RAPIER, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .build();
-    public static final Enchantment CRITICAL_STRIKE = SimpleEnchantment.Builder.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.RAPIER, EquipmentSlot.MAINHAND)
+    public static final Enchantment CRITICAL_STRIKE = SimpleEnchantment.Properties.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.RAPIER, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .build();
-    public static final Enchantment DASHING = SimpleEnchantment.Builder.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.RAPIER, EquipmentSlot.MAINHAND)
+    public static final Enchantment DASHING = SimpleEnchantment.Properties.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.RAPIER, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .build();
-    public static final Enchantment ARMOR_PIERCING = SimpleEnchantment.Builder
+    public static final Enchantment ARMOR_PIERCING = SimpleEnchantment.Properties
             .builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.RAPIER, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .build();
-    public static final Enchantment REND = SimpleEnchantment.Builder.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.MACE, EquipmentSlot.MAINHAND)
+    public static final Enchantment REND = SimpleEnchantment.Properties.builder(Enchantment.Rarity.RARE, ModEnchantmentCategories.MACE, EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .postAttack((attacker, target, level) -> {
@@ -122,12 +122,12 @@ public class ModEnchantments {
             })
             .build();
 
-    public static final Enchantment SKULL_CRUSHER = SimpleEnchantment.Builder.builder(Enchantment.Rarity.RARE,ModEnchantmentCategories.BASEBALL_BAT,EquipmentSlot.MAINHAND)
+    public static final Enchantment SKULL_CRUSHER = SimpleEnchantment.Properties.builder(Enchantment.Rarity.RARE,ModEnchantmentCategories.BASEBALL_BAT,EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .build();
 
-    public static final Enchantment FLAMING_MISSLE = SimpleEnchantment.Builder.builder(Enchantment.Rarity.RARE,ModEnchantmentCategories.BASEBALL_BAT,EquipmentSlot.MAINHAND)
+    public static final Enchantment FLAMING_MISSLE = SimpleEnchantment.Properties.builder(Enchantment.Rarity.RARE,ModEnchantmentCategories.BASEBALL_BAT,EquipmentSlot.MAINHAND)
             .minCost(level -> 15)
             .range(level -> 50)
             .postAttack((attacker, target, enchantmentLevel) -> {

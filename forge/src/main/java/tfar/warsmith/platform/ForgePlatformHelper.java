@@ -16,6 +16,7 @@ import net.minecraftforge.fml.loading.FMLLoader;
 import org.apache.commons.lang3.tuple.Pair;
 import tfar.warsmith.WarSmith;
 import tfar.warsmith.WarSmithForge;
+import tfar.warsmith.network.C2SModPacket;
 import tfar.warsmith.network.S2CModPacket;
 import tfar.warsmith.platform.services.IPlatformHelper;
 
@@ -82,6 +83,11 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public Attribute getBlockReachAttribute() {
         return ForgeMod.BLOCK_REACH.get();
+    }
+
+    @Override
+    public void sendToServer(C2SModPacket msg, ResourceLocation channel) {
+
     }
 
     @Override

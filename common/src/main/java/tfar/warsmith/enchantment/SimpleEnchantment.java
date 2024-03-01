@@ -14,13 +14,12 @@ public class SimpleEnchantment extends Enchantment {
     protected final IntUnaryOperator range;
     private final PostAttack postAttack;
 
-    protected SimpleEnchantment(Rarity $$0, EnchantmentCategory $$1, EquipmentSlot[] $$2, int maxLevel,
-                                IntUnaryOperator minCost, IntUnaryOperator range, PostAttack postAttack) {
-        super($$0, $$1, $$2);
-        this.maxLevel = maxLevel;
-        this.minCost = minCost;
-        this.range = range;
-        this.postAttack = postAttack;
+    protected SimpleEnchantment(Properties properties) {
+        super(properties.rarity,properties.category,properties.slots);
+        this.maxLevel = properties.maxLevel;
+        this.minCost = properties.minCost;
+        this.range = properties.range;
+        this.postAttack = properties.postAttack;
     }
 
     @Override
@@ -43,7 +42,7 @@ public class SimpleEnchantment extends Enchantment {
         postAttack.doPostAttack($$0, $$1, $$2);
     }
 
-    public static class Builder {
+    public static class Properties {
         final Rarity rarity;
         final EnchantmentCategory category;
         final EquipmentSlot[] slots;
@@ -53,38 +52,38 @@ public class SimpleEnchantment extends Enchantment {
         IntUnaryOperator range = level -> 5;
         PostAttack postAttack = (attacker, target, enchantmentLevel) -> {};
 
-        public Builder(Rarity rarity, EnchantmentCategory category, EquipmentSlot... slots) {
+        public Properties(Rarity rarity, EnchantmentCategory category, EquipmentSlot... slots) {
             this.rarity = rarity;
             this.category = category;
             this.slots = slots;
         }
 
-        public static Builder builder(Rarity rarity,EnchantmentCategory category,EquipmentSlot... slots) {
-            return new Builder(rarity,category,slots);
+        public static Properties builder(Rarity rarity, EnchantmentCategory category, EquipmentSlot... slots) {
+            return new Properties(rarity,category,slots);
         }
 
-        public Builder maxLevel(int level) {
+        public Properties maxLevel(int level) {
             this.maxLevel = level;
             return this;
         }
 
-        public Builder minCost(IntUnaryOperator minCost) {
+        public Properties minCost(IntUnaryOperator minCost) {
             this.minCost = minCost;
             return this;
         }
 
-        public Builder range(IntUnaryOperator range) {
+        public Properties range(IntUnaryOperator range) {
             this.range = range;
             return this;
         }
 
-        public Builder postAttack(PostAttack postAttack) {
+        public Properties postAttack(PostAttack postAttack) {
             this.postAttack = postAttack;
             return this;
         }
 
         public SimpleEnchantment build() {
-            return new SimpleEnchantment(rarity,category,slots,maxLevel,minCost,range,postAttack);
+            return new SimpleEnchantment(this);
         }
     }
 

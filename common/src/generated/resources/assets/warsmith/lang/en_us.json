@@ -42,5 +42,7 @@
   "item.warsmith.netherite_sai": "Netherite Sai",
   "item.warsmith.rapier": "Rapier",
   "item.warsmith.spiked_baseball_bat": "Spiked Baseball Bat",
-  "itemGroup.warsmith": "WarSmith"
+  "itemGroup.warsmith": "WarSmith",
+  "warsmith.sharpen.tooltip": "Sharpen Weapon",
+  "warsmith.sharpened.tooltip": "Sharpened: %s uses left"
 }

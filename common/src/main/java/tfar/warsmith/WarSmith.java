@@ -72,21 +72,21 @@ public class WarSmith {
     }
 
     public static void afterRegistration() {
-        ((EnchantmentAccessor)Enchantments.BANE_OF_ARTHROPODS).setCategory(ModEnchantmentCategories.BANE_OF_ARTHROPODS);
-        ((EnchantmentAccessor)Enchantments.FIRE_ASPECT).setCategory(ModEnchantmentCategories.FIRE_ASPECT);
-        ((EnchantmentAccessor)Enchantments.KNOCKBACK).setCategory(ModEnchantmentCategories.KNOCKBACK);
-        ((EnchantmentAccessor)Enchantments.MOB_LOOTING).setCategory(ModEnchantmentCategories.LOOTING);
-        ((EnchantmentAccessor)Enchantments.SHARPNESS).setCategory(ModEnchantmentCategories.SHARPNESS);
-        ((EnchantmentAccessor)Enchantments.SMITE).setCategory(ModEnchantmentCategories.SMITE);
+        ((EnchantmentAccessor) Enchantments.BANE_OF_ARTHROPODS).setCategory(ModEnchantmentCategories.BANE_OF_ARTHROPODS);
+        ((EnchantmentAccessor) Enchantments.FIRE_ASPECT).setCategory(ModEnchantmentCategories.FIRE_ASPECT);
+        ((EnchantmentAccessor) Enchantments.KNOCKBACK).setCategory(ModEnchantmentCategories.KNOCKBACK);
+        ((EnchantmentAccessor) Enchantments.MOB_LOOTING).setCategory(ModEnchantmentCategories.LOOTING);
+        ((EnchantmentAccessor) Enchantments.SHARPNESS).setCategory(ModEnchantmentCategories.SHARPNESS);
+        ((EnchantmentAccessor) Enchantments.SMITE).setCategory(ModEnchantmentCategories.SMITE);
     }
 
 
-  //  static UUID chest_negator = UUID.fromString("63476f76-f3c4-4bbe-8a0f-2822c66bd046");
-  //  static UUID leggings_negator = UUID.fromString("5706c1c8-4801-4e43-b056-88e7213708f9");
+    //  static UUID chest_negator = UUID.fromString("63476f76-f3c4-4bbe-8a0f-2822c66bd046");
+    static UUID SHARPNESS_BOOST = UUID.fromString("5706c1c8-4801-4e43-b056-88e7213708f9");
     static UUID MACE_CHARGE = UUID.fromString("c92bf47f-83a2-4a73-9196-c9f72f9eca89");
     static UUID SELIGHT_OF_HAND_BOOST = UUID.fromString("be5eb80f-ef6a-4e51-ab9b-c1147ba2667e");
 
-    public static float adjustDamage(LivingEntity livingEntity,DamageSource source,float base, float current) {
+    public static float adjustDamage(LivingEntity livingEntity, DamageSource source, float base, float current) {
         Entity entity = source.getDirectEntity();
         float bonus = 0;
         float diff = base - current;
@@ -96,7 +96,7 @@ public class WarSmith {
                 for (EquipmentSlot slot : EquipmentSlot.values()) {
                     ItemStack stack = livingEntity.getItemBySlot(slot);
                     if (stack.getItem() instanceof ArmorItem armorItem && armorItem.getMaterial().equals(ArmorMaterials.LEATHER)) {
-                        bonus += diff/4;
+                        bonus += diff / 4;
                     }
                 }
             }
@@ -105,27 +105,60 @@ public class WarSmith {
     }
 
     public static void modifyAttributeModifiers(ItemStack stack, EquipmentSlot slot, Multimap<Attribute, AttributeModifier> attributeModifiers) {
-        if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SLEIGHT_OF_HAND,stack) > 0 && slot == EquipmentSlot.MAINHAND) {
-            attributeModifiers.get(Attributes.ATTACK_SPEED).add(new AttributeModifier(SELIGHT_OF_HAND_BOOST, "Sleight of Hand",2, AttributeModifier.Operation.ADDITION));
+        if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SLEIGHT_OF_HAND, stack) > 0 && slot == EquipmentSlot.MAINHAND) {
+            attributeModifiers.get(Attributes.ATTACK_SPEED).add(new AttributeModifier(SELIGHT_OF_HAND_BOOST, "Sleight of Hand", 2, AttributeModifier.Operation.ADDITION));
         }
 
         if (slot == EquipmentSlot.MAINHAND && stack.getItem() instanceof MaceItem && MaceItem.isCharged(stack)) {
-            attributeModifiers.get(Attributes.ATTACK_DAMAGE).add(new AttributeModifier(MACE_CHARGE,"Mace Charge",3, AttributeModifier.Operation.ADDITION));
+            attributeModifiers.get(Attributes.ATTACK_DAMAGE).add(new AttributeModifier(MACE_CHARGE, "Mace Charge", 3, AttributeModifier.Operation.ADDITION));
+        }
+
+        if (slot == EquipmentSlot.MAINHAND && isSharpened(stack)) {
+            attributeModifiers.get(Attributes.ATTACK_DAMAGE).add(new AttributeModifier(SHARPNESS_BOOST, "Sharpened Boost", 3, AttributeModifier.Operation.ADDITION));
         }
     }
 
+    static boolean isSharpened(ItemStack stack) {
+        return stack.hasTag() && stack.getTag().contains(SHARPENED_KEY);
+    }
+
+    public static final String SHARPENED_TOOLTIP_KEY = "warsmith.sharpened.tooltip";
+    public static final String SHARPEN_TOOLTIP_KEY = "warsmith.sharpen.tooltip";
+    public static final String SHARPENED_KEY = "sharpened";
+
     public static float getTotalMultipliers(float damage, LivingEntity attacker, Entity target) {
         float multiplier = 1;
-        multiplier *= getSneakMultiplier(attacker,target);
+        multiplier *= getSneakMultiplier(attacker, target);
         multiplier *= getOpportunisticMultiplier(attacker, target);
-        multiplier *= getGoliathMultiplier(attacker,target);
+        multiplier *= getGoliathMultiplier(attacker, target);
         return multiplier;
+    }
+
+    public static void afterHit(Player player) {
+        ItemStack weapon = player.getMainHandItem();
+        if (isSharpened(weapon)) {
+            if (!player.getAbilities().instabuild)
+                useCharge(weapon);
+        }
+    }
+
+    public static void useCharge(ItemStack stack) {
+        CompoundTag nbt = stack.getTag();
+        if (nbt != null) {
+            int uses = nbt.getInt(SHARPENED_KEY);
+            uses--;
+            if (uses > 0) {
+                nbt.putInt(SHARPENED_KEY, uses);
+            } else {
+                nbt.remove(SHARPENED_KEY);
+            }
+        }
     }
 
     private static final float referenceVolume = EntityType.ENDERMAN.getWidth() * EntityType.ENDERMAN.getWidth() * EntityType.ENDERMAN.getHeight();
 
     public static float getGoliathMultiplier(LivingEntity attacker, Entity target) {
-        if (target instanceof LivingEntity && EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.GOLIATH_FELLER,attacker.getMainHandItem()) > 0) {
+        if (target instanceof LivingEntity && EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.GOLIATH_FELLER, attacker.getMainHandItem()) > 0) {
             float volume = target.getBbHeight() * target.getBbWidth() * target.getBbWidth();
             if (volume >= referenceVolume) {
                 return 1.2f;
@@ -148,8 +181,8 @@ public class WarSmith {
     }
 
 
-    public static float getSneakMultiplier(LivingEntity attacker,Entity target) {
-        int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SNEAK_ATTACK,attacker.getMainHandItem());
+    public static float getSneakMultiplier(LivingEntity attacker, Entity target) {
+        int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SNEAK_ATTACK, attacker.getMainHandItem());
         if (level > 0) {
 
             Vec3 targetFacing = target.getLookAngle();
@@ -161,13 +194,13 @@ public class WarSmith {
 
             double angle = 180 / Math.PI * Math.acos(targetFacing.dot(attackerDirection));
 
-            if (angle>120) {
+            if (angle > 120) {
                 if (attacker instanceof Player player) {
                     attacker.level().playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.PLAYER_ATTACK_CRIT, attacker.getSoundSource(),
                             1.0F, 1.0F);
                     player.crit(target);
                 }
-                return  1.15f + .1f * level;
+                return 1.15f + .1f * level;
             }
         }
         return 1;
@@ -177,9 +210,9 @@ public class WarSmith {
         return amount;
     }
 
-    public static float getOpportunisticMultiplier(LivingEntity attacker,Entity target) {
+    public static float getOpportunisticMultiplier(LivingEntity attacker, Entity target) {
         if (attacker instanceof Player player && target instanceof Player playerTarget) {
-            if (((PlayerDuck)player).hasOpportunisticStrike()) {
+            if (((PlayerDuck) player).hasOpportunisticStrike()) {
                 ((PlayerDuck) player).setOpportunisticStrike(false);
                 if (playerTarget.getCooldowns().isOnCooldown(playerTarget.getMainHandItem().getItem())) {
                     return 1.5f;
@@ -202,8 +235,8 @@ public class WarSmith {
                 if (attacker instanceof Player livingAttacker) {
                     livingAttacker.getCooldowns().addCooldown(livingAttacker.getMainHandItem().getItem(), 20);
                     if (target instanceof Player playerTarget &&
-                            EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.OPPORTUNISTIC_STRIKE,playerTarget.getMainHandItem()) > 0) {
-                        ((PlayerDuck)playerTarget).setOpportunisticStrike(true);
+                            EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.OPPORTUNISTIC_STRIKE, playerTarget.getMainHandItem()) > 0) {
+                        ((PlayerDuck) playerTarget).setOpportunisticStrike(true);
                     }
                     return true;
                 }
@@ -213,7 +246,7 @@ public class WarSmith {
     }
 
 
-    public static void livingDamageEvent(LivingEntity livingEntity,DamageSource damageSource, float damageAmount) {
+    public static void livingDamageEvent(LivingEntity livingEntity, DamageSource damageSource, float damageAmount) {
         Entity attacker = damageSource.getDirectEntity();
         if (attacker instanceof LivingEntity livingAttacker) {
             ItemStack stack = livingAttacker.getMainHandItem();
@@ -222,10 +255,10 @@ public class WarSmith {
             }
 
             if (stack.getItem() instanceof MaceItem && MaceItem.isCharged(stack)) {
-                livingEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION,200));
-                livingEntity.addEffect(new MobEffectInstance(MobEffects.DARKNESS,200));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200));
                 if (livingAttacker instanceof Player playerAttacker) {
-                    playerAttacker.getCooldowns().addCooldown(stack.getItem(),200);
+                    playerAttacker.getCooldowns().addCooldown(stack.getItem(), 200);
                 }
                 MaceItem.unCharge(stack);
             }
@@ -236,19 +269,19 @@ public class WarSmith {
         Entity entity = source.getDirectEntity();
         if (entity instanceof LivingEntity living) {
             ItemStack handStack = living.getMainHandItem();
-            int pierceLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.ARMOR_PIERCING,handStack);
+            int pierceLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.ARMOR_PIERCING, handStack);
             if (handStack.is(ModItems.RAPIER)) {
-                pierceLevel +=1;
+                pierceLevel += 1;
             }
-            return (float) Math.pow(2,-pierceLevel);
+            return (float) Math.pow(2, -pierceLevel);
         }
         return 1;
     }
 
     public static void onPlayerTouch(Player player, Entity touching) {
         ItemStack handStack = player.getMainHandItem();
-        if (!player.level().isClientSide &&handStack.is(ModItemTags.RAPIERS) &&player.getCooldowns().isOnCooldown(handStack.getItem()) &&
-                EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.PIERCING_DASH,handStack) > 0) {
+        if (!player.level().isClientSide && handStack.is(ModItemTags.RAPIERS) && player.getCooldowns().isOnCooldown(handStack.getItem()) &&
+                EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.PIERCING_DASH, handStack) > 0) {
             player.attack(touching);
         }
     }
@@ -263,15 +296,15 @@ public class WarSmith {
         return 1;
     }
 
-    public static final Map<EntityType<?>,Item> headMap = new HashMap<>();
+    public static final Map<EntityType<?>, Item> headMap = new HashMap<>();
 
     static {
-        headMap.put(EntityType.WITHER_SKELETON,Items.WITHER_SKELETON_SKULL);
-        headMap.put(EntityType.SKELETON,Items.SKELETON_SKULL);
-        headMap.put(EntityType.ZOMBIE,Items.ZOMBIE_HEAD);
-        headMap.put(EntityType.CREEPER,Items.CREEPER_HEAD);
-        headMap.put(EntityType.PLAYER,Items.PLAYER_HEAD);
-        headMap.put(EntityType.PIGLIN,Items.PIGLIN_HEAD);
+        headMap.put(EntityType.WITHER_SKELETON, Items.WITHER_SKELETON_SKULL);
+        headMap.put(EntityType.SKELETON, Items.SKELETON_SKULL);
+        headMap.put(EntityType.ZOMBIE, Items.ZOMBIE_HEAD);
+        headMap.put(EntityType.CREEPER, Items.CREEPER_HEAD);
+        headMap.put(EntityType.PLAYER, Items.PLAYER_HEAD);
+        headMap.put(EntityType.PIGLIN, Items.PIGLIN_HEAD);
     }
 
     public static void onDropCustomLoot(LivingEntity entity, DamageSource pDamageSource, int pLooting, boolean pHitByPlayer) {
@@ -288,7 +321,7 @@ public class WarSmith {
         }
     }
 
-    public static void removeEnchantment(ItemStack stack,Enchantment enchantment) {
+    public static void removeEnchantment(ItemStack stack, Enchantment enchantment) {
         ListTag enchs = stack.getEnchantmentTags();//compoundTag
         CompoundTag target = null;
         for (Tag tag : enchs) {
@@ -303,11 +336,15 @@ public class WarSmith {
         }
     }
 
-    public static void removeArmor(LivingEntity target,EquipmentSlot slot) {
+    public static void removeArmor(LivingEntity target, EquipmentSlot slot) {
         ItemStack held = target.getItemBySlot(slot);
         ItemEntity itemEntity = new ItemEntity(target.level(), target.getX(), target.getY(), target.getZ(), held);
         target.level().addFreshEntity(itemEntity);
-        target.setItemSlot(slot,ItemStack.EMPTY);
+        target.setItemSlot(slot, ItemStack.EMPTY);
     }
 
+    public static void sharpenWeapon(ItemStack stack) {
+        CompoundTag tag = stack.getOrCreateTag();
+        tag.putInt(SHARPENED_KEY, 15);
+    }
 }

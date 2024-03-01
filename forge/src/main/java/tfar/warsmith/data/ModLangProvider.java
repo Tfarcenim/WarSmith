@@ -70,6 +70,10 @@ public class ModLangProvider extends LanguageProvider {
         addDefaultEnchantment(() -> ModEnchantments.FLAMING_MISSLE);
 
         addTab(ModCreativeTabs.WARSMITH,WarSmith.MOD_NAME);
+
+        add(WarSmith.SHARPEN_TOOLTIP_KEY,"Sharpen Weapon");
+        add(WarSmith.SHARPENED_TOOLTIP_KEY,"Sharpened: %s uses left");
+
     }
 
 

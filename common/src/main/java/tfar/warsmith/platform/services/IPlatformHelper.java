@@ -10,6 +10,7 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.phys.HitResult;
+import tfar.warsmith.network.C2SModPacket;
 import tfar.warsmith.network.S2CModPacket;
 import tfar.warsmith.platform.ClientHelper;
 
@@ -63,7 +64,7 @@ public interface IPlatformHelper {
 
     Attribute getBlockReachAttribute();
 
-
+    void sendToServer(C2SModPacket msg, ResourceLocation channel);
     void sendToClient(S2CModPacket msg, ResourceLocation channel, ServerPlayer player);
 
 

@@ -10,7 +10,6 @@
     "EnchantmentCategoryMixin",
     "EnchantmentHelperMixin",
     "EntityMixin",
-    "ExplosionMixin",
     "FireAspectEnchantMixin",
     "LivingEntityMixin",
     "PlayerMixin"
