@@ -12,7 +12,7 @@ public class SimpleEnchantment extends Enchantment {
     protected final int maxLevel;
     protected final IntUnaryOperator minCost;
     protected final IntUnaryOperator range;
-    private final PostAttack postAttack;
+    protected final PostAttack postAttack;
 
     protected SimpleEnchantment(Properties properties) {
         super(properties.rarity,properties.category,properties.slots);

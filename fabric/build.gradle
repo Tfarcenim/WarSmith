@@ -18,7 +18,7 @@ dependencies {
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
     implementation project(":common")
     include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:$reach_attribute")
-    modImplementation 'com.github.Chocohead:Fabric-ASM:v2.3'
+    include modImplementation('com.github.Chocohead:Fabric-ASM:v2.3')
 
     modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:$rei_version"
 

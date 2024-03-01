@@ -5,6 +5,9 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.MappingResolver;
 
 public class ModEarlyRiser implements Runnable{
+
+    //todo remove in 1.20.5+
+
     @Override
     public void run() {
         MappingResolver remapper = FabricLoader.getInstance().getMappingResolver();
@@ -22,8 +25,6 @@ public class ModEarlyRiser implements Runnable{
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("SAI", "tfar.warsmith.enchantment.categories.SaiEnchantmentCategory")
                 .build();
-
-
 
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("HALBERD", "tfar.warsmith.enchantment.categories.HalberdEnchantmentCategory")
@@ -49,7 +50,6 @@ public class ModEarlyRiser implements Runnable{
                 .addEnumSubclass("BASEBALL_BAT", "tfar.warsmith.enchantment.categories.BaseballBatEnchantmentCategory")
                 .build();
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////todo remove in 1.20.5+
 
         ClassTinkerers.enumBuilder(enchantmentTarget)
                 .addEnumSubclass("BANE_OF_ARTHROPODS", "tfar.warsmith.enchantment.categories.BaneOfArthropodsEnchantmentCategory")
